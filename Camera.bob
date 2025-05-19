@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-15 19:47:31 by Alex-->
+<!--Saved on 2025-05-19 15:47:04 by riccardo-->
 <display version="2.0.0">
   <name>Camera</name>
   <macros>
@@ -10,8 +10,8 @@
     <STATS>STATS1</STATS>
     <HW>HW</HW>
   </macros>
-  <width>1247</width>
-  <height>930</height>
+  <width>1000</width>
+  <height>680</height>
   <background_color>
     <color name="IO Grid" red="215" green="215" blue="215">
     </color>
@@ -26,10 +26,8 @@
   <widget type="embedded" version="2.0.0">
     <name>Linking Container Template</name>
     <file>Camera_Main.bob</file>
-    <x>40</x>
-    <y>28</y>
-    <width>1207</width>
-    <height>902</height>
+    <width>1000</width>
+    <height>675</height>
     <transparent>true</transparent>
     <actions>
     </actions>
@@ -45,17 +43,17 @@
   </widget>
   <widget type="group" version="3.0.0">
     <name>Group_1</name>
-    <x>70</x>
-    <y>90</y>
-    <width>331</width>
-    <height>46</height>
+    <x>56</x>
+    <y>3</y>
+    <width>235</width>
+    <height>41</height>
     <style>2</style>
     <widget type="label" version="2.0.0">
       <name>Label_85</name>
-      <text>Camera Selection</text>
+      <text>Camera</text>
       <x>3</x>
-      <y>9</y>
-      <width>152</width>
+      <y>6</y>
+      <width>57</width>
       <height>25</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="14.0">
@@ -77,10 +75,9 @@
     <widget type="combo" version="2.0.0">
       <name>DeviceCombo</name>
       <pv_name>loc://DeviceName_$(DID)&lt;VString&gt;("")</pv_name>
-      <x>127</x>
-      <y>6</y>
-      <width>196</width>
-      <height>32</height>
+      <x>60</x>
+      <y>5</y>
+      <width>165</width>
       <font>
         <font family="Sans" style="BOLD" size="10.891089108910892">
         </font>

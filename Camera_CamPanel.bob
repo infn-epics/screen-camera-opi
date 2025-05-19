@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-03-28 14:32:45 by andreamichelotti-->
+<!--Saved on 2025-05-19 15:36:04 by riccardo-->
 <display version="2.0.0">
   <width>306</width>
   <height>635</height>
@@ -131,8 +131,8 @@
         <text>Image Counter</text>
         <x>14</x>
         <y>5</y>
-        <width>74</width>
-        <height>14</height>
+        <width>85</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -158,8 +158,8 @@
         <name>Label Template_4</name>
         <text>Dropped Frames</text>
         <y>75</y>
-        <width>84</width>
-        <height>14</height>
+        <width>94</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -184,9 +184,9 @@
       <widget type="textupdate" version="2.0.0">
         <name>Text Update Template_4</name>
         <pv_name>$(DEVICE):$(CAM):StatusMessage_RBV</pv_name>
-        <x>3</x>
+        <x>6</x>
         <y>131</y>
-        <width>279</width>
+        <width>246</width>
         <height>28</height>
         <font>
           <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -214,7 +214,7 @@
       <widget type="textupdate" version="2.0.0">
         <name>Text Update Template_3</name>
         <pv_name>$(DEVICE):$(CAM):ARFrameFailures</pv_name>
-        <x>148</x>
+        <x>116</x>
         <y>71</y>
         <width>133</width>
         <height>28</height>
@@ -243,7 +243,7 @@
       <widget type="textupdate" version="2.0.0">
         <name>Text Update Template</name>
         <pv_name>$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
-        <x>148</x>
+        <x>117</x>
         <y>1</y>
         <width>133</width>
         <height>28</height>
@@ -272,7 +272,7 @@
       <widget type="textupdate" version="2.0.0">
         <name>Text Update Template_2</name>
         <pv_name>$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
-        <x>148</x>
+        <x>115</x>
         <y>36</y>
         <width>133</width>
         <height>28</height>
@@ -303,8 +303,8 @@
         <name>Label Template_5</name>
         <text>Message</text>
         <y>110</y>
-        <width>46</width>
-        <height>14</height>
+        <width>50</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -331,8 +331,8 @@
         <text>Image Rate</text>
         <x>41</x>
         <y>40</y>
-        <width>56</width>
-        <height>14</height>
+        <width>64</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -381,8 +381,8 @@
         <text>Camera State</text>
         <x>24</x>
         <y>6</y>
-        <width>69</width>
-        <height>14</height>
+        <width>76</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -421,7 +421,6 @@
         <text>Stop</text>
         <x>143</x>
         <y>105</y>
-        <width>135</width>
         <height>40</height>
         <font>
           <font family="Sans" style="BOLD" size="10.891089108910892">
@@ -451,7 +450,7 @@
       <widget type="textupdate" version="2.0.0">
         <name>Text Update Template</name>
         <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
-        <x>144</x>
+        <x>118</x>
         <y>1</y>
         <width>133</width>
         <height>28</height>
@@ -498,7 +497,6 @@
         </actions>
         <text>Start</text>
         <y>105</y>
-        <width>102</width>
         <height>40</height>
         <font>
           <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -529,8 +527,8 @@
         <name>Label Template</name>
         <text>Acquisition Mode</text>
         <y>40</y>
-        <width>87</width>
-        <height>14</height>
+        <width>97</width>
+        <height>17</height>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -594,8 +592,8 @@
         <text># Images</text>
         <x>56</x>
         <y>75</y>
-        <width>46</width>
-        <height>14</height>
+        <width>53</width>
+        <height>17</height>
         <visible>false</visible>
         <font>
           <font family="Sans" style="REGULAR" size="11.881188118811881">
@@ -629,7 +627,7 @@
       <widget type="combo" version="2.0.0">
         <name>Combo</name>
         <pv_name>$(DEVICE):$(CAM):ImageMode</pv_name>
-        <x>143</x>
+        <x>117</x>
         <y>35</y>
         <width>135</width>
         <height>32</height>
@@ -748,8 +746,8 @@
       <text>Exposure Time</text>
       <x>20</x>
       <y>42</y>
-      <width>74</width>
-      <height>14</height>
+      <width>83</width>
+      <height>17</height>
       <font>
         <font family="Sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -817,8 +815,8 @@ Limits: [0, 3.9]</tooltip>
       <text>Raw Gain</text>
       <x>20</x>
       <y>5</y>
-      <width>48</width>
-      <height>14</height>
+      <width>53</width>
+      <height>17</height>
       <font>
         <font family="Sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -843,7 +841,7 @@ Limits: [0, 3.9]</tooltip>
     <widget type="spinner" version="2.0.0">
       <name>Spinner Template_2</name>
       <pv_name>$(DEVICE):$(CAM):AcquireTime</pv_name>
-      <x>150</x>
+      <x>127</x>
       <y>37</y>
       <width>71</width>
       <height>30</height>
@@ -876,7 +874,7 @@ Limits: [0.014-0.039]</tooltip>
     <widget type="spinner" version="2.0.0">
       <name>Spinner Template</name>
       <pv_name>$(DEVICE):$(CAM):Gain</pv_name>
-      <x>150</x>
+      <x>125</x>
       <width>72</width>
       <height>30</height>
       <font>
@@ -908,7 +906,7 @@ Limits: [320,1000]</tooltip>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
       <pv_name>$(DEVICE):$(CAM):AcquireTime_RBV</pv_name>
-      <x>240</x>
+      <x>211</x>
       <y>37</y>
       <width>46</width>
       <height>31</height>
@@ -926,34 +924,10 @@ Limits: [320,1000]</tooltip>
         </color>
       </border_color>
     </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label Template</name>
-      <text>s</text>
-      <x>290</x>
-      <y>47</y>
-      <width>7</width>
-      <height>16</height>
-      <foreground_color>
-        <color name="IO Text Fg" red="0" green="32" blue="92">
-        </color>
-      </foreground_color>
-      <background_color>
-        <color name="IO Background" red="255" green="255" blue="205">
-        </color>
-      </background_color>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>true</auto_size>
-      <actions>
-      </actions>
-      <border_color>
-        <color name="IO Border" red="215" green="215" blue="215">
-        </color>
-      </border_color>
-    </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
       <pv_name>$(DEVICE):$(CAM):Gain_RBV</pv_name>
-      <x>240</x>
+      <x>213</x>
       <width>46</width>
       <height>30</height>
       <background_color>

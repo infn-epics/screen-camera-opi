@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-28 19:19:15 by Alex-->
+<!--Saved on 2025-05-19 15:42:55 by riccardo-->
 <display version="2.0.0">
   <name>TestTabs</name>
-  <width>390</width>
-  <height>671</height>
+  <width>308</width>
+  <height>580</height>
   <widget type="tabs" version="2.0.0">
     <name>Image Panel</name>
     <tabs>
@@ -31,7 +31,7 @@
           <widget type="embedded" version="2.0.0">
             <name>Vcam panel template</name>
             <file>Camera_SavePanel.bob</file>
-            <width>316</width>
+            <width>308</width>
             <height>636</height>
             <actions>
             </actions>
@@ -79,12 +79,13 @@
         </children>
       </tab>
     </tabs>
-    <width>350</width>
-    <height>671</height>
+    <width>310</width>
+    <height>580</height>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
     </background_color>
+    <active_tab>1</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>

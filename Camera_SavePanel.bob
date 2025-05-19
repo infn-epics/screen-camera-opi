@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-24 19:15:16 by Alex-->
+<!--Saved on 2025-05-19 15:42:26 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -16,7 +16,7 @@
     <x>10</x>
     <y>10</y>
     <width>297</width>
-    <height>626</height>
+    <height>550</height>
     <style>3</style>
     <foreground_color>
       <color red="0" green="128" blue="255">
@@ -169,8 +169,8 @@ tmpwidget.setPropertyValue('text', "Capture "+added)]]></text>
       <text>Capt. Status</text>
       <x>2</x>
       <y>477</y>
-      <width>63</width>
-      <height>16</height>
+      <width>67</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -188,34 +188,6 @@ tmpwidget.setPropertyValue('text', "Capture "+added)]]></text>
       <actions>
       </actions>
       <tooltip>Capture status</tooltip>
-      <border_color>
-        <color name="IO Border" red="215" green="215" blue="215">
-        </color>
-      </border_color>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label Template_1</name>
-      <text>Save Message</text>
-      <x>1</x>
-      <y>547</y>
-      <width>74</width>
-      <height>16</height>
-      <font>
-        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
-        </font>
-      </font>
-      <foreground_color>
-        <color name="IO Foreground" red="0" green="0" blue="0">
-        </color>
-      </foreground_color>
-      <background_color>
-        <color name="IO Background" red="255" green="255" blue="205">
-        </color>
-      </background_color>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>true</auto_size>
-      <actions>
-      </actions>
       <border_color>
         <color name="IO Border" red="215" green="215" blue="215">
         </color>
@@ -253,41 +225,11 @@ tmpwidget.setPropertyValue('text', "Capture "+added)]]></text>
         </color>
       </border_color>
     </widget>
-    <widget type="textupdate" version="2.0.0">
-      <name>Text Update_WriteMessage</name>
-      <pv_name>$(DEVICE):$(CAM):TIFF1:WriteMessage</pv_name>
-      <x>2</x>
-      <y>571</y>
-      <width>285</width>
-      <height>49</height>
-      <font>
-        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-        </font>
-      </font>
-      <foreground_color>
-        <color name="IO Foreground" red="0" green="0" blue="0">
-        </color>
-      </foreground_color>
-      <background_color>
-        <color name="IO Grid" red="215" green="215" blue="215">
-        </color>
-      </background_color>
-      <format>6</format>
-      <show_units>false</show_units>
-      <horizontal_alignment>1</horizontal_alignment>
-      <vertical_alignment>1</vertical_alignment>
-      <actions>
-      </actions>
-      <border_width>1</border_width>
-      <border_color>
-        <color name="IO PV OFF" red="77" green="77" blue="77">
-        </color>
-      </border_color>
-    </widget>
     <widget type="action_button" version="3.0.0">
       <name>Action Button Template_3</name>
       <actions>
         <action type="execute">
+          <description>Execute Script</description>
           <script file="EmbeddedPy">
             <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
@@ -318,7 +260,6 @@ pname=prefis+"TIFF1:Capture"
 pv = PVUtil.createPV(pname,1000)
 pv.setValue(1)]]></text>
           </script>
-          <description>Execute Script</description>
         </action>
       </actions>
       <text>Start</text>
@@ -344,6 +285,7 @@ pv.setValue(1)]]></text>
       <name>Action Button Template_3</name>
       <actions execute_as_one="true">
         <action type="execute">
+          <description>Execute Script</description>
           <script file="EmbeddedPy">
             <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
@@ -374,7 +316,6 @@ pname=prefis+"TIFF1:Capture"
 pv = PVUtil.createPV(pname,1000)
 pv.setValue(0)]]></text>
           </script>
-          <description>Execute Script</description>
         </action>
       </actions>
       <text>Stop</text>
@@ -401,8 +342,8 @@ pv.setValue(0)]]></text>
       <text>Save Status</text>
       <x>5</x>
       <y>516</y>
-      <width>60</width>
-      <height>16</height>
+      <width>64</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -537,8 +478,8 @@ pv.setValue(0)]]></text>
       <text>File Name</text>
       <x>1</x>
       <y>120</y>
-      <width>53</width>
-      <height>16</height>
+      <width>56</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -590,8 +531,8 @@ pv.setValue(0)]]></text>
       <text>#File</text>
       <x>42</x>
       <y>195</y>
-      <width>25</width>
-      <height>16</height>
+      <width>27</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -644,8 +585,8 @@ pv.setValue(0)]]></text>
       <text>#Images</text>
       <x>7</x>
       <y>290</y>
-      <width>45</width>
-      <height>16</height>
+      <width>50</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -698,8 +639,8 @@ pv.setValue(0)]]></text>
       <text>Save Path</text>
       <x>1</x>
       <y>45</y>
-      <width>51</width>
-      <height>16</height>
+      <width>55</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -726,8 +667,8 @@ pv.setValue(0)]]></text>
       <text>Last File Saved</text>
       <x>1</x>
       <y>412</y>
-      <width>77</width>
-      <height>16</height>
+      <width>82</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -786,8 +727,8 @@ pv.setValue(0)]]></text>
       <text>#Image</text>
       <x>9</x>
       <y>380</y>
-      <width>40</width>
-      <height>16</height>
+      <width>44</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -878,7 +819,7 @@ pv.setValue(0)]]></text>
       <x>180</x>
       <y>381</y>
       <width>5</width>
-      <height>16</height>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
