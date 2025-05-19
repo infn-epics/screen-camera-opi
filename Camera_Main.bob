@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 15:45:28 by riccardo-->
+<!--Saved on 2025-05-19 16:48:37 by riccardo-->
 <display version="2.0.0">
   <name>Camera Screen Operator GUI</name>
   <macros>
@@ -83,7 +83,7 @@
     <name>CheckBoxROI</name>
     <pv_name>loc://roiVisible(0)</pv_name>
     <label>Show Selection</label>
-    <x>385</x>
+    <x>399</x>
     <y>619</y>
     <font>
       <font family="Liberation Sans" style="REGULAR" size="12.0">
