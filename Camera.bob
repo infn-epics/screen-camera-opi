@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 16:50:18 by riccardo-->
+<!--Saved on 2025-05-20 14:35:28 by riccardo-->
 <display version="2.0.0">
   <name>Camera</name>
   <macros>
@@ -10,8 +10,8 @@
     <STATS>STATS1</STATS>
     <HW>HW</HW>
   </macros>
-  <width>1000</width>
-  <height>680</height>
+  <width>980</width>
+  <height>640</height>
   <background_color>
     <color name="IO Grid" red="215" green="215" blue="215">
     </color>
@@ -26,8 +26,8 @@
   <widget type="embedded" version="2.0.0">
     <name>Linking Container Template</name>
     <file>Camera_Main.bob</file>
-    <width>1000</width>
-    <height>675</height>
+    <width>980</width>
+    <height>640</height>
     <transparent>true</transparent>
     <actions>
     </actions>

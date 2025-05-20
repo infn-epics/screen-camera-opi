@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-21 11:48:55 by andreamichelotti-->
+<!--Saved on 2025-05-20 14:27:55 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -39,7 +39,7 @@
       <x>55</x>
       <y>25</y>
       <width>0</width>
-      <height>14</height>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -91,13 +91,13 @@
       <name>Action Button Template_4</name>
       <actions execute_as_one="true">
         <action type="open_display">
+          <description>Open Display</description>
           <file>genicam/NDFileTIFF.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
             <R>TIFF1:</R>
           </macros>
           <target>tab</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>NDFileTIFF</text>
@@ -123,13 +123,13 @@
       <name>Action Button Template</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>genicam/ADBase.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
             <R></R>
           </macros>
           <target>tab</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>ADBase</text>
@@ -179,13 +179,13 @@
       <name>Action Button Template_6</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>genicam/NDStdArrays.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
             <R>TIFF1:</R>
           </macros>
           <target>tab</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>NDStdArrays</text>
@@ -211,6 +211,7 @@
       <name>Action Button Template_1</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>genicam/ADAravis.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
@@ -218,7 +219,6 @@
             <C>$(HW)</C>
           </macros>
           <target>window</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Full Control</text>
@@ -244,13 +244,13 @@
       <name>Action Button Template_5</name>
       <actions execute_as_one="true">
         <action type="open_display">
+          <description>Open Display</description>
           <file>simDetector.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
             <R></R>
           </macros>
           <target>tab</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Simulated Cam</text>
@@ -276,19 +276,46 @@
       <name>Action Button Template_7</name>
       <actions execute_as_one="true">
         <action type="open_display">
+          <description>Open Display</description>
           <file>simDetectorSetup.bob</file>
           <macros>
             <P>$(DEVICE):$(CAM):</P>
             <R></R>
           </macros>
           <target>tab</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Simulated Image</text>
       <x>135</x>
       <y>345</y>
       <width>110</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_2</name>
+      <actions>
+        <action type="command">
+          <description>Execute Command</description>
+          <command>sh /home/riccardo/MEGA/MatlabRoutines/MySPARCroutines/Scripts/uiDevScan.sh</command>
+        </action>
+      </actions>
+      <text>MATLAB routine</text>
+      <x>25</x>
+      <y>235</y>
+      <width>220</width>
       <height>40</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">

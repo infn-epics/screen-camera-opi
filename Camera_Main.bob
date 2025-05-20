@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-20 14:01:28 by riccardo-->
+<!--Saved on 2025-05-20 14:34:14 by riccardo-->
 <display version="2.0.0">
   <name>Camera Screen Operator GUI</name>
   <macros>
@@ -19,7 +19,7 @@
     <VTRANS>TRANS</VTRANS>
   </macros>
   <y>88</y>
-  <width>1000</width>
+  <width>980</width>
   <height>640</height>
   <background_color>
     <color red="237" green="236" blue="235">
@@ -32,7 +32,7 @@
   <widget type="embedded" version="2.0.0">
     <name>CameraImage</name>
     <file>Camera_ColorImagePanel.bob</file>
-    <x>347</x>
+    <x>328</x>
     <y>50</y>
     <width>650</width>
     <height>589</height>
@@ -46,7 +46,7 @@
   <widget type="label" version="2.0.0">
     <name>Title Banner</name>
     <text>Camera - $(DEVICE):$(CAM)</text>
-    <width>997</width>
+    <width>978</width>
     <height>45</height>
     <font>
       <font name="STAR-CS" family="sans" style="REGULAR" size="23.762376237623762">
@@ -74,7 +74,6 @@
   <widget type="embedded" version="2.0.0">
     <name>CameraControls</name>
     <file>TabDisplay.bob</file>
-    <x>18</x>
     <y>50</y>
     <width>327</width>
     <height>589</height>
@@ -148,7 +147,7 @@ if val==1:
   </widget>
   <widget type="group" version="3.0.0">
     <name>Shutter</name>
-    <x>790</x>
+    <x>772</x>
     <y>578</y>
     <width>205</width>
     <height>62</height>
