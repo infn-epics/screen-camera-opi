@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 15:36:04 by riccardo-->
+<!--Saved on 2025-05-20 14:04:41 by riccardo-->
 <display version="2.0.0">
-  <width>306</width>
-  <height>635</height>
+  <width>300</width>
+  <height>550</height>
   <background_color>
     <color name="IO Grid" red="215" green="215" blue="215">
     </color>
@@ -15,7 +15,8 @@
     <name>Panel 2</name>
     <x>5</x>
     <y>10</y>
-    <height>561</height>
+    <width>282</width>
+    <height>540</height>
     <style>3</style>
     <foreground_color>
       <color red="0" green="128" blue="255">
@@ -647,84 +648,13 @@
         </actions>
       </widget>
     </widget>
-    <widget type="group" version="3.0.0">
-      <name>Panel 2_5</name>
-      <x>16</x>
-      <y>389</y>
-      <width>270</width>
-      <height>25</height>
-      <style>3</style>
-      <foreground_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </foreground_color>
-      <line_color>
-        <color red="0" green="128" blue="255">
-        </color>
-      </line_color>
-      <background_color>
-        <color red="240" green="240" blue="240">
-        </color>
-      </background_color>
-      <transparent>true</transparent>
-      <actions>
-      </actions>
-      <widget type="group" version="3.0.0">
-        <name>Controls Grouping Container_1</name>
-        <y>12</y>
-        <width>270</width>
-        <height>1</height>
-        <style>3</style>
-        <font>
-          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
-          </font>
-        </font>
-        <foreground_color>
-          <color name="IO Border" red="215" green="215" blue="215">
-          </color>
-        </foreground_color>
-        <line_color>
-          <color name="IO Border" red="215" green="215" blue="215">
-          </color>
-        </line_color>
-        <background_color>
-          <color name="IO OutputPV Bg" red="121" green="123" blue="126">
-          </color>
-        </background_color>
-        <actions>
-        </actions>
-      </widget>
-      <widget type="label" version="2.0.0">
-        <name>Label_124</name>
-        <text>Settings</text>
-        <x>80</x>
-        <width>110</width>
-        <height>25</height>
-        <font>
-          <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
-          </font>
-        </font>
-        <foreground_color>
-          <color name="IO Label" red="0" green="0" blue="0">
-          </color>
-        </foreground_color>
-        <background_color>
-          <color name="IO Grid" red="215" green="215" blue="215">
-          </color>
-        </background_color>
-        <transparent>false</transparent>
-        <horizontal_alignment>1</horizontal_alignment>
-        <vertical_alignment>1</vertical_alignment>
-        <actions>
-        </actions>
-      </widget>
-    </widget>
   </widget>
   <widget type="group" version="3.0.0">
     <name>Panel 2_2</name>
     <x>5</x>
-    <y>435</y>
-    <height>190</height>
+    <y>397</y>
+    <width>286</width>
+    <height>153</height>
     <style>3</style>
     <foreground_color>
       <color red="0" green="128" blue="255">
@@ -867,7 +797,7 @@ Limits: [0, 3.9]</tooltip>
 $(pv_value)
 Limits: [0.014-0.039]</tooltip>
       <minimum>0.001</minimum>
-      <maximum>0.039</maximum>
+      <maximum>0.5</maximum>
       <limits_from_pv>false</limits_from_pv>
       <increment>0.001</increment>
     </widget>
@@ -898,8 +828,7 @@ Limits: [0.014-0.039]</tooltip>
       <tooltip>$(pv_name)
 $(pv_value)
 Limits: [320,1000]</tooltip>
-      <minimum>320.0</minimum>
-      <maximum>1000.0</maximum>
+      <maximum>600.0</maximum>
       <limits_from_pv>false</limits_from_pv>
       <increment>10.0</increment>
     </widget>
@@ -1035,7 +964,7 @@ Limits: [320,1000]</tooltip>
   <widget type="label" version="2.0.0">
     <name>text #31</name>
     <text>Source</text>
-    <y>555</y>
+    <y>517</y>
     <width>60</width>
     <font>
       <font family="Liberation Sans" style="REGULAR" size="16.0">
@@ -1047,7 +976,7 @@ Limits: [320,1000]</tooltip>
     <name>text update #37</name>
     <pv_name>$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
     <x>180</x>
-    <y>556</y>
+    <y>518</y>
     <width>110</width>
     <height>18</height>
     <font>
@@ -1065,5 +994,77 @@ Limits: [320,1000]</tooltip>
     <format>6</format>
     <show_units>false</show_units>
     <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_5</name>
+    <x>21</x>
+    <y>370</y>
+    <width>270</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>270</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Settings</text>
+      <x>80</x>
+      <width>110</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
   </widget>
 </display>

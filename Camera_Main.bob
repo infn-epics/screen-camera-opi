@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 16:48:37 by riccardo-->
+<!--Saved on 2025-05-20 14:01:28 by riccardo-->
 <display version="2.0.0">
   <name>Camera Screen Operator GUI</name>
   <macros>
@@ -20,7 +20,7 @@
   </macros>
   <y>88</y>
   <width>1000</width>
-  <height>680</height>
+  <height>640</height>
   <background_color>
     <color red="237" green="236" blue="235">
     </color>
@@ -35,7 +35,7 @@
     <x>347</x>
     <y>50</y>
     <width>650</width>
-    <height>622</height>
+    <height>589</height>
     <actions>
     </actions>
     <border_color>
@@ -77,14 +77,14 @@
     <x>18</x>
     <y>50</y>
     <width>327</width>
-    <height>621</height>
+    <height>589</height>
   </widget>
   <widget type="checkbox" version="2.0.0">
     <name>CheckBoxROI</name>
     <pv_name>loc://roiVisible(0)</pv_name>
     <label>Show Selection</label>
-    <x>399</x>
-    <y>619</y>
+    <x>619</x>
+    <y>605</y>
     <font>
       <font family="Liberation Sans" style="REGULAR" size="12.0">
       </font>
@@ -148,9 +148,9 @@ if val==1:
   </widget>
   <widget type="group" version="3.0.0">
     <name>Shutter</name>
-    <x>659</x>
-    <y>599</y>
-    <width>335</width>
+    <x>790</x>
+    <y>578</y>
+    <width>205</width>
     <height>62</height>
     <scripts>
       <script file="EmbeddedPy">
@@ -173,28 +173,25 @@ else:
         <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
       </script>
     </scripts>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_10</name>
+      <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
+      <x>84</x>
+      <width>80</width>
+      <height>30</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_6</name>
+      <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
+      <width>80</width>
+    </widget>
   </widget>
   <widget type="text-symbol" version="2.0.0">
     <name>Text Symbol</name>
-    <x>710</x>
-    <y>676</y>
+    <x>830</x>
+    <y>655</y>
     <width>1</width>
     <height>1</height>
-  </widget>
-  <widget type="bool_button" version="2.0.0">
-    <name>Boolean Button_6</name>
-    <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
-    <x>702</x>
-    <y>616</y>
-    <width>140</width>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update_10</name>
-    <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
-    <x>864</x>
-    <y>616</y>
-    <width>120</width>
-    <height>30</height>
-    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>

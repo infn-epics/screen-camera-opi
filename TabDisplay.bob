@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 15:42:55 by riccardo-->
+<!--Saved on 2025-05-19 17:02:29 by riccardo-->
 <display version="2.0.0">
   <name>TestTabs</name>
-  <width>308</width>
-  <height>580</height>
+  <width>310</width>
+  <height>590</height>
   <widget type="tabs" version="2.0.0">
     <name>Image Panel</name>
     <tabs>
@@ -13,9 +13,9 @@
           <widget type="embedded" version="2.0.0">
             <name>Vcam panel template</name>
             <file>Camera_CamPanel.bob</file>
-            <y>5</y>
-            <width>319</width>
-            <height>630</height>
+            <y>4</y>
+            <width>306</width>
+            <height>550</height>
             <actions>
             </actions>
             <border_color>
@@ -85,16 +85,8 @@
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
     </background_color>
-    <active_tab>1</active_tab>
     <tab_height>10</tab_height>
     <actions>
     </actions>
-  </widget>
-  <widget type="rectangle" version="2.0.0">
-    <name>Rectangle_1</name>
-    <x>380</x>
-    <y>480</y>
-    <width>10</width>
-    <height>1</height>
   </widget>
 </display>
