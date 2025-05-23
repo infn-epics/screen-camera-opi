@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-20 14:04:41 by riccardo-->
+<!--Saved on 2025-05-23 15:20:25 by riccardo-->
 <display version="2.0.0">
   <width>300</width>
   <height>550</height>
@@ -647,6 +647,38 @@
         <actions>
         </actions>
       </widget>
+      <widget type="spinner" version="2.0.0">
+        <name>Spinner Template_2</name>
+        <pv_name>$(DEVICE):$(CAM):AcquireTime</pv_name>
+        <x>21</x>
+        <y>69</y>
+        <width>71</width>
+        <height>30</height>
+        <font>
+          <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+          </font>
+        </font>
+        <format>0</format>
+        <precision>3</precision>
+        <foreground_color>
+          <color name="IO PV OFF" red="77" green="77" blue="77">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="IO InputPV Bg" red="255" green="255" blue="255">
+          </color>
+        </background_color>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <tooltip>$(pv_name)
+$(pv_value)
+Limits: [0.014-0.039]</tooltip>
+        <maximum>500.0</maximum>
+        <limits_from_pv>false</limits_from_pv>
+        <increment>0.001</increment>
+      </widget>
     </widget>
   </widget>
   <widget type="group" version="3.0.0">
@@ -769,50 +801,17 @@ Limits: [0, 3.9]</tooltip>
       </border_color>
     </widget>
     <widget type="spinner" version="2.0.0">
-      <name>Spinner Template_2</name>
-      <pv_name>$(DEVICE):$(CAM):AcquireTime</pv_name>
-      <x>127</x>
-      <y>37</y>
-      <width>71</width>
-      <height>30</height>
-      <font>
-        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-        </font>
-      </font>
-      <format>0</format>
-      <precision>3</precision>
-      <foreground_color>
-        <color name="IO PV OFF" red="77" green="77" blue="77">
-        </color>
-      </foreground_color>
-      <background_color>
-        <color name="IO InputPV Bg" red="255" green="255" blue="255">
-        </color>
-      </background_color>
-      <horizontal_alignment>1</horizontal_alignment>
-      <vertical_alignment>1</vertical_alignment>
-      <actions>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)
-Limits: [0.014-0.039]</tooltip>
-      <minimum>0.001</minimum>
-      <maximum>0.5</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <increment>0.001</increment>
-    </widget>
-    <widget type="spinner" version="2.0.0">
       <name>Spinner Template</name>
       <pv_name>$(DEVICE):$(CAM):Gain</pv_name>
-      <x>125</x>
-      <width>72</width>
+      <x>111</x>
+      <width>86</width>
       <height>30</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
         </font>
       </font>
       <format>0</format>
-      <precision>3</precision>
+      <precision>0</precision>
       <foreground_color>
         <color name="IO PV OFF" red="77" green="77" blue="77">
         </color>
@@ -834,8 +833,8 @@ Limits: [320,1000]</tooltip>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update</name>
-      <pv_name>$(DEVICE):$(CAM):AcquireTime_RBV</pv_name>
-      <x>211</x>
+      <pv_name>=1000*'$(DEVICE):$(CAM):AcquireTime_RBV'</pv_name>
+      <x>205</x>
       <y>37</y>
       <width>46</width>
       <height>31</height>
@@ -844,6 +843,7 @@ Limits: [320,1000]</tooltip>
         </color>
       </background_color>
       <transparent>true</transparent>
+      <precision>1</precision>
       <vertical_alignment>1</vertical_alignment>
       <wrap_words>false</wrap_words>
       <actions>
@@ -856,7 +856,7 @@ Limits: [320,1000]</tooltip>
     <widget type="textupdate" version="2.0.0">
       <name>Text Update_1</name>
       <pv_name>$(DEVICE):$(CAM):Gain_RBV</pv_name>
-      <x>213</x>
+      <x>205</x>
       <width>46</width>
       <height>30</height>
       <background_color>
@@ -960,6 +960,94 @@ Limits: [320,1000]</tooltip>
       </background_color>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_2</name>
+      <text>ms</text>
+      <x>250</x>
+      <y>44</y>
+      <width>19</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #37</name>
+      <pv_name>$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
+      <x>172</x>
+      <y>121</y>
+      <width>110</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner Template_4</name>
+      <pv_name>loc://expTime_ms(1)</pv_name>
+      <x>111</x>
+      <y>39</y>
+      <width>85</width>
+      <height>30</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <format>0</format>
+      <precision>1</precision>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO InputPV Bg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+source_value=PVUtil.getDouble(pvs[0])/1000;
+pvs[1].write(source_value);]]></text>
+          <pv_name>loc://expTime_ms(0)</pv_name>
+          <pv_name trigger="false">$(DEVICE):$(CAM):AcquireTime</pv_name>
+        </script>
+      </scripts>
+      <tooltip>$(pv_name)
+$(pv_value)
+Limits: [0.014-0.039]</tooltip>
+      <maximum>1000.0</maximum>
+      <limits_from_pv>false</limits_from_pv>
+    </widget>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #31</name>
@@ -971,29 +1059,6 @@ Limits: [320,1000]</tooltip>
       </font>
     </font>
     <horizontal_alignment>2</horizontal_alignment>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>text update #37</name>
-    <pv_name>$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
-    <x>180</x>
-    <y>518</y>
-    <width>110</width>
-    <height>18</height>
-    <font>
-      <font family="Liberation Sans" style="REGULAR" size="16.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color red="10" green="0" blue="184">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color red="187" green="187" blue="187">
-      </color>
-    </background_color>
-    <format>6</format>
-    <show_units>false</show_units>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="group" version="3.0.0">
     <name>Panel 2_5</name>
