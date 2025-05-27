@@ -1,4 +1,4 @@
-# Camera bob2
+# Camera bob2 customized for SPARC
 
 Description of the features of the Camera.bob display for General Camera interactions
 
