@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-10-29 16:14:12 by Alex-->
+<!--Saved on 2025-05-27 15:29:46 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -141,8 +141,8 @@
         <name>Label Orientation</name>
         <text>Manufacturer:</text>
         <y>5</y>
-        <width>74</width>
-        <height>16</height>
+        <width>80</width>
+        <height>17</height>
         <font>
           <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -223,8 +223,8 @@
         <name>Label Orientation</name>
         <text>Model:</text>
         <y>5</y>
-        <width>37</width>
-        <height>16</height>
+        <width>39</width>
+        <height>17</height>
         <font>
           <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -271,7 +271,7 @@
       </actions>
       <widget type="textupdate" version="2.0.0">
         <name>Model_1</name>
-        <pv_name>$(DEVICE):$(CAM):SerialNumber_RBV</pv_name>
+        <pv_name>$(DEVICE):$(CAM):NumImagesCounter_RBV</pv_name>
         <x>34</x>
         <y>1</y>
         <width>138</width>
@@ -328,8 +328,8 @@
         <name>Label Orientation_2</name>
         <text>Name:</text>
         <y>5</y>
-        <width>34</width>
-        <height>16</height>
+        <width>37</width>
+        <height>17</height>
         <font>
           <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
           </font>
@@ -354,11 +354,11 @@
     </widget>
     <widget type="label" version="2.0.0">
       <name>Label Orientation_1</name>
-      <text>Serial Number:</text>
-      <x>43</x>
+      <text>Completed images</text>
+      <x>11</x>
       <y>125</y>
-      <width>78</width>
-      <height>16</height>
+      <width>105</width>
+      <height>17</height>
       <font>
         <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
         </font>
@@ -382,190 +382,12 @@
     </widget>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>Label Template_6</name>
-    <text>X:</text>
-    <x>16</x>
-    <y>265</y>
-    <width>10</width>
-    <height>16</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="11.881188118811881">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO Foreground" red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO Background" red="255" green="255" blue="205">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <auto_size>true</auto_size>
-    <actions>
-    </actions>
-    <border_color>
-      <color name="IO Border" red="215" green="215" blue="215">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="spinner" version="2.0.0">
-    <name>Spinner Template</name>
-    <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
-    <x>146</x>
-    <y>260</y>
-    <width>72</width>
-    <height>30</height>
-    <font>
-      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-      </font>
-    </font>
-    <format>0</format>
-    <precision>3</precision>
-    <foreground_color>
-      <color name="IO PV OFF" red="77" green="77" blue="77">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO InputPV Bg" red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <actions>
-    </actions>
-    <tooltip>$(pv_name)
-$(pv_value)
-Limits: [320,1000]</tooltip>
-    <minimum>320.0</minimum>
-    <maximum>1000.0</maximum>
-    <limits_from_pv>false</limits_from_pv>
-    <increment>10.0</increment>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update_1</name>
-    <pv_name>$(DEVICE):$(CAM):SizeX_RBV</pv_name>
-    <x>230</x>
-    <y>260</y>
-    <width>52</width>
-    <height>30</height>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label Template_1</name>
-    <text>Y:</text>
-    <x>16</x>
-    <y>305</y>
-    <width>10</width>
-    <height>16</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="11.881188118811881">
-      </font>
-    </font>
-    <foreground_color>
-      <color name="IO Foreground" red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO Background" red="255" green="255" blue="205">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <auto_size>true</auto_size>
-    <actions>
-    </actions>
-    <border_color>
-      <color name="IO Border" red="215" green="215" blue="215">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="spinner" version="2.0.0">
-    <name>Spinner Template_1</name>
-    <pv_name>$(DEVICE):$(CAM):SizeY</pv_name>
-    <x>146</x>
-    <y>300</y>
-    <width>72</width>
-    <height>30</height>
-    <font>
-      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-      </font>
-    </font>
-    <format>0</format>
-    <precision>3</precision>
-    <foreground_color>
-      <color name="IO PV OFF" red="77" green="77" blue="77">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color name="IO InputPV Bg" red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <actions>
-    </actions>
-    <tooltip>$(pv_name)
-$(pv_value)
-Limits: [320,1000]</tooltip>
-    <minimum>320.0</minimum>
-    <maximum>1000.0</maximum>
-    <limits_from_pv>false</limits_from_pv>
-    <increment>10.0</increment>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update_2</name>
-    <pv_name>$(DEVICE):$(CAM):SizeY_RBV</pv_name>
-    <x>230</x>
-    <y>300</y>
-    <width>52</width>
-    <height>30</height>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label</name>
-    <text>Region of interest</text>
-    <x>16</x>
-    <y>235</y>
-    <width>120</width>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
     <name>Label Template_2</name>
-    <text>Camera mode:</text>
+    <text>Pixel Format:</text>
     <x>16</x>
-    <y>356</y>
-    <width>77</width>
-    <height>16</height>
+    <y>225</y>
+    <width>73</width>
+    <height>17</height>
     <font>
       <font family="Sans" style="REGULAR" size="11.881188118811881">
       </font>
@@ -589,10 +411,10 @@ Limits: [320,1000]</tooltip>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_3</name>
-    <pv_name>$(DEVICE):$(CAM):DataType_RBV</pv_name>
-    <x>234</x>
-    <y>351</y>
-    <width>52</width>
+    <pv_name>$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
+    <x>200</x>
+    <y>219</y>
+    <width>77</width>
     <height>30</height>
     <background_color>
       <color red="255" green="255" blue="255">
@@ -609,10 +431,10 @@ Limits: [320,1000]</tooltip>
   </widget>
   <widget type="combo" version="2.0.0">
     <name>Combo</name>
-    <pv_name>$(DEVICE):$(CAM):DataType</pv_name>
-    <x>141</x>
-    <y>350</y>
-    <width>89</width>
+    <pv_name>$(DEVICE):$(CAM):PixelFormat</pv_name>
+    <x>98</x>
+    <y>219</y>
+    <width>97</width>
     <height>32</height>
     <font>
       <font family="Sans" style="REGULAR" size="10.891089108910892">

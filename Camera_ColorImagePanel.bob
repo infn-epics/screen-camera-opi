@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-20 14:01:24 by riccardo-->
+<!--Saved on 2025-05-27 15:28:29 by riccardo-->
 <display version="2.0.0">
   <width>650</width>
   <height>595</height>
@@ -141,7 +141,7 @@ if valore_pv == 2:
     <name>Boolean Button Template_1</name>
     <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
     <x>8</x>
-    <y>550</y>
+    <y>547</y>
     <width>80</width>
     <off_label>OFF</off_label>
     <off_color>
@@ -211,7 +211,7 @@ else:
     </actions>
     <text>Settings</text>
     <x>92</x>
-    <y>550</y>
+    <y>547</y>
     <width>80</width>
     <tooltip>$(actions)</tooltip>
   </widget>
@@ -268,7 +268,7 @@ else:
     </actions>
     <text>Histogram</text>
     <x>176</x>
-    <y>550</y>
+    <y>547</y>
     <width>80</width>
     <rules>
       <rule name="Visibility Rule" prop_id="visible" out_exp="false">

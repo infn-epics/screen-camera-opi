@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 17:02:29 by riccardo-->
+<!--Saved on 2025-05-27 15:21:59 by riccardo-->
 <display version="2.0.0">
   <name>TestTabs</name>
-  <width>310</width>
-  <height>590</height>
+  <width>300</width>
+  <height>580</height>
   <widget type="tabs" version="2.0.0">
     <name>Image Panel</name>
     <tabs>
@@ -14,7 +14,7 @@
             <name>Vcam panel template</name>
             <file>Camera_CamPanel.bob</file>
             <y>4</y>
-            <width>306</width>
+            <width>298</width>
             <height>550</height>
             <actions>
             </actions>
@@ -43,14 +43,14 @@
         </children>
       </tab>
       <tab>
-        <name>Camera Info</name>
+        <name>Info</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Vcam panel template</name>
             <file>Camera_InfoPanel.bob</file>
             <x>5</x>
             <width>300</width>
-            <height>511</height>
+            <height>514</height>
             <actions>
             </actions>
             <border_color>
@@ -61,7 +61,7 @@
         </children>
       </tab>
       <tab>
-        <name>Links</name>
+        <name>Advanced</name>
         <children>
           <widget type="embedded" version="2.0.0">
             <name>Vcam panel template</name>
@@ -79,7 +79,7 @@
         </children>
       </tab>
     </tabs>
-    <width>310</width>
+    <width>300</width>
     <height>580</height>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">

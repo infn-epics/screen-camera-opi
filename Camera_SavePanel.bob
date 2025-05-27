@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-19 15:42:26 by riccardo-->
+<!--Saved on 2025-05-27 15:25:53 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -198,7 +198,7 @@ tmpwidget.setPropertyValue('text', "Capture "+added)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
       <x>107</x>
       <y>473</y>
-      <width>180</width>
+      <width>169</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -263,9 +263,9 @@ pv.setValue(1)]]></text>
         </action>
       </actions>
       <text>Start</text>
-      <x>8</x>
+      <x>20</x>
       <y>325</y>
-      <width>138</width>
+      <width>126</width>
       <height>40</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -321,7 +321,7 @@ pv.setValue(0)]]></text>
       <text>Stop</text>
       <x>150</x>
       <y>325</y>
-      <width>138</width>
+      <width>126</width>
       <height>40</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -370,7 +370,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
       <x>107</x>
       <y>512</y>
-      <width>180</width>
+      <width>169</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -453,7 +453,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FileName</pv_name>
       <x>88</x>
       <y>117</y>
-      <width>198</width>
+      <width>188</width>
       <height>26</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -506,7 +506,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FileNumber</pv_name>
       <x>88</x>
       <y>192</y>
-      <width>198</width>
+      <width>188</width>
       <height>26</height>
       <font>
         <font family="Sans" style="BOLD" size="10.891089108910892">
@@ -560,7 +560,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
       <x>88</x>
       <y>287</y>
-      <width>198</width>
+      <width>188</width>
       <height>26</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -614,7 +614,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
       <x>88</x>
       <y>42</y>
-      <width>198</width>
+      <width>188</width>
       <height>26</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -695,7 +695,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FullFileName_RBV</pv_name>
       <x>2</x>
       <y>433</y>
-      <width>285</width>
+      <width>274</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -786,7 +786,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture_RBV</pv_name>
       <x>189</x>
       <y>376</y>
-      <width>98</width>
+      <width>87</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -846,7 +846,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
       <x>87</x>
       <y>76</y>
-      <width>200</width>
+      <width>189</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
@@ -878,7 +878,7 @@ pv.setValue(0)]]></text>
       <pv_name>$(DEVICE):$(CAM):TIFF1:FileName_RBV</pv_name>
       <x>87</x>
       <y>151</y>
-      <width>200</width>
+      <width>189</width>
       <height>28</height>
       <font>
         <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
