@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-20 14:34:14 by riccardo-->
+<!--Saved on 2025-05-27 09:57:06 by riccardo-->
 <display version="2.0.0">
   <name>Camera Screen Operator GUI</name>
   <macros>
@@ -78,73 +78,6 @@
     <width>327</width>
     <height>589</height>
   </widget>
-  <widget type="checkbox" version="2.0.0">
-    <name>CheckBoxROI</name>
-    <pv_name>loc://roiVisible(0)</pv_name>
-    <label>Show Selection</label>
-    <x>619</x>
-    <y>605</y>
-    <font>
-      <font family="Liberation Sans" style="REGULAR" size="12.0">
-      </font>
-    </font>
-    <actions>
-    </actions>
-    <scripts>
-      <script file="EmbeddedPy" check_connections="false">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-camera_widget = ScriptUtil.findWidgetByName(widget, 'CameraImage')
-
-macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
-if macro_device is None:
-        raise Exception("La macro 'DEVICE' non è definita")
-macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
-if macro_cam is None:
-        raise Exception("La macro 'CAM' non è definita")
-prefis=macro_device+':'+macro_cam+":"
-
-
-
-
-pname=prefis+"SizeX_RBV"
-pvx = PVUtil.createPV(pname,1000)
-X_Img = PVUtil.getDouble(pvx)
-
-pname=prefis+"SizeY_RBV"
-pvy=PVUtil.createPV(pname,1000)
-Y_Img=PVUtil.getDouble(pvy)
-
-xV=X_Img / 5
-yV = Y_Img /5
-wV=X_Img/4
-hV=Y_Img/4
-
-val= PVUtil.getInt(pvs[0])
-pv2 = pvs[2]
-pv4 = pvs[4]
-if val==1:
-	pvs[1].setValue(xV)
-	if hasattr(pvs[2], 'setValue'):
-   		 pvs[2].setValue(yV)
-	else:
-    		print("pvs[2] non ha il metodo setValue")
-	pvs[3].setValue(wV)
-	if hasattr(pvs[4], 'setValue'):
-   		 pvs[4].setValue(hV)
-	else:
-    		print("pvs[4] non ha il metodo setValue")
-
-
-]]></text>
-        <pv_name>loc://roiVisible</pv_name>
-        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_x</pv_name>
-        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_y</pv_name>
-        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_w</pv_name>
-        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_h</pv_name>
-      </script>
-    </scripts>
-  </widget>
   <widget type="group" version="3.0.0">
     <name>Shutter</name>
     <x>772</x>
@@ -192,5 +125,48 @@ else:
     <y>655</y>
     <width>1</width>
     <height>1</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>[MeV]</text>
+    <x>656</x>
+    <y>599</y>
+    <width>111</width>
+    <height>34</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+import math;
+clight=299792458;
+Bang=14*(math.pi)/180; #radians
+InputVal=PVUtil.getDouble(pvs[0]);
+Bm=1e-4*(55.6+39.5*abs(InputVal)+0.056*InputVal**2-2.78e-4*abs(InputVal)**3);
+Lm=0.26748-4.5e-6*abs(InputVal)-5.7e-8*abs(InputVal)**2;
+Brad=abs(Lm/Bang);
+eGeV=(clight/1e9)*Bm*Brad;
+eMeV=eGeV*1000;
+mytext=str(round(InputVal,1))+" MeV"; #
+#mytext=str(Bang);
+widget.setPropertyValue("text", mytext);
+]]></text>
+        <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Energy:</text>
+    <x>590</x>
+    <y>606</y>
+    <width>70</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>

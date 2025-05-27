@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-20 14:35:28 by riccardo-->
+<!--Saved on 2025-05-23 15:27:02 by riccardo-->
 <display version="2.0.0">
   <name>Camera</name>
   <macros>
@@ -43,9 +43,9 @@
   </widget>
   <widget type="group" version="3.0.0">
     <name>Group_1</name>
-    <x>56</x>
+    <x>19</x>
     <y>3</y>
-    <width>235</width>
+    <width>301</width>
     <height>41</height>
     <style>2</style>
     <widget type="label" version="2.0.0">
@@ -75,9 +75,9 @@
     <widget type="combo" version="2.0.0">
       <name>DeviceCombo</name>
       <pv_name>loc://DeviceName_$(DID)&lt;VString&gt;("")</pv_name>
-      <x>60</x>
+      <x>70</x>
       <y>5</y>
-      <width>165</width>
+      <width>223</width>
       <font>
         <font family="Sans" style="BOLD" size="10.891089108910892">
         </font>
