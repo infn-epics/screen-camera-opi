@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-27 14:27:00 by riccardo-->
+<!--Saved on 2025-05-27 17:02:28 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -211,7 +211,7 @@
       <actions>
         <action type="command">
           <description>Run Matlab Device Scan</description>
-          <command>sh ~/epik8-sparc/matlab_sparcroutines/Scripts/uiDevScan.sh</command>
+          <command>sh ../../../matlab_sparcroutines/Scripts/uiDevScan.sh</command>
         </action>
       </actions>
       <text>MATLAB Device Scan</text>
@@ -238,7 +238,7 @@
       <actions>
         <action type="command">
           <description>Run Matlab Device Scan</description>
-          <command>sh ~/epik8-sparc/matlab_sparcroutines/Scripts/uiLiveAnalysis.sh</command>
+          <command>sh ../../../matlab_sparcroutines/Scripts/uiLiveAnalysis.sh</command>
         </action>
       </actions>
       <text>MATLAB Live Analysis</text>
@@ -265,7 +265,7 @@
       <actions>
         <action type="command">
           <description>Run Matlab Device Scan</description>
-          <command>sh ~/epik8-sparc/matlab_sparcroutines/Scripts/uiPlasmaTiming.sh</command>
+          <command>sh ../../../matlab_sparcroutines/Scripts/uiPlasmaTiming.sh</command>
         </action>
       </actions>
       <text>MATLAB Plasma Timing</text>
