@@ -6,9 +6,20 @@ from org.yaml.snakeyaml import Yaml
 from java.io import FileReader, BufferedWriter, FileWriter
 from java.util import ArrayList
 
+from org.csstudio.display.builder.runtime.script import ScriptUtil,PVUtil
+import os
+display_model =  widget.getDisplayModel()
+display_path = display_model.getUserData(display_model.USER_DATA_INPUT_FILE)
+opidir=os.path.dirname(display_path)
+maindir=os.path.dirname(opidir)
+#print(opidir)
+yaml_file=maindir+"/deploy/values.yaml"
+output_file=opidir+"/ini/sparc_cam.ini"
+print("Loading file '%s'." % yaml_file)
+
 # Load YAML file using SnakeYAML
 yaml = Yaml()
-data = yaml.load(FileReader("epik8-sparc/deploy/values.yaml"))
+data = yaml.load(FileReader(yaml_file))
 #print("Top-level keys:", data.keySet())
 
 # Get epicsConfiguration -> iocs list
@@ -42,7 +53,6 @@ for ioc in iocs:
 results.sort(key=lambda x: x[0])
 
 # Write to file
-output_file = "epik8-sparc/opi/ini/sparc_cam.ini"
 writer = BufferedWriter(FileWriter(output_file))
 try:
     for pair in results:
