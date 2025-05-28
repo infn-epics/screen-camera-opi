@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-27 15:25:53 by riccardo-->
+<!--Saved on 2025-05-28 14:50:27 by riccardo-->
 <display version="2.0.0">
   <width>1280</width>
   <height>1024</height>
@@ -33,86 +33,6 @@
     <transparent>true</transparent>
     <actions>
     </actions>
-    <scripts>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-camera_widget = ScriptUtil.findWidgetByName(widget, 'Panel 2')
-
-macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
-if macro_device is None:
-        raise Exception("La macro 'DEVICE' non è definita")
-macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
-if macro_cam is None:
-        raise Exception("La macro 'CAM' non è definita")
-prefis=macro_device+':'+macro_cam+":"
-tmpPv=prefis+"ArrayCounter_RBV" #serve per aggiornare il display in caso di variabili con valore uguale
-chosenImg="loc://"+prefis+"ChosenImg"
-pvChosen=PVUtil.createPV(chosenImg,1000)
-valore_pv =PVUtil.getInt(pvChosen)
-
-added=""
-if valore_pv  == 1:
-	added="Roi1:"
-elif valore_pv  == 2:
-	added="Proc1:"
-elif valore_pv == 3:
-	added="Overlay1:"
-
-prefis=macro_device+':'+macro_cam+":"+added
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_FileName")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileName")
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_FileName")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileName_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_Path")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FilePath")
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_Path")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FilePath_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_FileNumber")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileNumber")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_NumCapture")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCapture")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_NumCaptured")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCaptured_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_NumCapture")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCapture_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_FullFileName")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FullFileName_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_Capture")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:Capture_RBV")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_WriteStatus")  # Ottiene il widget con ID
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:WriteStatus")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_WriteMessage")  
-tmpwidget.setPropertyValue('pv_name', tmpPv)
-tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:WriteMessage")
-
-tmpwidget = ScriptUtil.findWidgetByName(widget,"Label_Capture") 
-tmpwidget.setPropertyValue('text', "Capture "+added)]]></text>
-        <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
-      </script>
-    </scripts>
     <widget type="group" version="3.0.0">
       <name>Controls Grouping Container_1</name>
       <x>7</x>

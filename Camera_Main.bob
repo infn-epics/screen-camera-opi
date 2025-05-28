@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-27 15:28:59 by riccardo-->
+<!--Saved on 2025-05-28 11:51:50 by riccardo-->
 <display version="2.0.0">
   <name>Camera Screen Operator GUI</name>
   <macros>
@@ -84,49 +84,6 @@
     <y>597</y>
     <width>1</width>
     <height>1</height>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_3</name>
-    <text>[MeV]</text>
-    <x>656</x>
-    <y>599</y>
-    <width>111</width>
-    <height>34</height>
-    <font>
-      <font family="Liberation Sans" style="BOLD" size="20.0">
-      </font>
-    </font>
-    <vertical_alignment>1</vertical_alignment>
-    <scripts>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-import math;
-clight=299792458;
-Bang=14*(math.pi)/180; #radians
-InputVal=PVUtil.getDouble(pvs[0]);
-Bm=1e-4*(55.6+39.5*abs(InputVal)+0.056*InputVal**2-2.78e-4*abs(InputVal)**3);
-Lm=0.26748-4.5e-6*abs(InputVal)-5.7e-8*abs(InputVal)**2;
-Brad=abs(Lm/Bang);
-eGeV=(clight/1e9)*Bm*Brad;
-eMeV=eGeV*1000;
-mytext=str(round(InputVal,1))+" MeV"; #
-#mytext=str(Bang);
-widget.setPropertyValue("text", mytext);
-]]></text>
-        <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
-      </script>
-    </scripts>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_4</name>
-    <text>Energy:</text>
-    <x>590</x>
-    <y>606</y>
-    <width>70</width>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button_6</name>

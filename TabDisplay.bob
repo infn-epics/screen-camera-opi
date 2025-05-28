@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-27 15:21:59 by riccardo-->
+<!--Saved on 2025-05-28 14:47:31 by riccardo-->
 <display version="2.0.0">
   <name>TestTabs</name>
   <width>300</width>
@@ -67,7 +67,7 @@
             <name>Vcam panel template</name>
             <file>Camera_ADLinkPanel.bob</file>
             <x>5</x>
-            <width>300</width>
+            <width>293</width>
             <height>511</height>
             <actions>
             </actions>
