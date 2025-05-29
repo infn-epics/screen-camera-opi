@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-29 15:10:12 by riccardo-->
+<!--Saved on 2025-05-29 15:21:55 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>900</width>
@@ -944,35 +944,6 @@ widget.setPropertyValue("text", mytext);
             <horizontal_alignment>1</horizontal_alignment>
             <vertical_alignment>1</vertical_alignment>
           </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button Template_1</name>
-            <actions>
-              <action type="open_display">
-                <description>Open Display</description>
-                <file>genicam/ADAravis.bob</file>
-                <macros>
-                  <P>$(DEVICE)</P>
-                  <R>$(CAM)</R>
-                  <C>$(HW)</C>
-                </macros>
-                <target>window</target>
-              </action>
-            </actions>
-            <text>Full Control (ADAravis)</text>
-            <x>48</x>
-            <y>429</y>
-            <width>150</width>
-            <height>40</height>
-            <font>
-              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-              </font>
-            </font>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <tooltip>$(actions)</tooltip>
-          </widget>
           <widget type="spinner" version="2.0.0">
             <name>Spinner</name>
             <pv_name>loc://min_cmap(0)</pv_name>
@@ -1069,6 +1040,35 @@ widget.setPropertyValue("text", mytext);
               <color name="IO Border" red="215" green="215" blue="215">
               </color>
             </border_color>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_2</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>genicam/ADAravis.bob</file>
+                <macros>
+                  <P>$(DEVICE):$(CAM):</P>
+                  <R></R>
+                  <C>$(HW)</C>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Full Control (ADAravis)</text>
+            <x>48</x>
+            <y>422</y>
+            <width>150</width>
+            <height>40</height>
+            <font>
+              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
           </widget>
         </children>
       </tab>
