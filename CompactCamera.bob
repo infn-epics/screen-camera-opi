@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-29 15:21:55 by riccardo-->
+<!--Saved on 2025-05-29 16:39:45 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>900</width>
@@ -50,6 +50,20 @@ widget.setPropertyValue("maximum", max_value)]]></text>
         <pv_name>loc://min_cmap</pv_name>
         <pv_name>loc://max_cmap</pv_name>
       </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 widget.setPropertyValue('rois[0].visible', False)
+else:
+	 widget.setPropertyValue('rois[0].visible', True)]]></text>
+        <pv_name>loc://showROI</pv_name>
+      </script>
     </scripts>
     <limits_from_pv>true</limits_from_pv>
     <autoscale>false</autoscale>
@@ -57,10 +71,9 @@ widget.setPropertyValue("maximum", max_value)]]></text>
     <cursor_info_pv>loc://cursor_info</cursor_info_pv>
     <x_pv>loc://cursor_x</x_pv>
     <y_pv>loc://cursor_y</y_pv>
-    <cursor_crosshair>true</cursor_crosshair>
     <rois>
       <roi>
-        <name>ROI 0</name>
+        <name>imageROI</name>
         <color>
           <color red="255" green="168" blue="0">
           </color>
@@ -509,7 +522,7 @@ widget.setPropertyValue("maximum", max_value)]]></text>
           <widget type="group" version="3.0.0">
             <name>Group</name>
             <x>28</x>
-            <y>319</y>
+            <y>284</y>
             <width>185</width>
             <height>114</height>
             <style>3</style>
@@ -669,36 +682,55 @@ Limits: [0.014-0.039]</tooltip>
               <limits_from_pv>false</limits_from_pv>
             </widget>
           </widget>
-          <widget type="bool_button" version="2.0.0">
-            <name>Boolean Button Template_1</name>
-            <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
-            <x>9</x>
-            <y>459</y>
-            <width>80</width>
-            <off_label>OFF</off_label>
-            <off_color>
-              <color name="IO PV OFF" red="77" green="77" blue="77">
-              </color>
-            </off_color>
-            <on_label>ON</on_label>
-            <on_color>
-              <color red="30" green="210" blue="0">
-              </color>
-            </on_color>
-            <font>
-              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>28</x>
+            <y>412</y>
+            <width>169</width>
+            <height>60</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="text-symbol" version="2.0.0">
+              <name>Text Symbol</name>
+              <x>90</x>
+              <y>30</y>
+              <width>1</width>
+              <height>1</height>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>Boolean Button_6</name>
+              <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
+              <y>30</y>
+              <width>90</width>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_10</name>
+              <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
+              <x>105</x>
+              <y>30</y>
+              <width>64</width>
+              <height>30</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
               </font>
-            </font>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <background_color>
-              <color name="IO Grid" red="215" green="215" blue="215">
-              </color>
-            </background_color>
-            <actions>
-            </actions>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <border_width>2</border_width>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_1</name>
+              <text>Laser Shutter</text>
+              <x>30</x>
+              <width>120</width>
+              <height>30</height>
+              <font>
+                <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+                </font>
+              </font>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
           </widget>
         </children>
       </tab>
@@ -720,7 +752,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry</name>
-              <pv_name>loc://roi_x(10)</pv_name>
+              <pv_name>loc://roi_x(0)</pv_name>
               <x>15</x>
               <width>50</width>
               <format>1</format>
@@ -734,7 +766,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_1</name>
-              <pv_name>loc://roi_y(10)</pv_name>
+              <pv_name>loc://roi_y(0)</pv_name>
               <x>15</x>
               <y>32</y>
               <width>50</width>
@@ -749,7 +781,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_2</name>
-              <pv_name>loc://roi_w(10)</pv_name>
+              <pv_name>loc://roi_w(50)</pv_name>
               <x>89</x>
               <width>50</width>
               <format>1</format>
@@ -764,7 +796,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_3</name>
-              <pv_name>loc://roi_h(10)</pv_name>
+              <pv_name>loc://roi_h(70)</pv_name>
               <x>89</x>
               <y>32</y>
               <width>50</width>
@@ -825,6 +857,25 @@ Limits: [0.014-0.039]</tooltip>
             <label>Show ROI</label>
             <x>98</x>
             <y>279</y>
+            <actions>
+            </actions>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 pvs[1].write(0);
+else:
+	  pvs[1].write(1);]]></text>
+                <pv_name>loc://showROI</pv_name>
+                <pv_name>loc://roi_interactive</pv_name>
+              </script>
+            </scripts>
           </widget>
         </children>
       </tab>
@@ -971,8 +1022,8 @@ widget.setPropertyValue("text", mytext);
             <text>Min</text>
             <x>38</x>
             <y>182</y>
-            <width>30</width>
-            <height>30</height>
+            <width>23</width>
+            <height>16</height>
             <foreground_color>
               <color name="IO Foreground" red="0" green="0" blue="0">
               </color>
@@ -1070,13 +1121,43 @@ widget.setPropertyValue("text", mytext);
             </foreground_color>
             <tooltip>$(actions)</tooltip>
           </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button Template_1</name>
+            <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
+            <x>88</x>
+            <y>332</y>
+            <width>80</width>
+            <off_label>OFF</off_label>
+            <off_color>
+              <color name="IO PV OFF" red="77" green="77" blue="77">
+              </color>
+            </off_color>
+            <on_label>ON</on_label>
+            <on_color>
+              <color red="30" green="210" blue="0">
+              </color>
+            </on_color>
+            <font>
+              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <background_color>
+              <color name="IO Grid" red="215" green="215" blue="215">
+              </color>
+            </background_color>
+            <actions>
+            </actions>
+          </widget>
         </children>
       </tab>
     </tabs>
     <y>80</y>
     <width>250</width>
     <height>520</height>
-    <active_tab>3</active_tab>
     <tab_height>20</tab_height>
   </widget>
   <widget type="label" version="2.0.0">
