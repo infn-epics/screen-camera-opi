@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-03 03:54:45 by riccardo-->
+<!--Saved on 2025-06-03 10:01:25 by riccardo-->
 <display version="2.0.0">
   <name>RunButton</name>
   <width>300</width>
@@ -26,10 +26,10 @@
     <name>Action Button Template_1</name>
     <actions>
       <action type="open_display">
-        <file>CompactCamera.bob</file>
+        <file>CameraFull.bob</file>
         <macros>
           <DEVICE>SPARC:CAM</DEVICE>
-          <CAM>AC101</CAM>
+          <CAM>ciao1</CAM>
           <HW>test</HW>
         </macros>
         <target>window</target>

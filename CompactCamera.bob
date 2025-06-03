@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-03 04:22:31 by riccardo-->
+<!--Saved on 2025-06-03 10:26:04 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
-  <scripts>
-    <script file="Scripts/listloadcam.py">
-      <pv_name>loc://autoScale</pv_name>
-    </script>
-  </scripts>
   <widget type="image" version="2.0.0">
     <name>CameraImage</name>
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
@@ -720,7 +715,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry</name>
-              <pv_name>loc://roi_x(0)</pv_name>
+              <pv_name>loc://roi_x(20)</pv_name>
               <x>15</x>
               <width>50</width>
               <format>1</format>
@@ -734,7 +729,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_1</name>
-              <pv_name>loc://roi_y(0)</pv_name>
+              <pv_name>loc://roi_y(20)</pv_name>
               <x>15</x>
               <y>32</y>
               <width>50</width>
@@ -749,7 +744,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_2</name>
-              <pv_name>loc://roi_w(50)</pv_name>
+              <pv_name>loc://roi_w(100)</pv_name>
               <x>89</x>
               <width>50</width>
               <format>1</format>
@@ -764,7 +759,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_3</name>
-              <pv_name>loc://roi_h(70)</pv_name>
+              <pv_name>loc://roi_h(100)</pv_name>
               <x>89</x>
               <y>32</y>
               <width>50</width>
@@ -1127,7 +1122,6 @@ widget.setPropertyValue("text", mytext);
     <y>50</y>
     <width>260</width>
     <height>550</height>
-    <active_tab>3</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
@@ -1218,31 +1212,5 @@ widget.setPropertyValue("text", mytext);
     <increment>1000.0</increment>
     <maximum>65535.0</maximum>
     <limits_from_pv>false</limits_from_pv>
-  </widget>
-  <widget type="combo" version="2.0.0">
-    <name>CamMenu</name>
-    <pv_name>loc://cam_menu("ciao")</pv_name>
-    <x>90</x>
-    <y>10</y>
-    <width>160</width>
-    <background_color>
-      <color name="Background" red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <items_from_pv>false</items_from_pv>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_2</name>
-    <text>Camera</text>
-    <x>10</x>
-    <y>10</y>
-    <width>80</width>
-    <height>30</height>
-    <font>
-      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
-      </font>
-    </font>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>

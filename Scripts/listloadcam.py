@@ -59,7 +59,7 @@ device_list.sort()
 #put the list in the cam menu box
 combo = ScriptUtil.findWidgetByName(widget, "CamMenu")
 combo.setItems(device_list)
-if len(device_list): ## put the first as default
+if len(device_list): #remove the first item (pv initialization)
     ScriptUtil.getPrimaryPV(combo).write(device_list[0])
 print("Cam menu updated!")
 
