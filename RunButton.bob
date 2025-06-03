@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-29 15:20:52 by riccardo-->
+<!--Saved on 2025-06-03 03:54:45 by riccardo-->
 <display version="2.0.0">
-  <name>Display</name>
+  <name>RunButton</name>
   <width>300</width>
   <height>100</height>
   <widget type="label" version="2.0.0">
@@ -10,7 +10,7 @@
     <text>My Display</text>
     <x use_class="true">0</x>
     <y use_class="true">0</y>
-    <width>550</width>
+    <width>290</width>
     <height>31</height>
     <font use_class="true">
       <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
@@ -26,7 +26,6 @@
     <name>Action Button Template_1</name>
     <actions>
       <action type="open_display">
-        <description>Open Display</description>
         <file>CompactCamera.bob</file>
         <macros>
           <DEVICE>SPARC:CAM</DEVICE>
@@ -34,6 +33,7 @@
           <HW>test</HW>
         </macros>
         <target>window</target>
+        <description>Open Display</description>
       </action>
     </actions>
     <text>Run Compact Camera</text>

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-05-29 16:39:45 by riccardo-->
+<!--Saved on 2025-06-03 04:22:31 by riccardo-->
 <display version="2.0.0">
-  <name>Display</name>
+  <name>CompactCamera</name>
   <width>900</width>
+  <scripts>
+    <script file="Scripts/listloadcam.py">
+      <pv_name>loc://autoScale</pv_name>
+    </script>
+  </scripts>
   <widget type="image" version="2.0.0">
     <name>CameraImage</name>
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
-    <x>250</x>
-    <y>80</y>
-    <width>650</width>
-    <height>520</height>
+    <x>260</x>
+    <y>50</y>
+    <width>640</width>
+    <height>505</height>
     <show_toolbar>true</show_toolbar>
     <y_axis>
       <visible>true</visible>
@@ -64,10 +69,23 @@ else:
 	 widget.setPropertyValue('rois[0].visible', True)]]></text>
         <pv_name>loc://showROI</pv_name>
       </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+autoscale_value = PVUtil.getDouble(pvs[0])
+# Set auto-scale based on PV
+if autoscale_value==0: 
+	widget.setPropertyValue("autoscale", False)
+else:
+	widget.setPropertyValue("autoscale", True)
+]]></text>
+        <pv_name>loc://autoScale</pv_name>
+      </script>
     </scripts>
     <limits_from_pv>true</limits_from_pv>
     <autoscale>false</autoscale>
-    <maximum>4096.0</maximum>
+    <maximum>65535.0</maximum>
     <cursor_info_pv>loc://cursor_info</cursor_info_pv>
     <x_pv>loc://cursor_x</x_pv>
     <y_pv>loc://cursor_y</y_pv>
@@ -134,14 +152,14 @@ else:
               <name>Stop</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
-                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>0</value>
+                  <description>WritePV</description>
                 </action>
                 <action type="write_pv">
-                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>0</value>
+                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Stop</text>
@@ -205,19 +223,19 @@ else:
               <name>Start Button_1</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
-                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>1</value>
+                  <description>WritePV</description>
                 </action>
                 <action type="write_pv">
-                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>1</value>
+                  <description>WritePV</description>
                 </action>
                 <action type="write_pv">
-                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
                   <value>0</value>
+                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Start</text>
@@ -682,56 +700,6 @@ Limits: [0.014-0.039]</tooltip>
               <limits_from_pv>false</limits_from_pv>
             </widget>
           </widget>
-          <widget type="group" version="3.0.0">
-            <name>Group</name>
-            <x>28</x>
-            <y>412</y>
-            <width>169</width>
-            <height>60</height>
-            <style>3</style>
-            <transparent>true</transparent>
-            <widget type="text-symbol" version="2.0.0">
-              <name>Text Symbol</name>
-              <x>90</x>
-              <y>30</y>
-              <width>1</width>
-              <height>1</height>
-            </widget>
-            <widget type="bool_button" version="2.0.0">
-              <name>Boolean Button_6</name>
-              <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
-              <y>30</y>
-              <width>90</width>
-            </widget>
-            <widget type="textupdate" version="2.0.0">
-              <name>Text Update_10</name>
-              <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
-              <x>105</x>
-              <y>30</y>
-              <width>64</width>
-              <height>30</height>
-              <font>
-                <font family="Liberation Sans" style="BOLD" size="14.0">
-                </font>
-              </font>
-              <horizontal_alignment>1</horizontal_alignment>
-              <vertical_alignment>1</vertical_alignment>
-              <border_width>2</border_width>
-            </widget>
-            <widget type="label" version="2.0.0">
-              <name>Label_1</name>
-              <text>Laser Shutter</text>
-              <x>30</x>
-              <width>120</width>
-              <height>30</height>
-              <font>
-                <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
-                </font>
-              </font>
-              <horizontal_alignment>1</horizontal_alignment>
-              <vertical_alignment>1</vertical_alignment>
-            </widget>
-          </widget>
         </children>
       </tab>
       <tab>
@@ -811,46 +779,6 @@ Limits: [0.014-0.039]</tooltip>
             <x>98</x>
             <y>372</y>
           </widget>
-          <widget type="table" version="2.0.0">
-            <name>Table</name>
-            <pv_name>loc://cursor_info</pv_name>
-            <x>8</x>
-            <y>399</y>
-            <width>220</width>
-            <height>70</height>
-            <font>
-              <font family="Liberation Sans" style="REGULAR" size="12.0">
-              </font>
-            </font>
-            <columns>
-              <column>
-                <name>X</name>
-                <width>50</width>
-                <editable>true</editable>
-              </column>
-              <column>
-                <name>Y</name>
-                <width>50</width>
-                <editable>true</editable>
-              </column>
-              <column>
-                <name>Value</name>
-                <width>100</width>
-                <editable>true</editable>
-              </column>
-              <column>
-                <name>Xi</name>
-                <width>80</width>
-                <editable>true</editable>
-              </column>
-              <column>
-                <name>Yi</name>
-                <width>80</width>
-                <editable>true</editable>
-              </column>
-            </columns>
-            <editable>false</editable>
-          </widget>
           <widget type="checkbox" version="2.0.0">
             <name>Check Box_1</name>
             <pv_name>loc://showROI(0)</pv_name>
@@ -876,6 +804,36 @@ else:
                 <pv_name>loc://roi_interactive</pv_name>
               </script>
             </scripts>
+          </widget>
+          <widget type="table" version="2.0.0">
+            <name>Table</name>
+            <pv_name>loc://cursor_info</pv_name>
+            <x>18</x>
+            <y>413</y>
+            <width>220</width>
+            <height>70</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="12.0">
+              </font>
+            </font>
+            <columns>
+              <column>
+                <name>X</name>
+                <width>70</width>
+                <editable>true</editable>
+              </column>
+              <column>
+                <name>Y</name>
+                <width>70</width>
+                <editable>true</editable>
+              </column>
+              <column>
+                <name>Value</name>
+                <width>80</width>
+                <editable>true</editable>
+              </column>
+            </columns>
+            <editable>false</editable>
           </widget>
         </children>
       </tab>
@@ -1003,19 +961,21 @@ widget.setPropertyValue("text", mytext);
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
-            <maximum>5000.0</maximum>
+            <maximum>65535.0</maximum>
             <limits_from_pv>false</limits_from_pv>
+            <increment>100.0</increment>
           </widget>
           <widget type="spinner" version="2.0.0">
             <name>Spinner_1</name>
-            <pv_name>loc://max_cmap(4095)</pv_name>
+            <pv_name>loc://max_cmap(65535)</pv_name>
             <x>78</x>
             <y>222</y>
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
-            <maximum>5000.0</maximum>
+            <maximum>65535.0</maximum>
             <limits_from_pv>false</limits_from_pv>
+            <increment>100.0</increment>
           </widget>
           <widget type="label" version="2.0.0">
             <name>Label Template_11</name>
@@ -1096,7 +1056,6 @@ widget.setPropertyValue("text", mytext);
             <name>Action Button Template_2</name>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>genicam/ADAravis.bob</file>
                 <macros>
                   <P>$(DEVICE):$(CAM):</P>
@@ -1104,6 +1063,7 @@ widget.setPropertyValue("text", mytext);
                   <C>$(HW)</C>
                 </macros>
                 <target>window</target>
+                <description>Open Display</description>
               </action>
             </actions>
             <text>Full Control (ADAravis)</text>
@@ -1152,13 +1112,22 @@ widget.setPropertyValue("text", mytext);
             <actions>
             </actions>
           </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_2</name>
+            <pv_name>loc://autoScale(0)</pv_name>
+            <label>AutoScale</label>
+            <x>58</x>
+            <y>273</y>
+            <actions>
+            </actions>
+          </widget>
         </children>
       </tab>
     </tabs>
-    <y>80</y>
-    <width>250</width>
-    <height>520</height>
-    <tab_height>20</tab_height>
+    <y>50</y>
+    <width>260</width>
+    <height>550</height>
+    <active_tab>3</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
@@ -1176,5 +1145,104 @@ widget.setPropertyValue("text", mytext);
       </color>
     </foreground_color>
     <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
+    <x>858</x>
+    <y>555</y>
+    <width>40</width>
+    <height>40</height>
+  </widget>
+  <widget type="text-symbol" version="2.0.0">
+    <name>Text Symbol</name>
+    <x>838</x>
+    <y>555</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_6</name>
+    <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
+    <x>730</x>
+    <y>555</y>
+    <width>120</width>
+    <height>40</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Laser Shutter</text>
+    <x>602</x>
+    <y>560</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="scaledslider" version="2.0.0">
+    <name>Scaled Slider</name>
+    <pv_name>loc://max_cmap(65535)</pv_name>
+    <x>430</x>
+    <y>555</y>
+    <width>150</width>
+    <height>45</height>
+    <major_tick_step_hint>100</major_tick_step_hint>
+    <level_hihi>4000.0</level_hihi>
+    <level_high>3000.0</level_high>
+    <show_hihi>false</show_hihi>
+    <show_high>false</show_high>
+    <show_low>false</show_low>
+    <show_lolo>false</show_lolo>
+    <increment>1000.0</increment>
+    <maximum>65535.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+  </widget>
+  <widget type="scaledslider" version="2.0.0">
+    <name>Scaled Slider_1</name>
+    <pv_name>loc://min_cmap(0)</pv_name>
+    <x>270</x>
+    <y>555</y>
+    <width>150</width>
+    <height>45</height>
+    <major_tick_step_hint>100</major_tick_step_hint>
+    <level_hihi>4000.0</level_hihi>
+    <level_high>3000.0</level_high>
+    <show_hihi>false</show_hihi>
+    <show_high>false</show_high>
+    <show_low>false</show_low>
+    <show_lolo>false</show_lolo>
+    <increment>1000.0</increment>
+    <maximum>65535.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>CamMenu</name>
+    <pv_name>loc://cam_menu("ciao")</pv_name>
+    <x>90</x>
+    <y>10</y>
+    <width>160</width>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Camera</text>
+    <x>10</x>
+    <y>10</y>
+    <width>80</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>
