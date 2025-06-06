@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-03 10:26:04 by riccardo-->
+<!--Saved on 2025-06-06 04:20:11 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -151,11 +151,6 @@ else:
                   <value>0</value>
                   <description>WritePV</description>
                 </action>
-                <action type="write_pv">
-                  <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
-                  <value>0</value>
-                  <description>WritePV</description>
-                </action>
               </actions>
               <text>Stop</text>
               <x>106</x>
@@ -225,11 +220,6 @@ else:
                 <action type="write_pv">
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>1</value>
-                  <description>WritePV</description>
-                </action>
-                <action type="write_pv">
-                  <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
-                  <value>0</value>
                   <description>WritePV</description>
                 </action>
               </actions>
@@ -698,12 +688,12 @@ Limits: [0.014-0.039]</tooltip>
         </children>
       </tab>
       <tab>
-        <name>ROI</name>
+        <name>Image</name>
         <children>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>78</x>
-            <y>312</y>
+            <x>28</x>
+            <y>333</y>
             <width>139</width>
             <height>52</height>
             <style>3</style>
@@ -771,15 +761,15 @@ Limits: [0.014-0.039]</tooltip>
             <name>Check Box</name>
             <pv_name>loc://roi_interactive(1)</pv_name>
             <label>interactive</label>
-            <x>98</x>
-            <y>372</y>
+            <x>138</x>
+            <y>403</y>
           </widget>
           <widget type="checkbox" version="2.0.0">
             <name>Check Box_1</name>
             <pv_name>loc://showROI(0)</pv_name>
             <label>Show ROI</label>
-            <x>98</x>
-            <y>279</y>
+            <x>28</x>
+            <y>403</y>
             <actions>
             </actions>
             <scripts>
@@ -804,7 +794,7 @@ else:
             <name>Table</name>
             <pv_name>loc://cursor_info</pv_name>
             <x>18</x>
-            <y>413</y>
+            <y>434</y>
             <width>220</width>
             <height>70</height>
             <font>
@@ -830,21 +820,11 @@ else:
             </columns>
             <editable>false</editable>
           </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Save</name>
-        <children>
-        </children>
-      </tab>
-      <tab>
-        <name>More</name>
-        <children>
           <widget type="label" version="2.0.0">
             <name>Label Template_10</name>
             <text>Pixel Format:</text>
             <x>28</x>
-            <y>29</y>
+            <y>13</y>
             <width>83</width>
             <height>16</height>
             <foreground_color>
@@ -868,7 +848,7 @@ else:
             <name>Text Update_3</name>
             <pv_name>$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
             <x>130</x>
-            <y>49</y>
+            <y>33</y>
             <width>90</width>
             <background_color>
               <color red="255" green="255" blue="255">
@@ -887,7 +867,7 @@ else:
             <name>Combo_1</name>
             <pv_name>$(DEVICE):$(CAM):PixelFormat</pv_name>
             <x>28</x>
-            <y>49</y>
+            <y>33</y>
             <width>90</width>
             <height>20</height>
             <foreground_color>
@@ -901,58 +881,11 @@ else:
             <actions>
             </actions>
           </widget>
-          <widget type="label" version="2.0.0">
-            <name>Label_126</name>
-            <text>[MeV]</text>
-            <x>109</x>
-            <y>89</y>
-            <width>111</width>
-            <height>34</height>
-            <font>
-              <font family="Liberation Sans" style="REGULAR" size="20.0">
-              </font>
-            </font>
-            <vertical_alignment>1</vertical_alignment>
-            <scripts>
-              <script file="EmbeddedPy">
-                <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-import math;
-clight=299792458;
-Bang=14*(math.pi)/180; #radians
-InputVal=PVUtil.getDouble(pvs[0]);
-Bm=1e-4*(55.6+39.5*abs(InputVal)+0.056*InputVal**2-2.78e-4*abs(InputVal)**3);
-Lm=0.26748-4.5e-6*abs(InputVal)-5.7e-8*abs(InputVal)**2;
-Brad=abs(Lm/Bang);
-eGeV=(clight/1e9)*Bm*Brad;
-eMeV=eGeV*1000;
-mytext=str(round(InputVal,1))+" MeV"; #
-#mytext=str(Bang);
-widget.setPropertyValue("text", mytext);
-]]></text>
-                <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
-              </script>
-            </scripts>
-          </widget>
-          <widget type="label" version="2.0.0">
-            <name>Label_127</name>
-            <text>Energy:</text>
-            <x>28</x>
-            <y>96</y>
-            <width>70</width>
-            <font>
-              <font family="Liberation Sans" style="REGULAR" size="20.0">
-              </font>
-            </font>
-            <horizontal_alignment>1</horizontal_alignment>
-            <vertical_alignment>1</vertical_alignment>
-          </widget>
           <widget type="spinner" version="2.0.0">
             <name>Spinner</name>
             <pv_name>loc://min_cmap(0)</pv_name>
-            <x>78</x>
-            <y>182</y>
+            <x>158</x>
+            <y>103</y>
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
@@ -962,9 +895,9 @@ widget.setPropertyValue("text", mytext);
           </widget>
           <widget type="spinner" version="2.0.0">
             <name>Spinner_1</name>
-            <pv_name>loc://max_cmap(65535)</pv_name>
-            <x>78</x>
-            <y>222</y>
+            <pv_name>loc://max_cmap(1000)</pv_name>
+            <x>158</x>
+            <y>143</y>
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
@@ -975,8 +908,8 @@ widget.setPropertyValue("text", mytext);
           <widget type="label" version="2.0.0">
             <name>Label Template_11</name>
             <text>Min</text>
-            <x>38</x>
-            <y>182</y>
+            <x>118</x>
+            <y>103</y>
             <width>23</width>
             <height>16</height>
             <foreground_color>
@@ -1000,8 +933,8 @@ widget.setPropertyValue("text", mytext);
           <widget type="label" version="2.0.0">
             <name>Label Template_12</name>
             <text>Max</text>
-            <x>38</x>
-            <y>222</y>
+            <x>118</x>
+            <y>143</y>
             <width>27</width>
             <height>16</height>
             <foreground_color>
@@ -1025,8 +958,8 @@ widget.setPropertyValue("text", mytext);
           <widget type="label" version="2.0.0">
             <name>Label Template_13</name>
             <text>Colormap Range</text>
-            <x>58</x>
-            <y>152</y>
+            <x>138</x>
+            <y>73</y>
             <width>106</width>
             <height>16</height>
             <foreground_color>
@@ -1047,6 +980,25 @@ widget.setPropertyValue("text", mytext);
               </color>
             </border_color>
           </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_2</name>
+            <pv_name>loc://autoScale(0)</pv_name>
+            <label>AutoScale</label>
+            <x>128</x>
+            <y>173</y>
+            <actions>
+            </actions>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Save</name>
+        <children>
+        </children>
+      </tab>
+      <tab>
+        <name>More</name>
+        <children>
           <widget type="action_button" version="3.0.0">
             <name>Action Button Template_2</name>
             <actions>
@@ -1076,45 +1028,40 @@ widget.setPropertyValue("text", mytext);
             </foreground_color>
             <tooltip>$(actions)</tooltip>
           </widget>
-          <widget type="bool_button" version="2.0.0">
-            <name>Boolean Button Template_1</name>
-            <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
-            <x>88</x>
-            <y>332</y>
-            <width>80</width>
-            <off_label>OFF</off_label>
-            <off_color>
-              <color name="IO PV OFF" red="77" green="77" blue="77">
-              </color>
-            </off_color>
-            <on_label>ON</on_label>
-            <on_color>
-              <color red="30" green="210" blue="0">
-              </color>
-            </on_color>
+          <widget type="label" version="2.0.0">
+            <name>Label_126</name>
+            <text>Energy Value</text>
+            <x>28</x>
+            <y>13</y>
+            <width>190</width>
+            <height>34</height>
             <font>
-              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
               </font>
             </font>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <background_color>
-              <color name="IO Grid" red="215" green="215" blue="215">
-              </color>
-            </background_color>
-            <actions>
-            </actions>
-          </widget>
-          <widget type="checkbox" version="2.0.0">
-            <name>Check Box_2</name>
-            <pv_name>loc://autoScale(0)</pv_name>
-            <label>AutoScale</label>
-            <x>58</x>
-            <y>273</y>
-            <actions>
-            </actions>
+            <horizontal_alignment>1</horizontal_alignment>
+            <vertical_alignment>1</vertical_alignment>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+import math;
+clight=299792458;
+Bang=14*(math.pi)/180; #radians
+InputVal=PVUtil.getDouble(pvs[0]);
+Bm=1e-4*(55.6+39.5*abs(InputVal)+0.056*InputVal**2-2.78e-4*abs(InputVal)**3);
+Lm=0.26748-4.5e-6*abs(InputVal)-5.7e-8*abs(InputVal)**2;
+Brad=abs(Lm/Bang);
+eGeV=(clight/1e9)*Bm*Brad;
+eMeV=eGeV*1000;
+mytext="Energy: "+str(round(InputVal,1))+" MeV"; #
+#mytext=str(Bang);
+widget.setPropertyValue("text", mytext);
+]]></text>
+                <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
+              </script>
+            </scripts>
           </widget>
         </children>
       </tab>
@@ -1122,23 +1069,25 @@ widget.setPropertyValue("text", mytext);
     <y>50</y>
     <width>260</width>
     <height>550</height>
+    <active_tab>1</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
     <text>Compact Camera - $(DEVICE):$(CAM)</text>
-    <x>580</x>
+    <x>470</x>
     <y>10</y>
-    <width>308</width>
+    <width>418</width>
     <height>25</height>
     <font>
-      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
       </font>
     </font>
     <foreground_color>
       <color red="10" green="0" blue="184">
       </color>
     </foreground_color>
-    <horizontal_alignment>1</horizontal_alignment>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
@@ -1179,7 +1128,7 @@ widget.setPropertyValue("text", mytext);
   </widget>
   <widget type="scaledslider" version="2.0.0">
     <name>Scaled Slider</name>
-    <pv_name>loc://max_cmap(65535)</pv_name>
+    <pv_name>loc://max_cmap(1000)</pv_name>
     <x>430</x>
     <y>555</y>
     <width>150</width>
