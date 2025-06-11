@@ -10,8 +10,9 @@ from org.csstudio.display.builder.runtime.script import ScriptUtil,PVUtil
 import os
 display_model =  widget.getDisplayModel()
 display_path = display_model.getUserData(display_model.USER_DATA_INPUT_FILE)
-opidir=os.path.dirname(display_path)
-maindir=os.path.dirname(opidir)
+camdir=os.path.dirname(display_path)
+maindir=os.path.abspath(os.path.join(camdir,'..', '..', '..'))
+#maindir=os.path.dirname(opidir)
 #print(opidir)
 yaml_file=maindir+"/deploy/values.yaml"
 #yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"

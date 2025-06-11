@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-11 11:48:12 by riccardo-->
+<!--Saved on 2025-06-11 17:02:57 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
   <widget type="image" version="2.0.0">
     <name>CameraImage</name>
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
-    <x>260</x>
+    <x>270</x>
     <y>50</y>
-    <width>640</width>
+    <width>630</width>
     <height>505</height>
     <show_toolbar>true</show_toolbar>
     <rules>
@@ -979,6 +979,106 @@ else:
       <tab>
         <name>Save</name>
         <children>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>7</x>
+            <y>15</y>
+            <width>255</width>
+            <height>125</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="led" version="2.0.0">
+              <name>FolderExist</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+              <x>230</x>
+              <y>90</y>
+              <width>25</width>
+              <height>25</height>
+              <off_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </off_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+              <y>80</y>
+              <width>220</width>
+              <height>45</height>
+              <format>6</format>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_5</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+              <y>20</y>
+              <width>255</width>
+              <height>50</height>
+              <format>6</format>
+              <wrap_words>true</wrap_words>
+              <multi_line>true</multi_line>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label</name>
+              <text>Save Folder (start with /nfs/data/)</text>
+              <width>255</width>
+              <font>
+                <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+            </widget>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>CreateFolder</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://folder_created</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://folder_created(0)</pv_name>
+            <text>Create Folder</text>
+            <x>98</x>
+            <y>153</y>
+            <width>160</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="Scripts/MakeFolder.py" check_connections="false">
+                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+                <pv_name>loc://folder_created</pv_name>
+                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>UpdateFolder</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://folder_update</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://folder_update(0)</pv_name>
+            <text>Update</text>
+            <x>8</x>
+            <y>153</y>
+            <width>80</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="Scripts/FolderUpdate.py" check_connections="false">
+                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+                <pv_name>loc://folder_update</pv_name>
+              </script>
+            </scripts>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1052,8 +1152,9 @@ widget.setPropertyValue("text", mytext);
       </tab>
     </tabs>
     <y>50</y>
-    <width>260</width>
+    <width>270</width>
     <height>550</height>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
