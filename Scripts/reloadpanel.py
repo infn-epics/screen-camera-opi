@@ -3,19 +3,24 @@ from org.csstudio.display.builder.runtime.script import ScriptUtil
 
 logger = ScriptUtil.getLogger()
 pv = PVUtil.getString(pvs[0])
-#device_actual = widget.getEffectiveMacros().getValue("DEVICE")
+device_actual = widget.getEffectiveMacros().getValue("DEVICE")
+print("DEVICE: "+device_actual)
 #print("ACTUAL DEVICE '%s'" % device_actual)
-logger.info("SELECTION: " + pv)
+print("User selection: " + pv)
+#logger.info("SELECTION: " + pv)
 
 #if device_actual and pv:
 if pv:
-    vals = pv.split()
+    vals = pv.split(" (")
+    print("Camera: "+vals[0])
     #newdev = device_actual + vals[0]
-    logger.info("PV Name: " + str(pvs[0]) + " Val: " + vals[0]) #+ " DEVICE: " + device_actual)
+    print("PV Name: " + str(pvs[0])) #+ " DEVICE: " + device_actual)
     #trick to update the subpanel
     widget.setPropertyValue("file", "")
     macros = widget.getPropertyValue("macros")
-    macros.add("DEVICE", "SPARC:CAM")
+    #do not set the DEVICE, use the one passed through the button!
+    #macros.add("DEVICE", "SPARC:CAM")
     macros.add("CAM", vals[0])
     #macros.add("HW", vals[1])
     widget.setPropertyValue("file", "CompactCamera.bob")
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-06 04:20:11 by riccardo-->
+<!--Saved on 2025-06-11 11:48:12 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -11,20 +11,6 @@
     <width>640</width>
     <height>505</height>
     <show_toolbar>true</show_toolbar>
-    <y_axis>
-      <visible>true</visible>
-      <title>Y</title>
-      <minimum>0.0</minimum>
-      <maximum>80.0</maximum>
-      <title_font>
-        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
-        </font>
-      </title_font>
-      <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
-        </font>
-      </scale_font>
-    </y_axis>
     <rules>
       <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
         <exp bool_exp="pv0&lt;1">
@@ -79,8 +65,9 @@ else:
       </script>
     </scripts>
     <limits_from_pv>true</limits_from_pv>
+    <unsigned>true</unsigned>
     <autoscale>false</autoscale>
-    <maximum>65535.0</maximum>
+    <maximum>4095.0</maximum>
     <cursor_info_pv>loc://cursor_info</cursor_info_pv>
     <x_pv>loc://cursor_x</x_pv>
     <y_pv>loc://cursor_y</y_pv>
@@ -93,10 +80,10 @@ else:
         </color>
         <visible>true</visible>
         <interactive>true</interactive>
-        <x_pv>loc://roi_x(10)</x_pv>
-        <y_pv>loc://roi_y(10)</y_pv>
-        <width_pv>loc://roi_w(10)</width_pv>
-        <height_pv>loc://roi_h(10)</height_pv>
+        <x_pv>loc://roi_x(20)</x_pv>
+        <y_pv>loc://roi_y(20)</y_pv>
+        <width_pv>loc://roi_w(100)</width_pv>
+        <height_pv>loc://roi_h(100)</height_pv>
         <file></file>
       </roi>
     </rois>
@@ -147,9 +134,9 @@ else:
               <name>Stop</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>0</value>
-                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Stop</text>
@@ -213,14 +200,14 @@ else:
               <name>Start Button_1</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>1</value>
-                  <description>WritePV</description>
                 </action>
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>1</value>
-                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Start</text>
@@ -705,7 +692,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry</name>
-              <pv_name>loc://roi_x(20)</pv_name>
+              <pv_name>loc://roi_x</pv_name>
               <x>15</x>
               <width>50</width>
               <format>1</format>
@@ -719,7 +706,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_1</name>
-              <pv_name>loc://roi_y(20)</pv_name>
+              <pv_name>loc://roi_y</pv_name>
               <x>15</x>
               <y>32</y>
               <width>50</width>
@@ -734,7 +721,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_2</name>
-              <pv_name>loc://roi_w(100)</pv_name>
+              <pv_name>loc://roi_w</pv_name>
               <x>89</x>
               <width>50</width>
               <format>1</format>
@@ -749,7 +736,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_3</name>
-              <pv_name>loc://roi_h(100)</pv_name>
+              <pv_name>loc://roi_h</pv_name>
               <x>89</x>
               <y>32</y>
               <width>50</width>
@@ -761,7 +748,7 @@ Limits: [0.014-0.039]</tooltip>
             <name>Check Box</name>
             <pv_name>loc://roi_interactive(1)</pv_name>
             <label>interactive</label>
-            <x>138</x>
+            <x>137</x>
             <y>403</y>
           </widget>
           <widget type="checkbox" version="2.0.0">
@@ -847,9 +834,8 @@ else:
           <widget type="textupdate" version="2.0.0">
             <name>Text Update_3</name>
             <pv_name>$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
-            <x>130</x>
-            <y>33</y>
-            <width>90</width>
+            <x>138</x>
+            <y>27</y>
             <background_color>
               <color red="255" green="255" blue="255">
               </color>
@@ -866,9 +852,8 @@ else:
           <widget type="combo" version="2.0.0">
             <name>Combo_1</name>
             <pv_name>$(DEVICE):$(CAM):PixelFormat</pv_name>
-            <x>28</x>
+            <x>18</x>
             <y>33</y>
-            <width>90</width>
             <height>20</height>
             <foreground_color>
               <color name="IO Foreground" red="0" green="0" blue="0">
@@ -889,19 +874,19 @@ else:
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
-            <maximum>65535.0</maximum>
+            <maximum>4095.0</maximum>
             <limits_from_pv>false</limits_from_pv>
             <increment>100.0</increment>
           </widget>
           <widget type="spinner" version="2.0.0">
             <name>Spinner_1</name>
-            <pv_name>loc://max_cmap(1000)</pv_name>
+            <pv_name>loc://max_cmap(4095)</pv_name>
             <x>158</x>
             <y>143</y>
             <width>80</width>
             <height>30</height>
             <precision>0</precision>
-            <maximum>65535.0</maximum>
+            <maximum>4095.0</maximum>
             <limits_from_pv>false</limits_from_pv>
             <increment>100.0</increment>
           </widget>
@@ -1003,6 +988,7 @@ else:
             <name>Action Button Template_2</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>genicam/ADAravis.bob</file>
                 <macros>
                   <P>$(DEVICE):$(CAM):</P>
@@ -1010,7 +996,6 @@ else:
                   <C>$(HW)</C>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>Full Control (ADAravis)</text>
@@ -1069,17 +1054,16 @@ widget.setPropertyValue("text", mytext);
     <y>50</y>
     <width>260</width>
     <height>550</height>
-    <active_tab>1</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
     <text>Compact Camera - $(DEVICE):$(CAM)</text>
-    <x>470</x>
+    <x>270</x>
     <y>10</y>
-    <width>418</width>
-    <height>25</height>
+    <width>618</width>
+    <height>30</height>
     <font>
-      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      <font family="Liberation Sans" style="BOLD" size="26.0">
       </font>
     </font>
     <foreground_color>
@@ -1128,7 +1112,7 @@ widget.setPropertyValue("text", mytext);
   </widget>
   <widget type="scaledslider" version="2.0.0">
     <name>Scaled Slider</name>
-    <pv_name>loc://max_cmap(1000)</pv_name>
+    <pv_name>loc://max_cmap(4095)</pv_name>
     <x>430</x>
     <y>555</y>
     <width>150</width>
@@ -1141,7 +1125,7 @@ widget.setPropertyValue("text", mytext);
     <show_low>false</show_low>
     <show_lolo>false</show_lolo>
     <increment>1000.0</increment>
-    <maximum>65535.0</maximum>
+    <maximum>4095.0</maximum>
     <limits_from_pv>false</limits_from_pv>
   </widget>
   <widget type="scaledslider" version="2.0.0">
@@ -1159,7 +1143,7 @@ widget.setPropertyValue("text", mytext);
     <show_low>false</show_low>
     <show_lolo>false</show_lolo>
     <increment>1000.0</increment>
-    <maximum>65535.0</maximum>
+    <maximum>4095.0</maximum>
     <limits_from_pv>false</limits_from_pv>
   </widget>
 </display>

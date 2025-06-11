@@ -14,7 +14,7 @@ opidir=os.path.dirname(display_path)
 maindir=os.path.dirname(opidir)
 #print(opidir)
 yaml_file=maindir+"/deploy/values.yaml"
-yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"
+#yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"
 print("Loading file '%s'." % yaml_file)
 
 # Load YAML file using SnakeYAML
@@ -34,30 +34,30 @@ if iocs is None:
     exit()
 #print("Number of IOCs found:", len(iocs))
 
-# Find cameras under IOCs with iocprefix "SPARC:CAM" and devtype "camera"
-results = ArrayList()
-device_list = []
+# Find cameras under IOCs with iocprefix ":CAM" and devtype "camera"
+#results = ArrayList()
+device_list=[]
 for ioc in iocs:
     ioc_name = ioc.get("name", "")
     iocprefix = ioc.get("iocprefix", "")
     devtype = ioc.get("devtype", "")
     #print("Checking IOC:", ioc_name, "iocprefix:", iocprefix, "devtype:", devtype)    
-    if iocprefix and iocprefix.startswith("SPARC:CAM") and devtype == "camera":
+    if iocprefix and iocprefix.endswith(":CAM") and devtype == "camera":
         cameras = ioc.get("cameras", [])
         if cameras:
             for cam in cameras:
                 cam_name = cam.get("name", "")
                 if cam_name:
-                    results.add((cam_name, ioc_name))
-                    device_list.append(cam_name)
+                    #results.add((cam_name, ioc_name))
+                    device_list.append(cam_name+" ("+ioc_name+")")
 
 # Sort results by camera name
-results.sort(key=lambda x: x[0])
+#results.sort(key=lambda x: x[0])
 device_list.sort()
 
 ####################################
 #put the list in the cam menu box
-combo = ScriptUtil.findWidgetByName(widget, "CamMenu")
+combo = ScriptUtil.findWidgetByName(widget,"CamMenu")
 combo.setItems(device_list)
 if len(device_list): #remove the first item (pv initialization)
     ScriptUtil.getPrimaryPV(combo).write(device_list[0])

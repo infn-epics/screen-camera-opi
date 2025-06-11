@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-06 04:20:22 by riccardo-->
+<!--Saved on 2025-06-11 10:37:52 by riccardo-->
 <display version="2.0.0">
   <name>CameraFull</name>
   <width>900</width>
@@ -22,27 +22,13 @@
   <widget type="combo" version="2.0.0">
     <name>CamMenu</name>
     <pv_name>loc://cam_menu_$(DID)("ciao")</pv_name>
-    <x>90</x>
+    <x>10</x>
     <y>10</y>
-    <width>130</width>
+    <width>250</width>
     <background_color>
       <color name="Background" red="255" green="255" blue="255">
       </color>
     </background_color>
     <items_from_pv>false</items_from_pv>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_2</name>
-    <text>Camera</text>
-    <x>10</x>
-    <y>10</y>
-    <width>80</width>
-    <height>30</height>
-    <font>
-      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
-      </font>
-    </font>
-    <horizontal_alignment>1</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>
