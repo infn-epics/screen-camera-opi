@@ -9,6 +9,9 @@ prefx=mydev+':'+mycam+":TIFF1:"
 start_save = PVUtil.getDouble(pvs[0])
 
 if start_save==1: 
+    #start acquire
+    pv00=PVUtil.createPV(mydev+':'+mycam+":Acquire",100)
+    pv00.setValue(1)
     pv0=PVUtil.createPV(prefx+"FileName",100)
     pv0.setValue("img")
     pv1=PVUtil.createPV(prefx+"FileNumber",100)
@@ -48,6 +51,7 @@ if start_save==1:
         Thread.sleep(100)  # argument is in milliseconds
     else:
         print("Device not ready after all the attempts")
+        pv6.setValue(0) #stop Capture
 
     #at the end put back to 0
     pvs[0].write(0);

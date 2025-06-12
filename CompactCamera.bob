@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-12 15:44:45 by riccardo-->
+<!--Saved on 2025-06-12 16:08:03 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -174,10 +174,6 @@ else:
               <x>72</x>
               <width>133</width>
               <height>28</height>
-              <font>
-                <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -272,10 +268,6 @@ else:
               <y>34</y>
               <width>135</width>
               <height>32</height>
-              <font>
-                <font family="Sans" style="REGULAR" size="10.891089108910892">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -298,14 +290,10 @@ else:
             <transparent>true</transparent>
             <widget type="label" version="2.0.0">
               <name>Label Template_3</name>
-              <text>Image Counter</text>
-              <y>5</y>
-              <width>85</width>
+              <text>Counter</text>
+              <y>10</y>
+              <width>50</width>
               <height>17</height>
-              <font>
-                <font family="Sans" style="REGULAR" size="11.881188118811881">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -326,13 +314,9 @@ else:
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template_1</name>
               <pv_name>$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
-              <x>88</x>
-              <width>119</width>
+              <x>60</x>
+              <width>147</width>
               <height>28</height>
-              <font>
-                <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -354,14 +338,10 @@ else:
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template_2</name>
               <pv_name>$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
-              <x>88</x>
+              <x>60</x>
               <y>35</y>
-              <width>119</width>
+              <width>147</width>
               <height>28</height>
-              <font>
-                <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -383,15 +363,10 @@ else:
             </widget>
             <widget type="label" version="2.0.0">
               <name>Label Template_4</name>
-              <text>Image Rate</text>
-              <x>18</x>
-              <y>39</y>
-              <width>64</width>
+              <text>Rate</text>
+              <y>40</y>
+              <width>40</width>
               <height>17</height>
-              <font>
-                <font family="Sans" style="REGULAR" size="11.881188118811881">
-                </font>
-              </font>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -513,7 +488,7 @@ else:
             <name>Group</name>
             <x>28</x>
             <y>203</y>
-            <width>185</width>
+            <width>210</width>
             <height>114</height>
             <style>3</style>
             <transparent>true</transparent>
@@ -594,8 +569,8 @@ Limits: [320,1000]</tooltip>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_1</name>
               <pv_name>=1000*'$(DEVICE):$(CAM):AcquireTime_RBV'</pv_name>
-              <x>95</x>
-              <y>82</y>
+              <x>110</x>
+              <y>80</y>
               <width>90</width>
               <height>30</height>
               <background_color>
@@ -616,7 +591,7 @@ Limits: [320,1000]</tooltip>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_2</name>
               <pv_name>$(DEVICE):$(CAM):Gain_RBV</pv_name>
-              <x>95</x>
+              <x>110</x>
               <y>30</y>
               <width>90</width>
               <height>30</height>
