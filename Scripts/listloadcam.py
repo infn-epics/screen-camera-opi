@@ -13,7 +13,6 @@ display_path = display_model.getUserData(display_model.USER_DATA_INPUT_FILE)
 camdir=os.path.dirname(display_path)
 maindir=os.path.abspath(os.path.join(camdir,'..', '..', '..'))
 #maindir=os.path.dirname(opidir)
-#print(opidir)
 yaml_file=maindir+"/deploy/values.yaml"
 #yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"
 print("Loading file '%s'." % yaml_file)

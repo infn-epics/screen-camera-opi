@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-12 15:46:45 by riccardo-->
+<!--Saved on 2025-06-12 16:21:16 by riccardo-->
 <display version="2.0.0">
   <name>CameraFull</name>
   <width>900</width>
@@ -21,7 +21,7 @@
   </widget>
   <widget type="combo" version="2.0.0">
     <name>CamMenu</name>
-    <pv_name>loc://cam_menu_$(DID)("AC101")</pv_name>
+    <pv_name>loc://cam_menu_$(DID)("NULL")</pv_name>
     <x>10</x>
     <y>10</y>
     <width>260</width>
