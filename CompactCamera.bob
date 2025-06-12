@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-11 17:02:57 by riccardo-->
+<!--Saved on 2025-06-12 15:44:45 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -96,8 +96,8 @@ else:
         <children>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>14</x>
-            <y>12</y>
+            <x>28</x>
+            <y>13</y>
             <width>206</width>
             <height>113</height>
             <style>3</style>
@@ -144,7 +144,7 @@ else:
               <y>73</y>
               <height>40</height>
               <font>
-                <font family="Sans" style="BOLD" size="10.891089108910892">
+                <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
                 </font>
               </font>
               <foreground_color>
@@ -183,7 +183,7 @@ else:
                 </color>
               </foreground_color>
               <background_color>
-                <color name="IO Grid" red="215" green="215" blue="215">
+                <color name="Background" red="255" green="255" blue="255">
                 </color>
               </background_color>
               <horizontal_alignment>1</horizontal_alignment>
@@ -214,7 +214,7 @@ else:
               <y>73</y>
               <height>40</height>
               <font>
-                <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+                <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
                 </font>
               </font>
               <foreground_color>
@@ -290,8 +290,8 @@ else:
           </widget>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>13</x>
-            <y>134</y>
+            <x>28</x>
+            <y>133</y>
             <width>210</width>
             <height>63</height>
             <style>3</style>
@@ -338,7 +338,7 @@ else:
                 </color>
               </foreground_color>
               <background_color>
-                <color name="IO Grid" red="215" green="215" blue="215">
+                <color name="Background" red="255" green="255" blue="255">
                 </color>
               </background_color>
               <horizontal_alignment>1</horizontal_alignment>
@@ -367,7 +367,7 @@ else:
                 </color>
               </foreground_color>
               <background_color>
-                <color name="IO Grid" red="215" green="215" blue="215">
+                <color name="Background" red="255" green="255" blue="255">
                 </color>
               </background_color>
               <precision>0</precision>
@@ -412,8 +412,8 @@ else:
           </widget>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>4</x>
-            <y>213</y>
+            <x>18</x>
+            <y>453</y>
             <width>233</width>
             <height>47</height>
             <style>3</style>
@@ -512,7 +512,7 @@ else:
           <widget type="group" version="3.0.0">
             <name>Group</name>
             <x>28</x>
-            <y>284</y>
+            <y>203</y>
             <width>185</width>
             <height>114</height>
             <style>3</style>
@@ -866,105 +866,6 @@ else:
             <actions>
             </actions>
           </widget>
-          <widget type="spinner" version="2.0.0">
-            <name>Spinner</name>
-            <pv_name>loc://min_cmap(0)</pv_name>
-            <x>158</x>
-            <y>103</y>
-            <width>80</width>
-            <height>30</height>
-            <precision>0</precision>
-            <maximum>4095.0</maximum>
-            <limits_from_pv>false</limits_from_pv>
-            <increment>100.0</increment>
-          </widget>
-          <widget type="spinner" version="2.0.0">
-            <name>Spinner_1</name>
-            <pv_name>loc://max_cmap(4095)</pv_name>
-            <x>158</x>
-            <y>143</y>
-            <width>80</width>
-            <height>30</height>
-            <precision>0</precision>
-            <maximum>4095.0</maximum>
-            <limits_from_pv>false</limits_from_pv>
-            <increment>100.0</increment>
-          </widget>
-          <widget type="label" version="2.0.0">
-            <name>Label Template_11</name>
-            <text>Min</text>
-            <x>118</x>
-            <y>103</y>
-            <width>23</width>
-            <height>16</height>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <background_color>
-              <color name="IO Background" red="255" green="255" blue="205">
-              </color>
-            </background_color>
-            <horizontal_alignment>1</horizontal_alignment>
-            <vertical_alignment>1</vertical_alignment>
-            <auto_size>true</auto_size>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-          <widget type="label" version="2.0.0">
-            <name>Label Template_12</name>
-            <text>Max</text>
-            <x>118</x>
-            <y>143</y>
-            <width>27</width>
-            <height>16</height>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <background_color>
-              <color name="IO Background" red="255" green="255" blue="205">
-              </color>
-            </background_color>
-            <horizontal_alignment>1</horizontal_alignment>
-            <vertical_alignment>1</vertical_alignment>
-            <auto_size>true</auto_size>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
-          <widget type="label" version="2.0.0">
-            <name>Label Template_13</name>
-            <text>Colormap Range</text>
-            <x>138</x>
-            <y>73</y>
-            <width>106</width>
-            <height>16</height>
-            <foreground_color>
-              <color name="IO Foreground" red="0" green="0" blue="0">
-              </color>
-            </foreground_color>
-            <background_color>
-              <color name="IO Background" red="255" green="255" blue="205">
-              </color>
-            </background_color>
-            <horizontal_alignment>1</horizontal_alignment>
-            <vertical_alignment>1</vertical_alignment>
-            <auto_size>true</auto_size>
-            <actions>
-            </actions>
-            <border_color>
-              <color name="IO Border" red="215" green="215" blue="215">
-              </color>
-            </border_color>
-          </widget>
           <widget type="checkbox" version="2.0.0">
             <name>Check Box_2</name>
             <pv_name>loc://autoScale(0)</pv_name>
@@ -1047,7 +948,7 @@ else:
               </font>
             </font>
             <scripts>
-              <script file="Scripts/MakeFolder.py" check_connections="false">
+              <script file="Scripts/MakeFolder.py">
                 <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
                 <pv_name>loc://folder_created</pv_name>
                 <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
@@ -1073,11 +974,104 @@ else:
               </font>
             </font>
             <scripts>
-              <script file="Scripts/FolderUpdate.py" check_connections="false">
+              <script file="Scripts/FolderUpdate.py">
                 <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
                 <pv_name>loc://folder_update</pv_name>
               </script>
             </scripts>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>203</y>
+            <width>250</width>
+            <height>100</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_6</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
+              <x>160</x>
+              <y>30</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_7</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
+              <x>160</x>
+              <y>70</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>NumImages</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
+              <y>30</y>
+              <width>80</width>
+              <height>30</height>
+              <precision>0</precision>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_5</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCaptured_RBV</pv_name>
+              <x>90</x>
+              <y>30</y>
+              <width>60</width>
+              <height>30</height>
+              <format>1</format>
+              <precision>0</precision>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_2</name>
+              <text>Images to save</text>
+              <width>120</width>
+              <font>
+                <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+                </font>
+              </font>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>SaveButton</name>
+              <actions>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>loc://SaveButton</pv_name>
+                  <value>1</value>
+                </action>
+              </actions>
+              <pv_name>loc://SaveButton(0)</pv_name>
+              <text>SAVE</text>
+              <y>70</y>
+              <width>150</width>
+              <font>
+                <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+                </font>
+              </font>
+              <rules>
+                <rule name="enable_button" prop_id="enabled" out_exp="false">
+                  <exp bool_exp="pv0 ==0">
+                    <value>false</value>
+                  </exp>
+                  <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+                </rule>
+              </rules>
+              <scripts>
+                <script file="Scripts/SaveImages.py">
+                  <pv_name>loc://SaveButton</pv_name>
+                </script>
+              </scripts>
+            </widget>
           </widget>
         </children>
       </tab>
@@ -1099,12 +1093,12 @@ else:
               </action>
             </actions>
             <text>Full Control (ADAravis)</text>
-            <x>48</x>
-            <y>422</y>
-            <width>150</width>
+            <x>18</x>
+            <y>453</y>
+            <width>220</width>
             <height>40</height>
             <font>
-              <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
             <foreground_color>
@@ -1116,9 +1110,9 @@ else:
           <widget type="label" version="2.0.0">
             <name>Label_126</name>
             <text>Energy Value</text>
-            <x>28</x>
-            <y>13</y>
-            <width>190</width>
+            <x>18</x>
+            <y>403</y>
+            <width>220</width>
             <height>34</height>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="20.0">
@@ -1148,13 +1142,81 @@ widget.setPropertyValue("text", mytext);
               </script>
             </scripts>
           </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_3</name>
+            <actions>
+              <action type="command">
+                <description>Run Matlab Device Scan</description>
+                <command>sh ../../../matlab_sparcroutines/Scripts/uiDevScan.sh</command>
+              </action>
+            </actions>
+            <text>MATLAB Device Scan</text>
+            <x>18</x>
+            <y>23</y>
+            <width>220</width>
+            <height>40</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_4</name>
+            <actions>
+              <action type="command">
+                <description>Run Matlab Live Analysis</description>
+                <command>sh ../../../matlab_sparcroutines/Scripts/uiLiveAnalysis.sh</command>
+              </action>
+            </actions>
+            <text>MATLAB Live Analysis</text>
+            <x>18</x>
+            <y>73</y>
+            <width>220</width>
+            <height>40</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_5</name>
+            <actions>
+              <action type="command">
+                <description>Run Matlab Live Analysis</description>
+                <command>sh ../../../matlab_sparcroutines/Scripts/uiPlasmaTiming.sh</command>
+              </action>
+            </actions>
+            <text>MATLAB Plasma Timing</text>
+            <x>18</x>
+            <y>123</y>
+            <width>220</width>
+            <height>40</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
+          </widget>
         </children>
       </tab>
     </tabs>
     <y>50</y>
     <width>270</width>
     <height>550</height>
-    <active_tab>2</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
