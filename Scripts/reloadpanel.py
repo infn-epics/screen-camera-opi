@@ -1,5 +1,4 @@
-from org.csstudio.display.builder.runtime.script import PVUtil
-from org.csstudio.display.builder.runtime.script import ScriptUtil
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 import os
 
 StopPrevAcq=True;
@@ -11,9 +10,6 @@ device_actual = widget.getEffectiveMacros().getValue("DEVICE")
 #print("ACTUAL DEVICE '%s'" % device_actual)
 print("User selection: " + pv)
 #logger.info("SELECTION: " + pv)
-
-home_dir = os.path.expanduser("~")
-#print(home_dir)
 
 #if device_actual and pv:
 if pv:
@@ -31,6 +27,7 @@ if pv:
     widget.setPropertyValue("file", "CompactCamera.bob")
 
     #append the camera name to a txt file
+    home_dir = os.path.expanduser("~")
     file_path = os.path.join(home_dir, "cam_history.txt")
     # Read existing lines (if file exists)
     if os.path.exists(file_path):

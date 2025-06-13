@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-12 16:27:55 by riccardo-->
+<!--Saved on 2025-06-13 13:43:06 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
+  <actions>
+  </actions>
   <widget type="image" version="2.0.0">
     <name>CameraImage</name>
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
@@ -20,19 +22,7 @@
       </rule>
     </rules>
     <scripts>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-# Access the widget (the parent of this script)
-# widget = display.getWidget("CameraImage")  # Replace with your widget's name
-
-# Get PV values (replace with your PV names)
-min_value = PVUtil.getDouble(pvs[0])
-max_value = PVUtil.getDouble(pvs[1])
-
-# Set colormap range
-widget.setPropertyValue("minimum", min_value)
-widget.setPropertyValue("maximum", max_value)]]></text>
+      <script file="Scripts/ImageScale.py">
         <pv_name>loc://min_cmap</pv_name>
         <pv_name>loc://max_cmap</pv_name>
       </script>
@@ -96,19 +86,19 @@ else:
         <children>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>28</x>
+            <x>8</x>
             <y>13</y>
-            <width>206</width>
+            <width>250</width>
             <height>113</height>
             <style>3</style>
             <transparent>true</transparent>
             <widget type="label" version="2.0.0">
               <name>Label Template_1</name>
               <text>Status</text>
-              <x>24</x>
-              <y>5</y>
-              <width>35</width>
-              <height>17</height>
+              <x>10</x>
+              <y>10</y>
+              <width>40</width>
+              <height>16</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -136,8 +126,9 @@ else:
                 </action>
               </actions>
               <text>Stop</text>
-              <x>106</x>
-              <y>73</y>
+              <x>130</x>
+              <y>70</y>
+              <width>120</width>
               <height>40</height>
               <font>
                 <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
@@ -167,8 +158,8 @@ else:
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template</name>
               <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
-              <x>72</x>
-              <width>133</width>
+              <x>80</x>
+              <width>163</width>
               <height>28</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
@@ -203,7 +194,8 @@ else:
                 </action>
               </actions>
               <text>Start</text>
-              <y>73</y>
+              <y>70</y>
+              <width>120</width>
               <height>40</height>
               <font>
                 <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
@@ -233,9 +225,9 @@ else:
             <widget type="label" version="2.0.0">
               <name>Label Template_2</name>
               <text>Acquisition</text>
-              <y>42</y>
-              <width>70</width>
-              <height>17</height>
+              <y>40</y>
+              <width>68</width>
+              <height>16</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -256,9 +248,9 @@ else:
             <widget type="combo" version="2.0.0">
               <name>Combo</name>
               <pv_name>$(DEVICE):$(CAM):ImageMode</pv_name>
-              <x>71</x>
-              <y>34</y>
-              <width>135</width>
+              <x>80</x>
+              <y>30</y>
+              <width>165</width>
               <height>32</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
@@ -274,9 +266,9 @@ else:
           </widget>
           <widget type="group" version="3.0.0">
             <name>Group</name>
-            <x>28</x>
+            <x>8</x>
             <y>133</y>
-            <width>210</width>
+            <width>250</width>
             <height>63</height>
             <style>3</style>
             <transparent>true</transparent>
@@ -285,7 +277,7 @@ else:
               <text>Counter</text>
               <y>10</y>
               <width>50</width>
-              <height>17</height>
+              <height>16</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -307,7 +299,7 @@ else:
               <name>Text Update Template_1</name>
               <pv_name>$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
               <x>60</x>
-              <width>147</width>
+              <width>190</width>
               <height>28</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
@@ -332,7 +324,7 @@ else:
               <pv_name>$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
               <x>60</x>
               <y>35</y>
-              <width>147</width>
+              <width>190</width>
               <height>28</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
@@ -357,8 +349,8 @@ else:
               <name>Label Template_4</name>
               <text>Rate</text>
               <y>40</y>
-              <width>40</width>
-              <height>17</height>
+              <width>30</width>
+              <height>16</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -480,7 +472,7 @@ else:
             <name>Group</name>
             <x>28</x>
             <y>203</y>
-            <width>210</width>
+            <width>220</width>
             <height>114</height>
             <style>3</style>
             <transparent>true</transparent>
@@ -635,6 +627,70 @@ $(pv_value)
 Limits: [0.014-0.039]</tooltip>
               <maximum>1000.0</maximum>
               <limits_from_pv>false</limits_from_pv>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>18</x>
+            <y>333</y>
+            <width>220</width>
+            <height>70</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_9</name>
+              <pv_name>$(DEVICE):$(CAM):MaxSizeX_RBV</pv_name>
+              <x>90</x>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_10</name>
+              <pv_name>$(DEVICE):$(CAM):MaxSizeY_RBV</pv_name>
+              <x>160</x>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_4</name>
+              <text>Sensor Size</text>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_11</name>
+              <pv_name>$(DEVICE):$(CAM):ArraySizeX_RBV</pv_name>
+              <x>90</x>
+              <y>40</y>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_12</name>
+              <pv_name>$(DEVICE):$(CAM):ArraySizeY_RBV</pv_name>
+              <x>160</x>
+              <y>40</y>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_5</name>
+              <text>Image Size</text>
+              <y>40</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
             </widget>
           </widget>
         </children>
@@ -853,34 +909,14 @@ else:
             <height>125</height>
             <style>3</style>
             <transparent>true</transparent>
-            <widget type="led" version="2.0.0">
-              <name>FolderExist</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
-              <x>230</x>
-              <y>90</y>
-              <width>25</width>
-              <height>25</height>
-              <off_color>
-                <color name="STOP" red="255" green="0" blue="0">
-                </color>
-              </off_color>
-            </widget>
-            <widget type="textupdate" version="2.0.0">
-              <name>Text Update</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
-              <y>80</y>
-              <width>220</width>
-              <height>45</height>
-              <format>6</format>
-              <vertical_alignment>1</vertical_alignment>
-            </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_5</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+              <pv_name>loc://save_folder("/nfs/data/")</pv_name>
               <y>20</y>
-              <width>255</width>
-              <height>50</height>
+              <width>251</width>
+              <height>48</height>
               <format>6</format>
+              <vertical_alignment>0</vertical_alignment>
               <wrap_words>true</wrap_words>
               <multi_line>true</multi_line>
             </widget>
@@ -892,6 +928,16 @@ else:
                 <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
                 </font>
               </font>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+              <x>1</x>
+              <y>78</y>
+              <width>220</width>
+              <height>40</height>
+              <format>6</format>
+              <vertical_alignment>1</vertical_alignment>
             </widget>
           </widget>
           <widget type="action_button" version="3.0.0">
@@ -905,16 +951,16 @@ else:
             </actions>
             <pv_name>loc://folder_created(0)</pv_name>
             <text>Create Folder</text>
-            <x>98</x>
+            <x>108</x>
             <y>153</y>
-            <width>160</width>
+            <width>150</width>
             <font>
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
             <scripts>
               <script file="Scripts/MakeFolder.py">
-                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+                <pv_name trigger="false">loc://save_folder</pv_name>
                 <pv_name>loc://folder_created</pv_name>
                 <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
               </script>
@@ -933,14 +979,14 @@ else:
             <text>Update</text>
             <x>8</x>
             <y>153</y>
-            <width>80</width>
+            <width>90</width>
             <font>
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
             <scripts>
               <script file="Scripts/FolderUpdate.py">
-                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+                <pv_name trigger="false">loc://save_folder</pv_name>
                 <pv_name>loc://folder_update</pv_name>
               </script>
             </scripts>
@@ -1038,6 +1084,18 @@ else:
               </scripts>
             </widget>
           </widget>
+          <widget type="led" version="2.0.0">
+            <name>FolderExist</name>
+            <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+            <x>238</x>
+            <y>103</y>
+            <width>25</width>
+            <height>25</height>
+            <off_color>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </off_color>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -1086,23 +1144,7 @@ else:
             <horizontal_alignment>1</horizontal_alignment>
             <vertical_alignment>1</vertical_alignment>
             <scripts>
-              <script file="EmbeddedPy">
-                <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-import math;
-clight=299792458;
-Bang=14*(math.pi)/180; #radians
-InputVal=PVUtil.getDouble(pvs[0]);
-Bm=1e-4*(55.6+39.5*abs(InputVal)+0.056*InputVal**2-2.78e-4*abs(InputVal)**3);
-Lm=0.26748-4.5e-6*abs(InputVal)-5.7e-8*abs(InputVal)**2;
-Brad=abs(Lm/Bang);
-eGeV=(clight/1e9)*Bm*Brad;
-eMeV=eGeV*1000;
-mytext="Energy: "+str(round(InputVal,1))+" MeV"; #
-#mytext=str(Bang);
-widget.setPropertyValue("text", mytext);
-]]></text>
+              <script file="Scripts/LiveEnergy.py">
                 <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
               </script>
             </scripts>
@@ -1227,7 +1269,7 @@ widget.setPropertyValue("text", mytext);
     <name>Label_1</name>
     <text>Laser Shutter</text>
     <x>602</x>
-    <y>560</y>
+    <y>561</y>
     <width>120</width>
     <height>30</height>
     <font>
@@ -1239,7 +1281,7 @@ widget.setPropertyValue("text", mytext);
   </widget>
   <widget type="scaledslider" version="2.0.0">
     <name>Scaled Slider</name>
-    <pv_name>loc://max_cmap(4095)</pv_name>
+    <pv_name>loc://max_cmap(1000)</pv_name>
     <x>430</x>
     <y>555</y>
     <width>150</width>
