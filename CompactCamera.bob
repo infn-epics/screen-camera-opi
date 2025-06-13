@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-13 13:43:06 by riccardo-->
+<!--Saved on 2025-06-13 14:58:00 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -160,7 +160,6 @@ else:
               <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
               <x>80</x>
               <width>163</width>
-              <height>28</height>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -186,6 +185,11 @@ else:
                   <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>1</value>
+                </action>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
+                  <value>0</value>
                 </action>
                 <action type="write_pv">
                   <description>WritePV</description>
@@ -250,8 +254,7 @@ else:
               <pv_name>$(DEVICE):$(CAM):ImageMode</pv_name>
               <x>80</x>
               <y>30</y>
-              <width>165</width>
-              <height>32</height>
+              <width>130</width>
               <foreground_color>
                 <color name="IO Foreground" red="0" green="0" blue="0">
                 </color>
@@ -262,6 +265,18 @@ else:
               </background_color>
               <actions>
               </actions>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED_1</name>
+              <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+              <x>220</x>
+              <y>30</y>
+              <width>30</width>
+              <height>30</height>
+              <off_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </off_color>
             </widget>
           </widget>
           <widget type="group" version="3.0.0">
