@@ -49,7 +49,9 @@ for ioc in iocs:
                 cam_name = cam.get("name", "")
                 if cam_name:
                     #results.add((cam_name, ioc_name))
-                    device_list.append(cam_name+" ("+ioc_name+")")
+                    out_str=cam_name+" ("+ioc_name+")"
+                    device_list.append(out_str)
+                    print("Found: "+out_str)
 
 # Sort results by camera name
 #results.sort(key=lambda x: x[0])
