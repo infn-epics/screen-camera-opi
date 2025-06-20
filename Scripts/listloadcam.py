@@ -11,7 +11,8 @@ import os
 display_model =  widget.getDisplayModel()
 display_path = display_model.getUserData(display_model.USER_DATA_INPUT_FILE)
 camdir=os.path.dirname(display_path)
-maindir=os.path.abspath(os.path.join(camdir,'..', '..', '..'))
+#print(camdir)
+maindir=os.path.abspath(os.path.join(camdir,'..', '..'))
 #maindir=os.path.dirname(opidir)
 yaml_file=maindir+"/deploy/values.yaml"
 #yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"
