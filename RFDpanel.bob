@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-19 17:39:05 by riccardo-->
+<!--Saved on 2025-06-20 10:31:20 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>670</width>
-  <height>455</height>
+  <width>660</width>
+  <height>450</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -91,9 +91,8 @@
     <name>Text Update</name>
     <pv_name>loc://rfd_power(0)</pv_name>
     <x>605</x>
-    <y>240</y>
-    <width>55</width>
-    <height>30</height>
+    <y>60</y>
+    <width>50</width>
     <background_color>
       <color name="Header_ForeGround" red="255" green="255" blue="255">
       </color>
@@ -119,9 +118,8 @@ pvs[1].write(power_MW);
     <name>Text Update_1</name>
     <pv_name>loc://rfd_phase(0)</pv_name>
     <x>605</x>
-    <y>279</y>
-    <width>55</width>
-    <height>30</height>
+    <y>80</y>
+    <width>50</width>
     <background_color>
       <color name="Header_ForeGround" red="255" green="255" blue="255">
       </color>
@@ -217,6 +215,7 @@ pvs[1].write(amp_avg);
     <show_units>false</show_units>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
   </widget>
   <widget type="spinner" version="2.0.0">
     <name>Spinner</name>
@@ -249,6 +248,7 @@ pvs[1].write(amp_avg);
     <x>520</x>
     <y>381</y>
     <width>60</width>
+    <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_1</name>
@@ -306,7 +306,7 @@ pvs[1].write(amp_avg);
         <value>0</value>
       </action>
     </actions>
-    <text>STOP</text>
+    <text>STOP MOT</text>
     <x>520</x>
     <y>320</y>
     <width>138</width>
@@ -315,6 +315,10 @@ pvs[1].write(amp_avg);
       <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
       </font>
     </font>
+    <foreground_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </foreground_color>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="led" version="2.0.0">
@@ -392,6 +396,7 @@ pvs[1].write(amp_avg);
     <show_units>false</show_units>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
   </widget>
   <widget type="spinner" version="2.0.0">
     <name>Spinner_1</name>
@@ -472,9 +477,8 @@ pvs[1].write(amp_avg);
     <name>Label_9</name>
     <text>Power (MW)</text>
     <x>515</x>
-    <y>240</y>
+    <y>60</y>
     <width>90</width>
-    <height>30</height>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
@@ -486,9 +490,8 @@ pvs[1].write(amp_avg);
     <name>Label_10</name>
     <text>Phase (deg)</text>
     <x>515</x>
-    <y>279</y>
+    <y>80</y>
     <width>90</width>
-    <height>30</height>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
@@ -506,5 +509,41 @@ pvs[1].write(amp_avg);
       <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
       </font>
     </font>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Action Button_5</name>
+    <x>520</x>
+    <y>260</y>
+    <width>138</width>
+    <height>50</height>
+    <off_label>Switch OFF</off_label>
+    <on_label>Switch ON</on_label>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <actions execute_as_one="true">
+    </actions>
+    <rules>
+      <rule name="enabled" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>SPARC:TML:RFDATT01:MSTA.BD</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+    <show_confirm_dialog>false</show_confirm_dialog>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_6</name>
+    <x>520</x>
+    <y>110</y>
+    <width>138</width>
+    <height>140</height>
+    <square>true</square>
   </widget>
 </display>
