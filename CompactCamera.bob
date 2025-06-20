@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-17 16:40:07 by riccardo-->
+<!--Saved on 2025-06-20 15:04:56 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -118,9 +118,9 @@ else:
               <name>Stop</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>0</value>
-                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Stop</text>
@@ -180,19 +180,19 @@ else:
               <name>Start Button_1</name>
               <actions execute_as_one="true">
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>1</value>
-                  <description>WritePV</description>
                 </action>
                 <action type="write_pv">
+                  <description>Write PV</description>
                   <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
                   <value>0</value>
-                  <description>Write PV</description>
                 </action>
                 <action type="write_pv">
+                  <description>WritePV</description>
                   <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>1</value>
-                  <description>WritePV</description>
                 </action>
               </actions>
               <text>Start</text>
@@ -945,6 +945,7 @@ else:
             <name>Action Button Template_2</name>
             <actions>
               <action type="open_display">
+                <description>Open Display</description>
                 <file>genicam/ADAravis.bob</file>
                 <macros>
                   <P>$(DEVICE):$(CAM):</P>
@@ -952,7 +953,6 @@ else:
                   <C>$(HW)</C>
                 </macros>
                 <target>window</target>
-                <description>Open Display</description>
               </action>
             </actions>
             <text>Full Control (ADAravis)</text>
@@ -974,9 +974,9 @@ else:
             <name>Action Button Template_8</name>
             <actions>
               <action type="open_display">
+                <description>Open Matlab Measurement Panel</description>
                 <file>MeasPanel.bob</file>
                 <target>window</target>
-                <description>Open Matlab Measurement Panel</description>
               </action>
             </actions>
             <text>Measurement Panel</text>
@@ -993,6 +993,22 @@ else:
               </color>
             </foreground_color>
             <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_3</name>
+            <pv_name>$(DEVICE):$(CAM):GC_ReverseX</pv_name>
+            <label>ReverseX</label>
+            <x>18</x>
+            <y>193</y>
+            <width>90</width>
+          </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_4</name>
+            <pv_name>$(DEVICE):$(CAM):GC_ReverseY</pv_name>
+            <label>ReverseY</label>
+            <x>18</x>
+            <y>213</y>
+            <width>90</width>
           </widget>
         </children>
       </tab>
@@ -1042,9 +1058,9 @@ else:
             <name>CreateFolder</name>
             <actions>
               <action type="write_pv">
+                <description>Write PV</description>
                 <pv_name>loc://folder_created</pv_name>
                 <value>1</value>
-                <description>Write PV</description>
               </action>
             </actions>
             <pv_name>loc://folder_created(0)</pv_name>
@@ -1068,9 +1084,9 @@ else:
             <name>UpdateFolder</name>
             <actions>
               <action type="write_pv">
+                <description>Write PV</description>
                 <pv_name>loc://folder_update</pv_name>
                 <value>1</value>
-                <description>Write PV</description>
               </action>
             </actions>
             <pv_name>loc://folder_update(0)</pv_name>
@@ -1154,9 +1170,9 @@ else:
               <name>SaveButton</name>
               <actions>
                 <action type="write_pv">
+                  <description>Write PV</description>
                   <pv_name>loc://SaveButton</pv_name>
                   <value>1</value>
-                  <description>Write PV</description>
                 </action>
               </actions>
               <pv_name>loc://SaveButton(0)</pv_name>
