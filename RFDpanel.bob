@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-20 10:31:20 by riccardo-->
+<!--Saved on 2025-06-25 14:38:21 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>660</width>
@@ -27,6 +27,7 @@
     <y>31</y>
     <width>510</width>
     <height>340</height>
+    <show_grid>true</show_grid>
     <start>5 minute</start>
     <y_axes>
       <y_axis>
@@ -35,7 +36,7 @@
         <log_scale>false</log_scale>
         <minimum>0.0</minimum>
         <maximum>100.0</maximum>
-        <show_grid>true</show_grid>
+        <show_grid>false</show_grid>
         <visible>true</visible>
         <color>
           <color name="Text" red="0" green="0" blue="0">
@@ -90,8 +91,8 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
     <pv_name>loc://rfd_power(0)</pv_name>
-    <x>605</x>
-    <y>60</y>
+    <x>610</x>
+    <y>31</y>
     <width>50</width>
     <background_color>
       <color name="Header_ForeGround" red="255" green="255" blue="255">
@@ -117,8 +118,8 @@ pvs[1].write(power_MW);
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
     <pv_name>loc://rfd_phase(0)</pv_name>
-    <x>605</x>
-    <y>80</y>
+    <x>610</x>
+    <y>51</y>
     <width>50</width>
     <background_color>
       <color name="Header_ForeGround" red="255" green="255" blue="255">
@@ -144,7 +145,7 @@ pvs[1].write(amp_avg);
     <name>LED</name>
     <pv_name>SPARC:TML:RFDATT01:MSTA.BD</pv_name>
     <x>102</x>
-    <y>383</y>
+    <y>380</y>
     <width>25</width>
     <height>25</height>
   </widget>
@@ -152,7 +153,7 @@ pvs[1].write(amp_avg);
     <name>Label_1</name>
     <text>LSN</text>
     <x>130</x>
-    <y>379</y>
+    <y>380</y>
     <width>40</width>
     <height>30</height>
     <font>
@@ -166,7 +167,7 @@ pvs[1].write(amp_avg);
     <name>LED_1</name>
     <pv_name>SPARC:TML:RFDATT01:MSTA.B2</pv_name>
     <x>170</x>
-    <y>383</y>
+    <y>380</y>
     <width>25</width>
     <height>25</height>
   </widget>
@@ -174,7 +175,7 @@ pvs[1].write(amp_avg);
     <name>Label_2</name>
     <text>LSP</text>
     <x>198</x>
-    <y>379</y>
+    <y>380</y>
     <width>40</width>
     <height>30</height>
     <font>
@@ -187,7 +188,7 @@ pvs[1].write(amp_avg);
   <widget type="label" version="2.0.0">
     <name>Label_3</name>
     <text>RFDATT01</text>
-    <y>379</y>
+    <y>380</y>
     <height>30</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -199,7 +200,7 @@ pvs[1].write(amp_avg);
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
     <pv_name>SPARC:TML:RFDATT01:RBV</pv_name>
-    <x>350</x>
+    <x>419</x>
     <y>380</y>
     <width>90</width>
     <height>30</height>
@@ -220,7 +221,7 @@ pvs[1].write(amp_avg);
   <widget type="spinner" version="2.0.0">
     <name>Spinner</name>
     <pv_name>SPARC:TML:RFDATT01:VAL_SP</pv_name>
-    <x>240</x>
+    <x>309</x>
     <y>380</y>
     <height>30</height>
     <horizontal_alignment>1</horizontal_alignment>
@@ -234,54 +235,54 @@ pvs[1].write(amp_avg);
     <name>Action Button</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDATT01:ACT</pv_name>
         <value>HOME</value>
+        <description>Write PV</description>
       </action>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
         <value>1</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>HOME</text>
-    <x>520</x>
-    <y>381</y>
-    <width>60</width>
+    <x>593</x>
+    <y>380</y>
+    <width>65</width>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_1</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDATT01:ACT</pv_name>
         <value>MOVE REL</value>
+        <description>Write PV</description>
       </action>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
         <value>1</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>MOVE</text>
-    <x>450</x>
-    <y>381</y>
-    <width>60</width>
+    <x>520</x>
+    <y>380</y>
+    <width>65</width>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_2</name>
     <pv_name>SPARC:TML:RFDATT01:MSTA.BA</pv_name>
-    <x>590</x>
-    <y>384</y>
+    <x>237</x>
+    <y>380</y>
     <width>25</width>
     <height>25</height>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_4</name>
     <text>RUN</text>
-    <x>618</x>
+    <x>265</x>
     <y>380</y>
     <width>40</width>
     <height>30</height>
@@ -296,14 +297,14 @@ pvs[1].write(amp_avg);
     <name>Action Button_2</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
         <value>0</value>
+        <description>Write PV</description>
       </action>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>0</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>STOP MOT</text>
@@ -325,7 +326,7 @@ pvs[1].write(amp_avg);
     <name>LED_3</name>
     <pv_name>SPARC:TML:RFDPHS01:MSTA.BD</pv_name>
     <x>102</x>
-    <y>418</y>
+    <y>416</y>
     <width>25</width>
     <height>25</height>
   </widget>
@@ -333,7 +334,7 @@ pvs[1].write(amp_avg);
     <name>Label_5</name>
     <text>LSN</text>
     <x>130</x>
-    <y>414</y>
+    <y>416</y>
     <width>40</width>
     <height>30</height>
     <font>
@@ -347,7 +348,7 @@ pvs[1].write(amp_avg);
     <name>LED_4</name>
     <pv_name>SPARC:TML:RFDPHS01:MSTA.B2</pv_name>
     <x>170</x>
-    <y>418</y>
+    <y>416</y>
     <width>25</width>
     <height>25</height>
   </widget>
@@ -355,7 +356,7 @@ pvs[1].write(amp_avg);
     <name>Label_6</name>
     <text>LSP</text>
     <x>198</x>
-    <y>414</y>
+    <y>416</y>
     <width>40</width>
     <height>30</height>
     <font>
@@ -368,7 +369,7 @@ pvs[1].write(amp_avg);
   <widget type="label" version="2.0.0">
     <name>Label_7</name>
     <text>RFDPHS01</text>
-    <y>414</y>
+    <y>416</y>
     <height>30</height>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -380,8 +381,8 @@ pvs[1].write(amp_avg);
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_3</name>
     <pv_name>SPARC:TML:RFDPHS01:RBV</pv_name>
-    <x>350</x>
-    <y>415</y>
+    <x>419</x>
+    <y>416</y>
     <width>90</width>
     <height>30</height>
     <font>
@@ -401,8 +402,8 @@ pvs[1].write(amp_avg);
   <widget type="spinner" version="2.0.0">
     <name>Spinner_1</name>
     <pv_name>SPARC:TML:RFDPHS01:VAL_SP</pv_name>
-    <x>240</x>
-    <y>415</y>
+    <x>309</x>
+    <y>416</y>
     <height>30</height>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
@@ -415,55 +416,55 @@ pvs[1].write(amp_avg);
     <name>Action Button_3</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDPHS01:ACT</pv_name>
         <value>HOME</value>
+        <description>Write PV</description>
       </action>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>1</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>HOME</text>
-    <x>520</x>
+    <x>593</x>
     <y>416</y>
-    <width>60</width>
+    <width>65</width>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button_4</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDPHS01:ACT</pv_name>
         <value>MOVE REL</value>
+        <description>Write PV</description>
       </action>
       <action type="write_pv">
-        <description>Write PV</description>
         <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>1</value>
+        <description>Write PV</description>
       </action>
     </actions>
     <text>MOVE</text>
-    <x>450</x>
+    <x>520</x>
     <y>416</y>
-    <width>60</width>
+    <width>65</width>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_5</name>
     <pv_name>SPARC:TML:RFDPHS01:MSTA.BA</pv_name>
-    <x>590</x>
-    <y>419</y>
+    <x>237</x>
+    <y>416</y>
     <width>25</width>
     <height>25</height>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_8</name>
     <text>RUN</text>
-    <x>618</x>
-    <y>415</y>
+    <x>265</x>
+    <y>416</y>
     <width>40</width>
     <height>30</height>
     <font>
@@ -476,8 +477,8 @@ pvs[1].write(amp_avg);
   <widget type="label" version="2.0.0">
     <name>Label_9</name>
     <text>Power (MW)</text>
-    <x>515</x>
-    <y>60</y>
+    <x>520</x>
+    <y>31</y>
     <width>90</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -489,8 +490,8 @@ pvs[1].write(amp_avg);
   <widget type="label" version="2.0.0">
     <name>Label_10</name>
     <text>Phase (deg)</text>
-    <x>515</x>
-    <y>80</y>
+    <x>520</x>
+    <y>51</y>
     <width>90</width>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
@@ -541,9 +542,36 @@ pvs[1].write(amp_avg);
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
     <x>520</x>
-    <y>110</y>
+    <y>170</y>
     <width>138</width>
-    <height>140</height>
+    <height>80</height>
     <square>true</square>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>SPARC:LINAC:VAC:RFDSIP01:PRES_RB</pv_name>
+    <x>520</x>
+    <y>120</y>
+    <width>138</width>
+    <height>40</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <format>2</format>
+    <precision>2</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>RFD SIP (mbar)</text>
+    <x>520</x>
+    <y>90</y>
+    <width>140</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>
