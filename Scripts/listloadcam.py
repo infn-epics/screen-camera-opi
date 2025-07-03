@@ -44,7 +44,7 @@ for ioc in iocs:
     devtype = ioc.get("devtype", "")
     #print("Checking IOC:", ioc_name, "iocprefix:", iocprefix, "devtype:", devtype)    
     if iocprefix and iocprefix.endswith(":CAM") and devtype == "camera":
-        cameras = ioc.get("cameras", [])
+        cameras = ioc.get("devices", [])
         if cameras:
             for cam in cameras:
                 cam_name = cam.get("name", "")
