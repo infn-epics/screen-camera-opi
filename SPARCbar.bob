@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-26 17:01:57 by riccardo-->
+<!--Saved on 2025-07-03 14:02:39 by riccardo-->
 <display version="2.0.0">
   <name>SPARCbar</name>
   <height>400</height>
@@ -136,6 +136,7 @@
                 <macros>
                   <DEVICE>SPARC:CAM</DEVICE>
                   <CAM>NULL</CAM>
+                  <DEVTYPE>camera</DEVTYPE>
                 </macros>
                 <target>window</target>
               </action>
@@ -256,7 +257,7 @@
     <y>31</y>
     <width>790</width>
     <height>359</height>
-    <active_tab>3</active_tab>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="picture" version="2.0.0">
     <name>Picture_3</name>

@@ -1,6 +1,4 @@
 #By default, Phoebus uses Jython for scripting (accessible from the Script or Python panels).
-#Jython is a Java-based Python interpreter, and it does not support C extensions—this includes libraries like PyYAML, which are implemented in C.
-#You cannot directly import yaml in Phoebus’s Jython scripting environment because PyYAML relies on C extensions.
 #To use the YAML functionality in Phoebus --> use Java’s SnakeYAML in Jython
 from org.yaml.snakeyaml import Yaml
 from java.io import FileReader, BufferedWriter, FileWriter
@@ -15,7 +13,6 @@ camdir=os.path.dirname(display_path)
 maindir=os.path.abspath(os.path.join(camdir,'..', '..'))
 #maindir=os.path.dirname(opidir)
 yaml_file=maindir+"/deploy/values.yaml"
-#yaml_file=maindir+"/epik8-sparc/deploy/values.yaml"
 print("Loading file '%s'." % yaml_file)
 
 # Load YAML file using SnakeYAML
@@ -33,17 +30,18 @@ iocs = epics_config.get("iocs")
 if iocs is None:
     print("No 'iocs' section found.")
     exit()
-#print("Number of IOCs found:", len(iocs))
 
 # Find cameras under IOCs with iocprefix ":CAM" and devtype "camera"
-#results = ArrayList()
 device_list=[]
 for ioc in iocs:
     ioc_name = ioc.get("name", "")
     iocprefix = ioc.get("iocprefix", "")
     devtype = ioc.get("devtype", "")
+    #get the widget macros
+    ioc_prefname=widget.getEffectiveMacros().getValue("DEVICE")
+    ioc_devtype=widget.getEffectiveMacros().getValue("DEVTYPE")
     #print("Checking IOC:", ioc_name, "iocprefix:", iocprefix, "devtype:", devtype)    
-    if iocprefix and iocprefix.endswith(":CAM") and devtype == "camera":
+    if iocprefix and iocprefix.endswith(ioc_prefname) and devtype == ioc_devtype:
         cameras = ioc.get("devices", [])
         if cameras:
             for cam in cameras:
@@ -55,11 +53,12 @@ for ioc in iocs:
                     print("Found: "+out_str)
 
 # Sort results by camera name
-#results.sort(key=lambda x: x[0])
 device_list.sort()
+print("Total devices found: "+str(len(device_list)))
 
-####################################
-#put the list in the cam menu box
+#####################################
+# put the list in the cam menu box ##
+#####################################
 combo = ScriptUtil.findWidgetByName(widget,"CamMenu")
 combo.setItems(device_list)
 if len(device_list): #remove the first item (pv initialization)
