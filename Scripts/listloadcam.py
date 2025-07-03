@@ -38,10 +38,10 @@ for ioc in iocs:
     iocprefix = ioc.get("iocprefix", "")
     devtype = ioc.get("devtype", "")
     #get the widget macros
-    ioc_prefname=widget.getEffectiveMacros().getValue("DEVICE")
-    ioc_devtype=widget.getEffectiveMacros().getValue("DEVTYPE")
-    #print("Checking IOC:", ioc_name, "iocprefix:", iocprefix, "devtype:", devtype)    
-    if iocprefix and iocprefix.endswith(ioc_prefname) and devtype == ioc_devtype:
+    #ioc_prefname=widget.getEffectiveMacros().getValue("DEVICE")
+    #ioc_devtype=widget.getEffectiveMacros().getValue("DEVTYPE")  
+    #if iocprefix and iocprefix.endswith(ioc_prefname) and devtype == ioc_devtype:
+    if iocprefix and iocprefix.endswith(":CAM") and devtype == "camera":
         cameras = ioc.get("devices", [])
         if cameras:
             for cam in cameras:
