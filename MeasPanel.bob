@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-20 16:56:21 by riccardo-->
+<!--Saved on 2025-07-04 09:36:54 by riccardo-->
 <display version="2.0.0">
   <name>MeasPanel</name>
   <width>240</width>
-  <height>240</height>
+  <height>280</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -29,7 +29,7 @@
     <actions>
       <action type="command">
         <description>Run Matlab Script</description>
-        <command>sh ../../matlab_sparcroutines/Scripts/uiSaveWP.sh</command>
+        <command>matlab -nodesktop -nosplash -r "SaveWorkingPoint(); exit;"</command>
       </action>
     </actions>
     <text>Save Working Point</text>
@@ -54,9 +54,9 @@
         <command>sh ../../matlab_sparcroutines/Scripts/uiDevScan.sh</command>
       </action>
     </actions>
-    <text>MATLAB Device Scan</text>
+    <text>Device Scan</text>
     <x>10</x>
-    <y>80</y>
+    <y>120</y>
     <width>220</width>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -76,9 +76,9 @@
         <command>sh ../../matlab_sparcroutines/Scripts/uiLiveAnalysis.sh</command>
       </action>
     </actions>
-    <text>MATLAB Live Analysis</text>
+    <text>Live Analysis</text>
     <x>10</x>
-    <y>120</y>
+    <y>160</y>
     <width>220</width>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -98,9 +98,9 @@
         <command>sh ../../matlab_sparcroutines/Scripts/uiPlasmaTiming.sh</command>
       </action>
     </actions>
-    <text>MATLAB Plasma Timing</text>
+    <text>Plasma Timing</text>
     <x>10</x>
-    <y>160</y>
+    <y>200</y>
     <width>220</width>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -117,12 +117,34 @@
     <actions>
       <action type="command">
         <description>Run Matlab Script</description>
-        <command>sh ../../matlab_sparcroutines/Scripts/uiSetFlagsh</command>
+        <command>sh ../../matlab_sparcroutines/Scripts/uiSetFlag.sh</command>
       </action>
     </actions>
-    <text>MATLAB Set Flag</text>
+    <text>Set Flag</text>
     <x>10</x>
-    <y>200</y>
+    <y>240</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_11</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>matlab -nodesktop -nosplash -r "LoadStatus(); exit;"</command>
+      </action>
+    </actions>
+    <text>Load Working Point</text>
+    <x>10</x>
+    <y>80</y>
     <width>220</width>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
