@@ -41,7 +41,7 @@ for ioc in iocs:
     #ioc_prefname=widget.getEffectiveMacros().getValue("DEVICE")
     #ioc_devtype=widget.getEffectiveMacros().getValue("DEVTYPE")  
     #if iocprefix and iocprefix.endswith(ioc_prefname) and devtype == ioc_devtype:
-    if iocprefix and iocprefix.endswith(":CAM") and devtype == "camera":
+    if iocprefix and iocprefix.endswith(":CAM"):
         cameras = ioc.get("devices", [])
         if cameras:
             for cam in cameras:
