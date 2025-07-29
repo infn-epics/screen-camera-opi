@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Run the script as: sh MATLABinstall.sh
+#cd to the script folder and run as: sh matlab_postinstall.sh
 #read -p "Path of libmwlmgrimpl.so (e.g. /home/user/test/libmwlmgrimpl.so): " libfilepath
 #read -p "MATLAB folder (e.g. /home/user/MATLAB/R2024a): " matfilepath
 #libfilepath=$(pwd)/libmwlmgrimpl.so
@@ -25,6 +25,9 @@ cp $startup_file $matuserpath/
 
 #add the nfs mount to the fstab
 sudo -E sh NFSmount.sh
+
+#update the the hosts file
+sudo -E sh hostsRedirect.sh
 
 #end of the script
 echo "Operation completed!"
