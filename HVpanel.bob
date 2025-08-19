@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-06-13 14:47:59 by riccardo-->
+<!--Saved on 2025-08-19 09:49:02 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
-  <width>420</width>
-  <height>300</height>
+  <width>430</width>
+  <height>310</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -87,7 +87,13 @@ else:
     <y>255</y>
     <width>138</width>
     <height>40</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
     <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
     <maximum>40.0</maximum>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -139,9 +145,9 @@ $(pv_value)</tooltip>
   <widget type="label" version="2.0.0">
     <name>Label_3</name>
     <text>Current (A): </text>
-    <x>2</x>
-    <y>230</y>
-    <width>138</width>
+    <x>290</x>
+    <y>31</y>
+    <width>128</width>
     <scripts>
       <script file="EmbeddedPy">
         <text><![CDATA[# Embedded python script
@@ -156,5 +162,18 @@ widget.setPropertyValue("text", mytext);
         <pv_name>SPARC:HV:ICP:AO0:VOLT_RB</pv_name>
       </script>
     </scripts>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Voltage (kV)</text>
+    <x>20</x>
+    <y>230</y>
+    <width>110</width>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
   </widget>
 </display>
