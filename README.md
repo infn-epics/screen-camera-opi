@@ -1,4 +1,4 @@
-#sparc-tools
+# sparc-tools
 
 To run phoebus from a Windows follow the followingsteps on the Win PC.
 The installers are located in smb://dante@192.168.197.157/sparcstorage/space/SPARCutils/Windows
