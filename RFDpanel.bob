@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-19 09:41:01 by riccardo-->
+<!--Saved on 2025-08-25 14:37:02 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>660</width>
@@ -513,6 +513,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Action Button_5</name>
+    <pv_name>loc://rfd_switch(0)</pv_name>
     <x>520</x>
     <y>260</y>
     <width>138</width>
@@ -536,14 +537,29 @@ pvs[1].write(amp_avg);
         <pv_name>SPARC:TML:RFDATT01:MSTA.BD</pv_name>
       </rule>
     </rules>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+butt_value=PVUtil.getDouble(pvs[0]);
+#POW (watchdog: goes off after 3s)
+pvs[1].write(butt_value);
+#DIR (to be checked if RFD_OFF is 0)
+pvs[2].write(butt_value);]]></text>
+        <pv_name>loc://rfd_switch</pv_name>
+        <pv_name>SPARC:DIAG:ICPDEF:DEFPOW_SP</pv_name>
+        <pv_name>SPARC:DIAG:ICPDEF:DEFDIR_SP</pv_name>
+      </script>
+    </scripts>
     <tooltip>$(actions)</tooltip>
     <show_confirm_dialog>false</show_confirm_dialog>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
+    <pv_name>SPARC:DIAG:ICPDEF:DEFDIR_RB</pv_name>
     <x>520</x>
     <y>170</y>
-    <width>138</width>
+    <width>105</width>
     <height>80</height>
     <square>true</square>
   </widget>
@@ -573,5 +589,14 @@ pvs[1].write(amp_avg);
     <height>30</height>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_8</name>
+    <pv_name>SPARC:DIAG:ICPDEF:DEFPOW_RB</pv_name>
+    <x>630</x>
+    <y>170</y>
+    <width>28</width>
+    <height>80</height>
+    <square>true</square>
   </widget>
 </display>
