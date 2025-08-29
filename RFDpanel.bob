@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-25 14:37:02 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>660</width>
@@ -513,7 +512,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Action Button_5</name>
-    <pv_name>loc://rfd_switch(0)</pv_name>
+    <pv_name>SPARC:DIAG:ICP:DEFDIR_SP</pv_name>
     <x>520</x>
     <y>260</y>
     <width>138</width>
@@ -542,13 +541,12 @@ pvs[1].write(amp_avg);
         <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 butt_value=PVUtil.getDouble(pvs[0]);
-#POW (watchdog: goes off after 3s)
-pvs[1].write(butt_value);
-#DIR (to be checked if RFD_OFF is 0)
-pvs[2].write(butt_value);]]></text>
-        <pv_name>loc://rfd_switch</pv_name>
-        <pv_name>SPARC:DIAG:ICPDEF:DEFPOW_SP</pv_name>
-        <pv_name>SPARC:DIAG:ICPDEF:DEFDIR_SP</pv_name>
+#POW: write always 1 (watchdog: goes off after 3s)
+pvs[1].write(1);
+#DIR: write 0 or 1 (to be checked if RFD_OFF is 0)
+#pvs[2].write(butt_value);]]></text>
+        <pv_name>SPARC:DIAG:ICP:DEFDIR_SP</pv_name>
+        <pv_name trigger="false">SPARC:DIAG:ICP:DEFPOW_SP</pv_name>
       </script>
     </scripts>
     <tooltip>$(actions)</tooltip>
@@ -556,7 +554,7 @@ pvs[2].write(butt_value);]]></text>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
-    <pv_name>SPARC:DIAG:ICPDEF:DEFDIR_RB</pv_name>
+    <pv_name>SPARC:DIAG:ICP:RDEFDIR_RB</pv_name>
     <x>520</x>
     <y>170</y>
     <width>105</width>
@@ -592,7 +590,7 @@ pvs[2].write(butt_value);]]></text>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_8</name>
-    <pv_name>SPARC:DIAG:ICPDEF:DEFPOW_RB</pv_name>
+    <pv_name>SPARC:DIAG:ICP:RDEFPOW_RB</pv_name>
     <x>630</x>
     <y>170</y>
     <width>28</width>
