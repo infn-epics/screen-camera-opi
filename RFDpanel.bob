@@ -142,7 +142,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
-    <pv_name>SPARC:TML:RFDATT01:MSTA.BD</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.BD</pv_name>
     <x>102</x>
     <y>380</y>
     <width>25</width>
@@ -164,7 +164,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_1</name>
-    <pv_name>SPARC:TML:RFDATT01:MSTA.B2</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.B2</pv_name>
     <x>170</x>
     <y>380</y>
     <width>25</width>
@@ -198,7 +198,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
-    <pv_name>SPARC:TML:RFDATT01:RBV</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:RBV</pv_name>
     <x>419</x>
     <y>380</y>
     <width>90</width>
@@ -219,7 +219,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="spinner" version="2.0.0">
     <name>Spinner</name>
-    <pv_name>SPARC:TML:RFDATT01:VAL_SP</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:VAL_SP</pv_name>
     <x>309</x>
     <y>380</y>
     <height>30</height>
@@ -235,12 +235,12 @@ pvs[1].write(amp_avg);
     <actions execute_as_one="true">
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDATT01:ACT</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACT</pv_name>
         <value>HOME</value>
       </action>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
         <value>1</value>
       </action>
     </actions>
@@ -255,12 +255,12 @@ pvs[1].write(amp_avg);
     <actions execute_as_one="true">
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDATT01:ACT</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACT</pv_name>
         <value>MOVE REL</value>
       </action>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
         <value>1</value>
       </action>
     </actions>
@@ -272,7 +272,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_2</name>
-    <pv_name>SPARC:TML:RFDATT01:MSTA.BA</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.BA</pv_name>
     <x>237</x>
     <y>380</y>
     <width>25</width>
@@ -297,12 +297,12 @@ pvs[1].write(amp_avg);
     <actions execute_as_one="true">
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDATT01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
         <value>0</value>
       </action>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>0</value>
       </action>
     </actions>
@@ -323,7 +323,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_3</name>
-    <pv_name>SPARC:TML:RFDPHS01:MSTA.BD</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.BD</pv_name>
     <x>102</x>
     <y>416</y>
     <width>25</width>
@@ -345,7 +345,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_4</name>
-    <pv_name>SPARC:TML:RFDPHS01:MSTA.B2</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.B2</pv_name>
     <x>170</x>
     <y>416</y>
     <width>25</width>
@@ -379,7 +379,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_3</name>
-    <pv_name>SPARC:TML:RFDPHS01:RBV</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:RBV</pv_name>
     <x>419</x>
     <y>416</y>
     <width>90</width>
@@ -400,7 +400,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="spinner" version="2.0.0">
     <name>Spinner_1</name>
-    <pv_name>SPARC:TML:RFDPHS01:VAL_SP</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:VAL_SP</pv_name>
     <x>309</x>
     <y>416</y>
     <height>30</height>
@@ -416,12 +416,12 @@ pvs[1].write(amp_avg);
     <actions execute_as_one="true">
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDPHS01:ACT</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACT</pv_name>
         <value>HOME</value>
       </action>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>1</value>
       </action>
     </actions>
@@ -436,12 +436,12 @@ pvs[1].write(amp_avg);
     <actions execute_as_one="true">
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDPHS01:ACT</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACT</pv_name>
         <value>MOVE REL</value>
       </action>
       <action type="write_pv">
         <description>Write PV</description>
-        <pv_name>SPARC:TML:RFDPHS01:ACTX_SP</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
         <value>1</value>
       </action>
     </actions>
@@ -453,7 +453,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_5</name>
-    <pv_name>SPARC:TML:RFDPHS01:MSTA.BA</pv_name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.BA</pv_name>
     <x>237</x>
     <y>416</y>
     <width>25</width>
@@ -512,7 +512,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Action Button_5</name>
-    <pv_name>SPARC:DIAG:ICP:DEFDIR_SP</pv_name>
+    <pv_name>SPARC:RFD:ICP:DEFDIR_SP</pv_name>
     <x>520</x>
     <y>260</y>
     <width>138</width>
@@ -533,20 +533,23 @@ pvs[1].write(amp_avg);
         <exp bool_exp="pv0==0">
           <value>false</value>
         </exp>
-        <pv_name>SPARC:TML:RFDATT01:MSTA.BD</pv_name>
+        <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.BD</pv_name>
       </rule>
     </rules>
     <scripts>
       <script file="EmbeddedPy">
         <text><![CDATA[# Embedded python script
+import time
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
 butt_value=PVUtil.getDouble(pvs[0]);
-#POW: write always 1 (watchdog: goes off after 3s)
-pvs[1].write(1);
-#DIR: write 0 or 1 (to be checked if RFD_OFF is 0)
-#pvs[2].write(butt_value);]]></text>
-        <pv_name>SPARC:DIAG:ICP:DEFDIR_SP</pv_name>
-        <pv_name trigger="false">SPARC:DIAG:ICP:DEFPOW_SP</pv_name>
+pvs[1].write(1)
+#wait before turning off
+time.sleep(2.0)
+pvs[1].write(0)
+]]></text>
+        <pv_name>SPARC:RFD:ICP:DEFDIR_RB</pv_name>
+        <pv_name trigger="false">SPARC:RFD:ICP:DEFPOW_SP</pv_name>
       </script>
     </scripts>
     <tooltip>$(actions)</tooltip>
@@ -554,7 +557,7 @@ pvs[1].write(1);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
-    <pv_name>SPARC:DIAG:ICP:RDEFDIR_RB</pv_name>
+    <pv_name>SPARC:RFD:ICP:RDEFDIR_RB</pv_name>
     <x>520</x>
     <y>170</y>
     <width>105</width>
@@ -590,7 +593,7 @@ pvs[1].write(1);
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_8</name>
-    <pv_name>SPARC:DIAG:ICP:RDEFPOW_RB</pv_name>
+    <pv_name>SPARC:RFD:ICP:DEFPOW_RB</pv_name>
     <x>630</x>
     <y>170</y>
     <width>28</width>

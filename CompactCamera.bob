@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-25 14:37:52 by riccardo-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -957,7 +956,7 @@ else:
             </actions>
             <text>Full Control (ADAravis)</text>
             <x>18</x>
-            <y>453</y>
+            <y>273</y>
             <width>220</width>
             <height>40</height>
             <font>
@@ -981,7 +980,7 @@ else:
             </actions>
             <text>Measurement Panel</text>
             <x>18</x>
-            <y>403</y>
+            <y>223</y>
             <width>220</width>
             <height>40</height>
             <font>
@@ -1006,23 +1005,23 @@ else:
             <name>Check Box_4</name>
             <pv_name>$(DEVICE):$(CAM):GC_ReverseY</pv_name>
             <label>ReverseY</label>
-            <x>18</x>
-            <y>213</y>
+            <x>138</x>
+            <y>193</y>
             <width>90</width>
           </widget>
           <widget type="bool_button" version="2.0.0">
             <name>Boolean Button_5</name>
-            <pv_name>SPARC:DIAG:ICPDEF:CAMLIGHT_SP</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_SP</pv_name>
             <x>18</x>
-            <y>353</y>
+            <y>383</y>
             <width>170</width>
             <height>40</height>
           </widget>
           <widget type="label" version="2.0.0">
             <name>Label_3</name>
-            <text>Camera lights</text>
+            <text>Camera features</text>
             <x>18</x>
-            <y>323</y>
+            <y>353</y>
             <width>220</width>
             <font>
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
@@ -1033,11 +1032,93 @@ else:
           </widget>
           <widget type="led" version="2.0.0">
             <name>LED_2</name>
-            <pv_name>SPARC:DIAG:ICPDEF:CAMLIGHT_RB</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_RB</pv_name>
             <x>198</x>
-            <y>353</y>
+            <y>383</y>
             <width>40</width>
             <height>40</height>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://camrst01</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://camrst01(0)</pv_name>
+            <text>LINAC CAM RESET</text>
+            <x>18</x>
+            <y>433</y>
+            <width>220</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+import time
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+butt_value=PVUtil.getDouble(pvs[0]);
+if butt_value>0:
+    pvs[1].write(1)
+    #wait before turning off
+    time.sleep(2.0)
+    pvs[1].write(0)
+else:
+    pass
+
+pvs[0].write(0)]]></text>
+                <pv_name>loc://camrst01</pv_name>
+                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST01_SP</pv_name>
+              </script>
+            </scripts>
+            <show_confirm_dialog>true</show_confirm_dialog>
+            <confirm_message>Confirm cameras RESET</confirm_message>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_1</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://camrst02</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://camrst02(0)</pv_name>
+            <text>COMB CAM RESET</text>
+            <x>18</x>
+            <y>473</y>
+            <width>220</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+import time
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+butt_value=PVUtil.getDouble(pvs[0]);
+if butt_value>0:
+    pvs[1].write(1)
+    #wait before turning off
+    time.sleep(2.0)
+    pvs[1].write(0)
+else:
+    pass
+
+pvs[0].write(0)]]></text>
+                <pv_name>loc://camrst02</pv_name>
+                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST02_SP</pv_name>
+              </script>
+            </scripts>
+            <show_confirm_dialog>true</show_confirm_dialog>
+            <confirm_message>Confirm cameras RESET</confirm_message>
           </widget>
         </children>
       </tab>
@@ -1265,7 +1346,7 @@ else:
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
-    <pv_name>SPARC:LASER:SHUTTER:DI0_RB</pv_name>
+    <pv_name>SPARC:SHT:ICP:RCATLAS01_RB</pv_name>
     <x>858</x>
     <y>555</y>
     <width>40</width>
@@ -1280,7 +1361,7 @@ else:
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button_6</name>
-    <pv_name>SPARC:LASER:SHUTTER:DO0</pv_name>
+    <pv_name>SPARC:SHT:ICP:CATLAS01_SP</pv_name>
     <x>690</x>
     <y>555</y>
     <width>160</width>

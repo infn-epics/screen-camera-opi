@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-19 09:49:02 by riccardo-->
 <display version="2.0.0">
   <name>Display</name>
   <width>430</width>
@@ -46,14 +45,10 @@ from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 boolean_value=PVUtil.getDouble(pvs[0])
 if boolean_value==0: 
 	pvs[1].write(0);
-	pvs[2].write(0);
-	pvs[3].write(0);
 else:
 	pvs[1].write(3.5);]]></text>
         <pv_name>loc://hv_on</pv_name>
         <pv_name trigger="false">SPARC:HV:ICP:AO1:VOLT</pv_name>
-        <pv_name trigger="false">SPARC:HV:ICP:AO0:VOLT</pv_name>
-        <pv_name trigger="false">loc://val_kV</pv_name>
       </script>
     </scripts>
   </widget>
