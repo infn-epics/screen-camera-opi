@@ -512,7 +512,7 @@ pvs[1].write(amp_avg);
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Action Button_5</name>
-    <pv_name>SPARC:RFD:ICP:DEFDIR_SP</pv_name>
+    <pv_name>SPARC:RFD:ICP:DEFDIR:RLY_SP</pv_name>
     <x>520</x>
     <y>260</y>
     <width>138</width>
@@ -548,8 +548,8 @@ pvs[1].write(1)
 time.sleep(2.0)
 pvs[1].write(0)
 ]]></text>
-        <pv_name>SPARC:RFD:ICP:DEFDIR_RB</pv_name>
-        <pv_name trigger="false">SPARC:RFD:ICP:DEFPOW_SP</pv_name>
+        <pv_name>SPARC:RFD:ICP:DEFDIR:RLY_RB</pv_name>
+        <pv_name trigger="false">SPARC:RFD:ICP:DEFPOW:RLY_SP</pv_name>
       </script>
     </scripts>
     <tooltip>$(actions)</tooltip>
@@ -557,7 +557,7 @@ pvs[1].write(0)
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_6</name>
-    <pv_name>SPARC:RFD:ICP:RDEFDIR_RB</pv_name>
+    <pv_name>SPARC:RFD:ICP:RDEFDIR:DI_RB</pv_name>
     <x>520</x>
     <y>170</y>
     <width>105</width>
@@ -593,7 +593,7 @@ pvs[1].write(0)
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_8</name>
-    <pv_name>SPARC:RFD:ICP:DEFPOW_RB</pv_name>
+    <pv_name>SPARC:RFD:ICP:DEFPOW:RLY_RB</pv_name>
     <x>630</x>
     <y>170</y>
     <width>28</width>

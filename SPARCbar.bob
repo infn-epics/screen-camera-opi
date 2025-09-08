@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-19 09:44:35 by riccardo-->
 <display version="2.0.0">
   <name>SPARCbar</name>
   <height>400</height>
@@ -252,10 +251,16 @@
           </widget>
         </children>
       </tab>
+      <tab>
+        <name>Status</name>
+        <children>
+        </children>
+      </tab>
     </tabs>
     <y>31</y>
     <width>790</width>
     <height>359</height>
+    <active_tab>5</active_tab>
   </widget>
   <widget type="picture" version="2.0.0">
     <name>Picture_3</name>

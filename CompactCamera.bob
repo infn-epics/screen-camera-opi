@@ -603,7 +603,7 @@ Limits: [0.014-0.039]</tooltip>
             <name>Label_126</name>
             <text>Energy Value</text>
             <x>28</x>
-            <y>468</y>
+            <y>469</y>
             <width>210</width>
             <height>34</height>
             <font>
@@ -1011,7 +1011,7 @@ else:
           </widget>
           <widget type="bool_button" version="2.0.0">
             <name>Boolean Button_5</name>
-            <pv_name>SPARC:RFD:ICP:CAMLIGHT_SP</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT:RLY_SP</pv_name>
             <x>18</x>
             <y>383</y>
             <width>170</width>
@@ -1032,7 +1032,7 @@ else:
           </widget>
           <widget type="led" version="2.0.0">
             <name>LED_2</name>
-            <pv_name>SPARC:RFD:ICP:CAMLIGHT_RB</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT:RLY_RB</pv_name>
             <x>198</x>
             <y>383</y>
             <width>40</width>
@@ -1073,7 +1073,7 @@ else:
 
 pvs[0].write(0)]]></text>
                 <pv_name>loc://camrst01</pv_name>
-                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST01_SP</pv_name>
+                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST01:RLY_SP</pv_name>
               </script>
             </scripts>
             <show_confirm_dialog>true</show_confirm_dialog>
@@ -1114,7 +1114,7 @@ else:
 
 pvs[0].write(0)]]></text>
                 <pv_name>loc://camrst02</pv_name>
-                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST02_SP</pv_name>
+                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST02:RLY_SP</pv_name>
               </script>
             </scripts>
             <show_confirm_dialog>true</show_confirm_dialog>
@@ -1346,7 +1346,7 @@ pvs[0].write(0)]]></text>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
-    <pv_name>SPARC:SHT:ICP:RCATLAS01_RB</pv_name>
+    <pv_name>SPARC:SHT:ICP:RCATLAS01:DI_RB</pv_name>
     <x>858</x>
     <y>555</y>
     <width>40</width>
@@ -1361,7 +1361,7 @@ pvs[0].write(0)]]></text>
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button_6</name>
-    <pv_name>SPARC:SHT:ICP:CATLAS01_SP</pv_name>
+    <pv_name>SPARC:SHT:ICP:CATLAS01:DO_SP</pv_name>
     <x>690</x>
     <y>555</y>
     <width>160</width>
