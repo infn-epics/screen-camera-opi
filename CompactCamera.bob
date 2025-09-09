@@ -1011,7 +1011,7 @@ else:
           </widget>
           <widget type="bool_button" version="2.0.0">
             <name>Boolean Button_5</name>
-            <pv_name>SPARC:RFD:ICP:CAMLIGHT:RLY_SP</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_SP</pv_name>
             <x>18</x>
             <y>383</y>
             <width>170</width>
@@ -1032,7 +1032,7 @@ else:
           </widget>
           <widget type="led" version="2.0.0">
             <name>LED_2</name>
-            <pv_name>SPARC:RFD:ICP:CAMLIGHT:RLY_RB</pv_name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_RB</pv_name>
             <x>198</x>
             <y>383</y>
             <width>40</width>
@@ -1041,14 +1041,24 @@ else:
           <widget type="action_button" version="3.0.0">
             <name>Action Button</name>
             <actions>
-              <action type="write_pv">
-                <description>Write PV</description>
-                <pv_name>loc://camrst01</pv_name>
-                <value>1</value>
+              <action type="execute">
+                <description>Execute Script</description>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import time
+
+POWname = "SPARC:RFD:ICP:CAMRST01_SP"
+POWpv = PVUtil.createPV(POWname, 1000)
+
+#wait before turning off power
+POWpv.write(1)
+time.sleep(2.0)
+POWpv.write(0)]]></text>
+                </script>
               </action>
             </actions>
-            <pv_name>loc://camrst01(0)</pv_name>
-            <text>LINAC CAM RESET</text>
+            <text>CAM RESET (LINAC)</text>
             <x>18</x>
             <y>433</y>
             <width>220</width>
@@ -1056,40 +1066,30 @@ else:
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
-            <scripts>
-              <script file="EmbeddedPy">
-                <text><![CDATA[# Embedded python script
-import time
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-butt_value=PVUtil.getDouble(pvs[0]);
-if butt_value>0:
-    pvs[1].write(1)
-    #wait before turning off
-    time.sleep(2.0)
-    pvs[1].write(0)
-else:
-    pass
-
-pvs[0].write(0)]]></text>
-                <pv_name>loc://camrst01</pv_name>
-                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST01:RLY_SP</pv_name>
-              </script>
-            </scripts>
             <show_confirm_dialog>true</show_confirm_dialog>
             <confirm_message>Confirm cameras RESET</confirm_message>
           </widget>
           <widget type="action_button" version="3.0.0">
             <name>Action Button_1</name>
             <actions>
-              <action type="write_pv">
-                <description>Write PV</description>
-                <pv_name>loc://camrst02</pv_name>
-                <value>1</value>
+              <action type="execute">
+                <description>Execute Script</description>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import time
+
+POWname = "SPARC:RFD:ICP:CAMRST02_SP"
+POWpv = PVUtil.createPV(POWname, 1000)
+
+#wait before turning off power
+POWpv.write(1)
+time.sleep(2.0)
+POWpv.write(0)]]></text>
+                </script>
               </action>
             </actions>
-            <pv_name>loc://camrst02(0)</pv_name>
-            <text>COMB CAM RESET</text>
+            <text>CAM RESET (COMB)</text>
             <x>18</x>
             <y>473</y>
             <width>220</width>
@@ -1097,26 +1097,6 @@ pvs[0].write(0)]]></text>
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
-            <scripts>
-              <script file="EmbeddedPy">
-                <text><![CDATA[# Embedded python script
-import time
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-butt_value=PVUtil.getDouble(pvs[0]);
-if butt_value>0:
-    pvs[1].write(1)
-    #wait before turning off
-    time.sleep(2.0)
-    pvs[1].write(0)
-else:
-    pass
-
-pvs[0].write(0)]]></text>
-                <pv_name>loc://camrst02</pv_name>
-                <pv_name trigger="false">SPARC:RFD:ICP:CAMRST02:RLY_SP</pv_name>
-              </script>
-            </scripts>
             <show_confirm_dialog>true</show_confirm_dialog>
             <confirm_message>Confirm cameras RESET</confirm_message>
           </widget>
@@ -1346,7 +1326,7 @@ pvs[0].write(0)]]></text>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
-    <pv_name>SPARC:SHT:ICP:RCATLAS01:DI_RB</pv_name>
+    <pv_name>SPARC:SHT:ICP:RCATLAS01_RB</pv_name>
     <x>858</x>
     <y>555</y>
     <width>40</width>
@@ -1361,7 +1341,7 @@ pvs[0].write(0)]]></text>
   </widget>
   <widget type="bool_button" version="2.0.0">
     <name>Boolean Button_6</name>
-    <pv_name>SPARC:SHT:ICP:CATLAS01:DO_SP</pv_name>
+    <pv_name>SPARC:SHT:ICP:CATLAS01_SP</pv_name>
     <x>690</x>
     <y>555</y>
     <width>160</width>

@@ -23,7 +23,7 @@
   </widget>
   <widget type="meter" version="3.0.0">
     <name>Meter</name>
-    <pv_name>=4000*'SPARC:HV:ICP:AO0:VOLT_RB'</pv_name>
+    <pv_name>=4000*'SPARC:HV:ICP:PLAVOLT01_RB'</pv_name>
     <y>31</y>
     <width>420</width>
     <height>220</height>
@@ -48,13 +48,13 @@ if boolean_value==0:
 else:
 	pvs[1].write(3.5);]]></text>
         <pv_name>loc://hv_on</pv_name>
-        <pv_name trigger="false">SPARC:HV:ICP:AO1:VOLT</pv_name>
+        <pv_name trigger="false">SPARC:HV:ICP:PLASWT01_SP</pv_name>
       </script>
     </scripts>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED</name>
-    <pv_name>loc://hv_on</pv_name>
+    <pv_name>loc://hv_on(0)</pv_name>
     <x>377</x>
     <y>255</y>
     <width>40</width>
@@ -70,14 +70,14 @@ if kv_onoff>2.5 :
       pvs[1].write(1);
 else:
 	pvs[1].write(0);]]></text>
-        <pv_name>SPARC:HV:ICP:AO1:VOLT_RB</pv_name>
+        <pv_name>SPARC:HV:ICP:PLASWT01_RB</pv_name>
         <pv_name trigger="false">loc://hv_on</pv_name>
       </script>
     </scripts>
   </widget>
   <widget type="spinner" version="2.0.0">
     <name>Spinner</name>
-    <pv_name>loc://val_kV</pv_name>
+    <pv_name>loc://val_kV(0)</pv_name>
     <x>2</x>
     <y>255</y>
     <width>138</width>
@@ -100,7 +100,7 @@ else:
         <value>1</value>
       </action>
     </actions>
-    <pv_name>loc://apply_HV</pv_name>
+    <pv_name>loc://apply_HV(0)</pv_name>
     <text>Apply</text>
     <x>150</x>
     <y>255</y>
@@ -123,7 +123,7 @@ if boolean_value==0 or kv_value>max_kv:
 else:
 	pvs[1].write(myval)]]></text>
         <pv_name trigger="false">loc://val_kV</pv_name>
-        <pv_name trigger="false">SPARC:HV:ICP:AO0:VOLT</pv_name>
+        <pv_name trigger="false">SPARC:HV:ICP:PLAVOLT01_SP</pv_name>
         <pv_name>loc://apply_HV</pv_name>
       </script>
     </scripts>
