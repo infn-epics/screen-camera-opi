@@ -6,13 +6,21 @@ from java.util import ArrayList
 
 from org.csstudio.display.builder.runtime.script import ScriptUtil,PVUtil
 import os
-display_model =  widget.getDisplayModel()
-display_path = display_model.getUserData(display_model.USER_DATA_INPUT_FILE)
-camdir=os.path.dirname(display_path)
-#print(camdir)
-maindir=os.path.abspath(os.path.join(camdir,'..', '..'))
-#maindir=os.path.dirname(opidir)
-yaml_file=maindir+"/deploy/values.yaml"
+
+conffile = widget.getEffectiveMacros().getValue("CONFFILE")
+display_model = widget.getDisplayModel()
+display_path = os.path.dirname(display_model.getUserData(display_model.USER_DATA_INPUT_FILE))
+
+if conffile is None:
+    ScriptUtil.showMessageDialog(widget, "## Please set CONFFILE macro to a correct YAML configuration file")
+    exit()    
+    
+yaml_file = display_path + "/" + conffile    
+
+if not os.path.isfile(yaml_file):
+    ScriptUtil.showMessageDialog(widget, "## "+yaml_file+" does not  exists: please set CONFFILE macro to a correct YAML configuration file")
+    exit()    
+
 print("Loading file '%s'." % yaml_file)
 
 # Load YAML file using SnakeYAML
@@ -41,7 +49,7 @@ for ioc in iocs:
     #ioc_prefname=widget.getEffectiveMacros().getValue("DEVICE")
     #ioc_devtype=widget.getEffectiveMacros().getValue("DEVTYPE")  
     #if iocprefix and iocprefix.endswith(ioc_prefname) and devtype == ioc_devtype:
-    if iocprefix and iocprefix.endswith(":CAM"):
+    if iocprefix and "camera" in devtype :
         cameras = ioc.get("devices", [])
         if cameras:
             for cam in cameras:

@@ -16,7 +16,7 @@ if pv:
     device_list=combo.getItems()
 
     for device in device_list:
-        if old_cam in device and StopPrevAcq==True:
+        if old_cam is not None and old_cam in device and StopPrevAcq==True:
             #stop acquire
             pv00=PVUtil.createPV(mydev+":"+old_cam+":Acquire",100)
             pv00.setValue(0)
@@ -30,8 +30,8 @@ if pv:
     if len(vals) > 1: #skip if the ioc is not present (means the selection was NULL)
         cam_name=vals[0]
         #get the camera model (to fill the HW macro)
-        pv01=PVUtil.createPV(mydev+":"+cam_name+":Manufacturer_RBV",100)
-        pv02=PVUtil.createPV(mydev+":"+cam_name+":Model_RBV",100)
+        pv01=PVUtil.createPV(mydev+":"+cam_name+":Manufacturer_RBV",1000)
+        pv02=PVUtil.createPV(mydev+":"+cam_name+":Model_RBV",1000)
         cam_model=PVUtil.getString(pv01)+"-"+PVUtil.getString(pv02);
         print("Camera: "+cam_name)
         print("Model: "+cam_model)
