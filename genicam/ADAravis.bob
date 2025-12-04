@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-12-04 15:20:33 by riccardoesposito-->
 <display version="2.0.0">
   <name>ADAravis</name>
   <x>249</x>
@@ -82,7 +83,7 @@
     <width>350</width>
     <height>340</height>
   </widget>
-  <widget type="group" version="2.0.0">
+  <widget type="group" version="3.0.0">
     <name>composite #22</name>
     <x>10</x>
     <y>795</y>
@@ -104,49 +105,49 @@
       <name>related display #28</name>
       <actions>
         <action type="open_display">
+          <description>Features (custom)</description>
           <file>$(C)-features.opi</file>
           <target>tab</target>
-          <description>Features (custom)</description>
         </action>
         <action type="open_display">
+          <description>Features #1</description>
           <file>$(C)-features_1.opi</file>
           <target>tab</target>
-          <description>Features #1</description>
         </action>
         <action type="open_display">
+          <description>Features #2</description>
           <file>$(C)-features_2.opi</file>
           <target>tab</target>
-          <description>Features #2</description>
         </action>
         <action type="open_display">
+          <description>Features #3</description>
           <file>$(C)-features_3.opi</file>
           <target>tab</target>
-          <description>Features #3</description>
         </action>
         <action type="open_display">
+          <description>Features #4</description>
           <file>$(C)-features_4.opi</file>
           <target>tab</target>
-          <description>Features #4</description>
         </action>
         <action type="open_display">
+          <description>Features #5</description>
           <file>$(C)-features_5.opi</file>
           <target>tab</target>
-          <description>Features #5</description>
         </action>
         <action type="open_display">
+          <description>Features #6</description>
           <file>$(C)-features_6.opi</file>
           <target>tab</target>
-          <description>Features #6</description>
         </action>
         <action type="open_display">
+          <description>Features #7</description>
           <file>$(C)-features_7.opi</file>
           <target>tab</target>
-          <description>Features #7</description>
         </action>
         <action type="open_display">
+          <description>Features #8</description>
           <file>$(C)-features_8.opi</file>
           <target>tab</target>
-          <description>Features #8</description>
         </action>
       </actions>
       <text></text>
@@ -156,6 +157,7 @@
         <color red="115" green="223" blue="255">
         </color>
       </background_color>
+      <tooltip>$(actions)</tooltip>
     </widget>
   </widget>
   <widget type="rectangle" version="2.0.0">
@@ -941,7 +943,7 @@
     <width>350</width>
     <height>155</height>
   </widget>
-  <widget type="group" version="2.0.0">
+  <widget type="group" version="3.0.0">
     <name>composite #195</name>
     <x>750</x>
     <y>290</y>
@@ -1252,9 +1254,9 @@
     <name>message button #262</name>
     <actions>
       <action type="write_pv">
+        <description>Write</description>
         <pv_name>$(P)$(R)ARResetCamera</pv_name>
         <value>1</value>
-        <description>Write</description>
       </action>
     </actions>
     <pv_name>$(P)$(R)ARResetCamera</pv_name>

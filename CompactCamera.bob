@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-12-04 15:52:53 by riccardoesposito-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
@@ -606,6 +607,7 @@ Limits: [0.014-0.039]</tooltip>
             <y>469</y>
             <width>210</width>
             <height>34</height>
+            <visible>false</visible>
             <font>
               <font family="Liberation Sans" style="REGULAR" size="20.0">
               </font>
@@ -1016,6 +1018,7 @@ else:
             <y>383</y>
             <width>170</width>
             <height>40</height>
+            <visible>false</visible>
           </widget>
           <widget type="label" version="2.0.0">
             <name>Label_3</name>
@@ -1037,66 +1040,27 @@ else:
             <y>383</y>
             <width>40</width>
             <height>40</height>
+            <visible>false</visible>
           </widget>
           <widget type="action_button" version="3.0.0">
             <name>Action Button</name>
             <actions>
-              <action type="execute">
-                <description>Execute Script</description>
-                <script file="EmbeddedPy">
-                  <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-import time
-
-POWname = "SPARC:RFD:ICP:CAMRST01_SP"
-POWpv = PVUtil.createPV(POWname, 1000)
-
-#wait before turning off power
-POWpv.write(1)
-time.sleep(2.0)
-POWpv.write(0)]]></text>
-                </script>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+                <value>1</value>
               </action>
             </actions>
-            <text>CAM RESET (LINAC)</text>
+            <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+            <text>CAM RESET</text>
             <x>18</x>
-            <y>433</y>
+            <y>382</y>
             <width>220</width>
             <font>
               <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
               </font>
             </font>
-            <show_confirm_dialog>true</show_confirm_dialog>
-            <confirm_message>Confirm cameras RESET</confirm_message>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button_1</name>
-            <actions>
-              <action type="execute">
-                <description>Execute Script</description>
-                <script file="EmbeddedPy">
-                  <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-import time
-
-POWname = "SPARC:RFD:ICP:CAMRST02_SP"
-POWpv = PVUtil.createPV(POWname, 1000)
-
-#wait before turning off power
-POWpv.write(1)
-time.sleep(2.0)
-POWpv.write(0)]]></text>
-                </script>
-              </action>
-            </actions>
-            <text>CAM RESET (COMB)</text>
-            <x>18</x>
-            <y>473</y>
-            <width>220</width>
-            <font>
-              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
-              </font>
-            </font>
+            <tooltip>$(actions)</tooltip>
             <show_confirm_dialog>true</show_confirm_dialog>
             <confirm_message>Confirm cameras RESET</confirm_message>
           </widget>
@@ -1331,6 +1295,7 @@ POWpv.write(0)]]></text>
     <y>555</y>
     <width>40</width>
     <height>40</height>
+    <visible>false</visible>
   </widget>
   <widget type="text-symbol" version="2.0.0">
     <name>Text Symbol</name>
@@ -1346,6 +1311,7 @@ POWpv.write(0)]]></text>
     <y>555</y>
     <width>160</width>
     <height>40</height>
+    <visible>false</visible>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
@@ -1354,6 +1320,7 @@ POWpv.write(0)]]></text>
     <y>559</y>
     <width>120</width>
     <height>30</height>
+    <visible>false</visible>
     <font>
       <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
       </font>
