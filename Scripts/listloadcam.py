@@ -39,6 +39,21 @@ if iocs is None:
     print("No 'iocs' section found.")
     exit()
 
+# Merge iocDefaults into each IOC so per-template fields (e.g. devtype) are available
+ioc_defaults = data.get("iocDefaults")
+if ioc_defaults:
+    merged_iocs = []
+    for ioc in iocs:
+        tmpl = ioc.get("template") or ioc.get("devtype") or ""
+        tmpl_defaults = ioc_defaults.get(tmpl)
+        if tmpl_defaults:
+            merged = dict(tmpl_defaults)
+            merged.update(dict(ioc))
+            merged_iocs.append(merged)
+        else:
+            merged_iocs.append(ioc)
+    iocs = merged_iocs
+
 # Find cameras under IOCs with iocprefix ":CAM" and devtype "camera"
 device_list=[]
 for ioc in iocs:
