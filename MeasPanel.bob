@@ -3,7 +3,7 @@
 <display version="2.0.0">
   <name>MeasPanel</name>
   <width>340</width>
-  <height>500</height>
+  <height>795</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -25,10 +25,115 @@
     <vertical_alignment>1</vertical_alignment>
   </widget>
   <widget type="label" version="2.0.0">
+    <name>Section_Image</name>
+    <text>Camera Image</text>
+    <x>12</x>
+    <y>38</y>
+    <width>140</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>CursorInfo</name>
+    <x>188</x>
+    <y>38</y>
+    <width>140</width>
+    <height>18</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="Scripts/GetPixelInfo.py">
+        <pv_name>loc://cursor_info</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="image" version="2.0.0">
+    <name>CameraImage</name>
+    <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
+    <x>12</x>
+    <y>58</y>
+    <width>316</width>
+    <height>260</height>
+    <show_toolbar>true</show_toolbar>
+    <cursor_info_pv>loc://cursor_info</cursor_info_pv>
+    <x_pv>loc://cursor_x</x_pv>
+    <y_pv>loc://cursor_y</y_pv>
+    <rules>
+      <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://roi_interactive(1)</pv_name>
+      </rule>
+      <rule name="centroidHvisible" prop_id="rois[1].visible" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+      </rule>
+      <rule name="centroidVvisible" prop_id="rois[2].visible" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+      </rule>
+    </rules>
+    <limits_from_pv>true</limits_from_pv>
+    <unsigned>true</unsigned>
+    <autoscale>true</autoscale>
+    <rois>
+      <roi>
+        <name>imageROI</name>
+        <color>
+          <color red="255" green="168" blue="0">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>true</interactive>
+        <x_pv>loc://roi_x(20)</x_pv>
+        <y_pv>loc://roi_y(20)</y_pv>
+        <width_pv>loc://roi_w(100)</width_pv>
+        <height_pv>loc://roi_h(100)</height_pv>
+        <file></file>
+      </roi>
+      <roi>
+        <name>CentroidH</name>
+        <color>
+          <color red="0" green="255" blue="255">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>false</interactive>
+        <x_pv>=0</x_pv>
+        <y_pv>='$(DEVICE):$(CAM):Stats1:CentroidY_RBV'-1</y_pv>
+        <width_pv>=100000</width_pv>
+        <height_pv>=2</height_pv>
+        <file></file>
+      </roi>
+      <roi>
+        <name>CentroidV</name>
+        <color>
+          <color red="0" green="255" blue="255">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>false</interactive>
+        <x_pv>='$(DEVICE):$(CAM):Stats1:CentroidX_RBV'-1</x_pv>
+        <y_pv>=0</y_pv>
+        <width_pv>=2</width_pv>
+        <height_pv>=100000</height_pv>
+        <file></file>
+      </roi>
+    </rois>
+  </widget>
+  <widget type="label" version="2.0.0">
     <name>Section_ROI</name>
     <text>Region of Interest</text>
     <x>12</x>
-    <y>38</y>
+    <y>333</y>
     <width>316</width>
     <height>18</height>
     <font>
@@ -39,7 +144,7 @@
   <widget type="group" version="3.0.0">
     <name>Group_ROI</name>
     <x>12</x>
-    <y>58</y>
+    <y>353</y>
     <width>316</width>
     <height>128</height>
     <style>3</style>
@@ -58,10 +163,14 @@ y = int(PVUtil.getDouble(pvs[1]))
 w = int(PVUtil.getDouble(pvs[2]))
 h = int(PVUtil.getDouble(pvs[3]))
 
-pvs[4].write(x)
-pvs[5].write(y)
+# Min to 0 first so the new size below is never rejected by the old,
+# possibly incompatible, Min/Size combination on the camera.
+pvs[4].write(0)
+pvs[5].write(0)
 pvs[6].write(w)
-pvs[7].write(h)]]></text>
+pvs[7].write(h)
+pvs[4].write(x)
+pvs[5].write(y)]]></text>
             <pv_name>loc://roi_x</pv_name>
             <pv_name>loc://roi_y</pv_name>
             <pv_name>loc://roi_w</pv_name>
@@ -97,20 +206,17 @@ pvs[7].write(h)]]></text>
             <text><![CDATA[# Embedded python script
 from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 
-max_x = int(PVUtil.getDouble(pvs[0]))
-max_y = int(PVUtil.getDouble(pvs[1]))
+# 100000 is far above any sensor size, so the IOC clamps it down to
+# MaxSizeX/MaxSizeY automatically - no need to read the max first.
+pvs[0].write(0)
+pvs[1].write(0)
+pvs[2].write(100000)
+pvs[3].write(100000)
 
-pvs[2].write(0)
-pvs[3].write(0)
-pvs[4].write(max_x)
-pvs[5].write(max_y)
-
-pvs[6].write(0)
-pvs[7].write(0)
-pvs[8].write(max_x)
-pvs[9].write(max_y)]]></text>
-            <pv_name>$(DEVICE):$(CAM):MaxSizeX_RBV</pv_name>
-            <pv_name>$(DEVICE):$(CAM):MaxSizeY_RBV</pv_name>
+pvs[4].write(0)
+pvs[5].write(0)
+pvs[6].write(100000)
+pvs[7].write(100000)]]></text>
             <pv_name>$(DEVICE):$(CAM):MinX</pv_name>
             <pv_name>$(DEVICE):$(CAM):MinY</pv_name>
             <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
@@ -210,7 +316,7 @@ pvs[9].write(max_y)]]></text>
     <name>Section_Stats</name>
     <text>Statistics (Stats1)</text>
     <x>12</x>
-    <y>201</y>
+    <y>496</y>
     <width>316</width>
     <height>18</height>
     <font>
@@ -221,7 +327,7 @@ pvs[9].write(max_y)]]></text>
   <widget type="group" version="3.0.0">
     <name>Group_Stats</name>
     <x>12</x>
-    <y>221</y>
+    <y>516</y>
     <width>316</width>
     <height>138</height>
     <style>3</style>
@@ -362,7 +468,7 @@ pvs[9].write(max_y)]]></text>
     <name>Section_Centroid</name>
     <text>Centroid (Stats1)</text>
     <x>12</x>
-    <y>374</y>
+    <y>669</y>
     <width>316</width>
     <height>18</height>
     <font>
@@ -373,7 +479,7 @@ pvs[9].write(max_y)]]></text>
   <widget type="group" version="3.0.0">
     <name>Group_Centroid</name>
     <x>12</x>
-    <y>394</y>
+    <y>689</y>
     <width>316</width>
     <height>86</height>
     <style>3</style>

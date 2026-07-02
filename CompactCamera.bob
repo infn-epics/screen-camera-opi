@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
   <name>CompactCamera</name>
-  <width>900</width>
+  <width>990</width>
   <height>607</height>
   <actions>
   </actions>
@@ -1274,24 +1274,6 @@ else:
     <maximum>4095.0</maximum>
     <limits_from_pv>false</limits_from_pv>
   </widget>
-  <widget type="label" version="2.0.0">
-    <name>Text Update_4</name>
-    <x>614</x>
-    <y>57</y>
-    <width>270</width>
-    <background_color>
-      <color name="Read_Background" red="240" green="240" blue="240">
-      </color>
-    </background_color>
-    <transparent>false</transparent>
-    <horizontal_alignment>2</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <scripts>
-      <script file="Scripts/GetPixelInfo.py">
-        <pv_name>loc://cursor_info</pv_name>
-      </script>
-    </scripts>
-  </widget>
   <widget type="group" version="3.0.0">
     <name>Light</name>
     <x>20</x>
@@ -1318,7 +1300,7 @@ else:
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
     <x>270</x>
     <y>50</y>
-    <width>630</width>
+    <width>720</width>
     <height>505</height>
     <show_toolbar>true</show_toolbar>
     <rules>
@@ -1368,6 +1350,7 @@ else:
     <cursor_info_pv>loc://cursor_info</cursor_info_pv>
     <x_pv>loc://cursor_x</x_pv>
     <y_pv>loc://cursor_y</y_pv>
+    <cursor_crosshair>true</cursor_crosshair>
     <rois>
       <roi>
         <name>imageROI</name>
@@ -1384,5 +1367,23 @@ else:
         <file></file>
       </roi>
     </rois>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Text Update_4</name>
+    <x>614</x>
+    <y>57</y>
+    <width>270</width>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="Scripts/GetPixelInfo.py">
+        <pv_name>loc://cursor_info</pv_name>
+      </script>
+    </scripts>
   </widget>
 </display>

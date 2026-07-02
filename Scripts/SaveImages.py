@@ -5,10 +5,10 @@ from java.lang import Thread
 logger = ScriptUtil.getLogger()
 mydev = widget.getEffectiveMacros().getValue("DEVICE")
 mycam = widget.getEffectiveMacros().getValue("CAM")
-prefx=mydev+':'+mycam+":TIFF1:"
 start_save = PVUtil.getDouble(pvs[0])
 
-if start_save==1: 
+if start_save==1 and mydev and mycam:
+    prefx=mydev+':'+mycam+":TIFF1:"
     #start acquire
     pv00=PVUtil.createPV(mydev+':'+mycam+":Acquire",100)
     pv00.setValue(1)
@@ -54,6 +54,10 @@ if start_save==1:
         pv6.setValue(0) #stop Capture
 
     #at the end put back to 0
+    pvs[0].write(0);
+elif start_save==1:
+    #DEVICE/CAM not resolved yet (e.g. camera panel still reloading): bail out
+    #without saving, but clear the button so it isn't left stuck at 1
     pvs[0].write(0);
 else:
 	pass
