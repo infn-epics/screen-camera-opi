@@ -1,82 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-12-04 15:52:53 by riccardoesposito-->
 <display version="2.0.0">
   <name>CompactCamera</name>
   <width>900</width>
+  <height>607</height>
   <actions>
   </actions>
-  <widget type="image" version="2.0.0">
-    <name>CameraImage</name>
-    <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
-    <x>270</x>
-    <y>50</y>
-    <width>630</width>
-    <height>505</height>
-    <show_toolbar>true</show_toolbar>
-    <rules>
-      <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
-        <exp bool_exp="pv0&lt;1">
-          <value>false</value>
-        </exp>
-        <pv_name>loc://roi_interactive(1)</pv_name>
-      </rule>
-    </rules>
-    <scripts>
-      <script file="Scripts/ImageScale.py">
-        <pv_name>loc://max_cmap</pv_name>
-      </script>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-# Get the value from the PV (first in the PV bindings list)
-show_roi = PVUtil.getDouble(pvs[0])
-
-# Set visibility
-if show_roi==0: 
-	 widget.setPropertyValue('rois[0].visible', False)
-else:
-	 widget.setPropertyValue('rois[0].visible', True)]]></text>
-        <pv_name>loc://showROI</pv_name>
-      </script>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-
-autoscale_value = PVUtil.getDouble(pvs[0])
-# Set auto-scale based on PV
-if autoscale_value==0: 
-	widget.setPropertyValue("autoscale", False)
-else:
-	widget.setPropertyValue("autoscale", True)
-]]></text>
-        <pv_name>loc://autoScale</pv_name>
-      </script>
-    </scripts>
-    <limits_from_pv>true</limits_from_pv>
-    <unsigned>true</unsigned>
-    <autoscale>false</autoscale>
-    <maximum>4095.0</maximum>
-    <cursor_info_pv>loc://cursor_info</cursor_info_pv>
-    <x_pv>loc://cursor_x</x_pv>
-    <y_pv>loc://cursor_y</y_pv>
-    <rois>
-      <roi>
-        <name>imageROI</name>
-        <color>
-          <color red="255" green="168" blue="0">
-          </color>
-        </color>
-        <visible>true</visible>
-        <interactive>true</interactive>
-        <x_pv>loc://roi_x(20)</x_pv>
-        <y_pv>loc://roi_y(20)</y_pv>
-        <width_pv>loc://roi_w(100)</width_pv>
-        <height_pv>loc://roi_h(100)</height_pv>
-        <file></file>
-      </roi>
-    </rois>
-  </widget>
   <widget type="tabs" version="2.0.0">
     <name>Tabs</name>
     <tabs>
@@ -1269,7 +1197,7 @@ else:
     </tabs>
     <y>50</y>
     <width>270</width>
-    <height>550</height>
+    <height>557</height>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
@@ -1363,5 +1291,98 @@ else:
         <pv_name>loc://cursor_info</pv_name>
       </script>
     </scripts>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Light</name>
+    <x>20</x>
+    <y>537</y>
+    <width>170</width>
+    <height>70</height>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button</name>
+      <pv_name>$(CAMLIGHT):RLY_SP</pv_name>
+      <x>62</x>
+      <y>1</y>
+      <width>70</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_3</name>
+      <pv_name>$(CAMLIGHT):RLY_RB</pv_name>
+      <x>12</x>
+      <width>30</width>
+      <height>30</height>
+    </widget>
+  </widget>
+  <widget type="image" version="2.0.0">
+    <name>CameraImage</name>
+    <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
+    <x>270</x>
+    <y>50</y>
+    <width>630</width>
+    <height>505</height>
+    <show_toolbar>true</show_toolbar>
+    <rules>
+      <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://roi_interactive(1)</pv_name>
+      </rule>
+    </rules>
+    <scripts>
+      <script file="Scripts/ImageScale.py">
+        <pv_name>loc://max_cmap</pv_name>
+      </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 widget.setPropertyValue('rois[0].visible', False)
+else:
+	 widget.setPropertyValue('rois[0].visible', True)]]></text>
+        <pv_name>loc://showROI</pv_name>
+      </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+autoscale_value = PVUtil.getDouble(pvs[0])
+# Set auto-scale based on PV
+if autoscale_value==0: 
+	widget.setPropertyValue("autoscale", False)
+else:
+	widget.setPropertyValue("autoscale", True)
+]]></text>
+        <pv_name>loc://autoScale</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>true</limits_from_pv>
+    <unsigned>true</unsigned>
+    <autoscale>false</autoscale>
+    <maximum>4095.0</maximum>
+    <cursor_info_pv>loc://cursor_info</cursor_info_pv>
+    <x_pv>loc://cursor_x</x_pv>
+    <y_pv>loc://cursor_y</y_pv>
+    <rois>
+      <roi>
+        <name>imageROI</name>
+        <color>
+          <color red="255" green="168" blue="0">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>true</interactive>
+        <x_pv>loc://roi_x(20)</x_pv>
+        <y_pv>loc://roi_y(20)</y_pv>
+        <width_pv>loc://roi_w(100)</width_pv>
+        <height_pv>loc://roi_h(100)</height_pv>
+        <file></file>
+      </roi>
+    </rois>
   </widget>
 </display>
