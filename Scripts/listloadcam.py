@@ -38,6 +38,8 @@ iocs = epics_config.get("iocs")
 if iocs is None:
     print("No 'iocs' section found.")
     exit()
+if hasattr(iocs, "values"):
+    iocs = list(iocs.values())
 
 # Merge iocDefaults into each IOC so per-template fields (e.g. devtype) are available
 ioc_defaults = data.get("iocDefaults")
