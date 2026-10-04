@@ -5,6 +5,155 @@
   <height>607</height>
   <actions>
   </actions>
+  <widget type="group" version="3.0.0">
+    <name>PluginStatus</name>
+    <x>0</x>
+    <y>50</y>
+    <width>270</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>LED_ROI</name>
+      <pv_name>$(DEVICE):$(CAM):Roi1:EnableCallbacks_RBV</pv_name>
+      <x>2</x>
+      <y>13</y>
+      <width>12</width>
+      <height>12</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Label_ROI</name>
+      <actions>
+        <action type="open_display">
+          <description>Open simplified ROI1 plugin control</description>
+          <file>ROIPanel.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>ROI</text>
+      <x>16</x>
+      <y>10</y>
+      <width>46</width>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_PROC</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:EnableCallbacks_RBV</pv_name>
+      <x>66</x>
+      <y>13</y>
+      <width>12</width>
+      <height>12</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Label_PROC</name>
+      <actions>
+        <action type="open_display">
+          <description>Open simplified Process plugin control</description>
+          <file>ProcPanel.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>PROC</text>
+      <x>80</x>
+      <y>10</y>
+      <width>46</width>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_STATS</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:EnableCallbacks_RBV</pv_name>
+      <x>130</x>
+      <y>13</y>
+      <width>12</width>
+      <height>12</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Label_STATS</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Measurement Panel on the raw camera output</description>
+          <file>MeasPanel.bob</file>
+          <macros>
+            <DEVICE>$(DEVICE)</DEVICE>
+            <CAM>$(CAM)</CAM>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>STAT</text>
+      <x>144</x>
+      <y>10</y>
+      <width>46</width>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_OVERLAY</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:EnableCallbacks_RBV</pv_name>
+      <x>194</x>
+      <y>13</y>
+      <width>12</width>
+      <height>12</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Label_OVERLAY</name>
+      <actions>
+        <action type="open_display">
+          <description>Open simplified Overlay plugin control</description>
+          <file>OverlayPanel.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>OVL</text>
+      <x>208</x>
+      <y>10</y>
+      <width>60</width>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_ImageSource</name>
+    <text>Source:</text>
+    <x>290</x>
+    <y>60</y>
+    <width>50</width>
+    <height>20</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>ImageSource</name>
+    <pv_name>loc://img_source_sel("Raw")</pv_name>
+    <items>
+      <item>Raw</item>
+      <item>ROI1</item>
+      <item>PROC</item>
+      <item>OVERLAY1</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+    <x>344</x>
+    <y>58</y>
+    <width>110</width>
+    <height>24</height>
+  </widget>
   <widget type="tabs" version="2.0.0">
     <name>Tabs</name>
     <tabs>
@@ -818,7 +967,7 @@ else:
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry</name>
-              <pv_name>loc://roi_x</pv_name>
+              <pv_name>loc://roi_x&lt;VLong&gt;(100)</pv_name>
               <x>15</x>
               <width>50</width>
               <format>1</format>
@@ -832,7 +981,7 @@ else:
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_1</name>
-              <pv_name>loc://roi_y</pv_name>
+              <pv_name>loc://roi_y&lt;VLong&gt;(100)</pv_name>
               <x>15</x>
               <y>32</y>
               <width>50</width>
@@ -847,7 +996,7 @@ else:
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_2</name>
-              <pv_name>loc://roi_w</pv_name>
+              <pv_name>loc://roi_w&lt;VLong&gt;(100)</pv_name>
               <x>89</x>
               <width>50</width>
               <format>1</format>
@@ -862,7 +1011,7 @@ else:
             </widget>
             <widget type="textentry" version="3.0.0">
               <name>Text Entry_3</name>
-              <pv_name>loc://roi_h</pv_name>
+              <pv_name>loc://roi_h&lt;VLong&gt;(100)</pv_name>
               <x>89</x>
               <y>32</y>
               <width>50</width>
@@ -905,6 +1054,12 @@ else:
               <action type="open_display">
                 <description>Open Matlab Measurement Panel</description>
                 <file>MeasPanel.bob</file>
+                <macros>
+                  <DEVICE>$(DEVICE)</DEVICE>
+                  <CAM>$(CAM)</CAM>
+                  <PLUGIN_IMG>PVA</PLUGIN_IMG>
+                  <PLUGIN_R></PLUGIN_R>
+                </macros>
                 <target>window</target>
               </action>
             </actions>
@@ -1195,9 +1350,10 @@ else:
         </children>
       </tab>
     </tabs>
-    <y>50</y>
+    <y>90</y>
     <width>270</width>
-    <height>557</height>
+    <height>517</height>
+    <active_tab>1</active_tab>
   </widget>
   <widget type="label" version="2.0.0">
     <name>text #9</name>
@@ -1299,9 +1455,9 @@ else:
     <name>CameraImage</name>
     <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
     <x>270</x>
-    <y>50</y>
+    <y>90</y>
     <width>720</width>
-    <height>505</height>
+    <height>465</height>
     <show_toolbar>true</show_toolbar>
     <rules>
       <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
@@ -1342,6 +1498,20 @@ else:
 ]]></text>
         <pv_name>loc://autoScale</pv_name>
       </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+sel = PVUtil.getString(pvs[0])
+mydev = widget.getEffectiveMacros().getValue("DEVICE")
+mycam = widget.getEffectiveMacros().getValue("CAM")
+
+port_map = {"Raw": "PVA", "ROI1": "ROI1", "PROC": "PROC", "OVERLAY1": "OVERLAY1"}
+port = port_map.get(sel, "PVA")
+
+widget.setPropertyValue("pv_name", "pva://" + mydev + ":" + mycam + ":" + port + ":OUTPUT")]]></text>
+        <pv_name>loc://img_source_sel("Raw")</pv_name>
+      </script>
     </scripts>
     <limits_from_pv>true</limits_from_pv>
     <unsigned>true</unsigned>
@@ -1371,7 +1541,7 @@ else:
   <widget type="label" version="2.0.0">
     <name>Text Update_4</name>
     <x>614</x>
-    <y>57</y>
+    <y>97</y>
     <width>270</width>
     <background_color>
       <color name="Read_Background" red="240" green="240" blue="240">

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ProcPanel</name>
+  <width>340</width>
+  <height>290</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>PROC Plugin Control</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>340</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Enable</name>
+    <text>Enable</text>
+    <x>12</x>
+    <y>38</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Enable</name>
+    <x>12</x>
+    <y>58</y>
+    <width>316</width>
+    <height>30</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>LED_Enable</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:EnableCallbacks_RBV</pv_name>
+      <x>0</x>
+      <y>2</y>
+      <width>16</width>
+      <height>16</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>EnableCallbacks</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:EnableCallbacks</pv_name>
+      <label>Enable Plugin</label>
+      <x>22</x>
+      <y>0</y>
+      <width>140</width>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Filter</name>
+    <text>Recursive Filter</text>
+    <x>12</x>
+    <y>98</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Filter</name>
+    <x>12</x>
+    <y>118</y>
+    <width>316</width>
+    <height>70</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="checkbox" version="2.0.0">
+      <name>EnableFilter</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:EnableFilter</pv_name>
+      <label>Enable Filter</label>
+      <x>0</x>
+      <y>0</y>
+      <width>140</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_NumFilter</name>
+      <text>Num Filter:</text>
+      <x>0</x>
+      <y>34</y>
+      <width>70</width>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>NumFilter</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:NumFilter</pv_name>
+      <x>72</x>
+      <y>32</y>
+      <width>60</width>
+      <format>1</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_FilterType</name>
+      <text>Type:</text>
+      <x>150</x>
+      <y>34</y>
+      <width>36</width>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>FilterType</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:FilterType</pv_name>
+      <x>188</x>
+      <y>32</y>
+      <width>128</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Buttons</name>
+    <x>12</x>
+    <y>203</y>
+    <width>316</width>
+    <height>70</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="action_button" version="3.0.0">
+      <name>Measurement</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Measurement Panel on the PROC output</description>
+          <file>MeasPanel.bob</file>
+          <macros>
+            <DEVICE>$(DEVICE)</DEVICE>
+            <CAM>$(CAM)</CAM>
+            <PLUGIN_R>Proc1:</PLUGIN_R>
+            <PLUGIN_IMG>PROC</PLUGIN_IMG>
+            <PLUGIN_LABEL>PROC</PLUGIN_LABEL>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Measurement</text>
+      <x>0</x>
+      <y>0</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>FullControl</name>
+      <actions>
+        <action type="open_display">
+          <description>Open full NDProcess plugin control</description>
+          <file>genicam/NDProcess.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R>Proc1:</R>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Full Control (NDProcess)</text>
+      <x>0</x>
+      <y>38</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+</display>

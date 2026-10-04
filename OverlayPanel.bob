@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>OverlayPanel</name>
+  <width>340</width>
+  <height>320</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>OVERLAY Plugin Control</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>340</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Enable</name>
+    <text>Enable</text>
+    <x>12</x>
+    <y>38</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Enable</name>
+    <x>12</x>
+    <y>58</y>
+    <width>316</width>
+    <height>30</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>LED_Enable</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:EnableCallbacks_RBV</pv_name>
+      <x>0</x>
+      <y>2</y>
+      <width>16</width>
+      <height>16</height>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>EnableCallbacks</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:EnableCallbacks</pv_name>
+      <label>Enable Plugin</label>
+      <x>22</x>
+      <y>0</y>
+      <width>140</width>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Overlay1</name>
+    <text>Overlay 1</text>
+    <x>12</x>
+    <y>98</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Overlay1</name>
+    <x>12</x>
+    <y>118</y>
+    <width>316</width>
+    <height>100</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="checkbox" version="2.0.0">
+      <name>Use</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:Use</pv_name>
+      <label>Use</label>
+      <x>0</x>
+      <y>0</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Shape</name>
+      <text>Shape:</text>
+      <x>90</x>
+      <y>2</y>
+      <width>44</width>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Shape</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:Shape</pv_name>
+      <x>136</x>
+      <y>0</y>
+      <width>110</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_X</name>
+      <text>X:</text>
+      <x>0</x>
+      <y>34</y>
+      <width>16</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>PositionX</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:PositionX</pv_name>
+      <x>16</x>
+      <y>32</y>
+      <width>60</width>
+      <format>1</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Y</name>
+      <text>Y:</text>
+      <x>160</x>
+      <y>34</y>
+      <width>16</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>PositionY</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:PositionY</pv_name>
+      <x>176</x>
+      <y>32</y>
+      <width>60</width>
+      <format>1</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_W</name>
+      <text>W:</text>
+      <x>0</x>
+      <y>66</y>
+      <width>16</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SizeX</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:SizeX</pv_name>
+      <x>16</x>
+      <y>64</y>
+      <width>60</width>
+      <format>1</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_H</name>
+      <text>H:</text>
+      <x>160</x>
+      <y>66</y>
+      <width>16</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SizeY</name>
+      <pv_name>$(DEVICE):$(CAM):Overlay1:1:SizeY</pv_name>
+      <x>176</x>
+      <y>64</y>
+      <width>60</width>
+      <format>1</format>
+      <precision>0</precision>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Buttons</name>
+    <x>12</x>
+    <y>233</y>
+    <width>316</width>
+    <height>70</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="action_button" version="3.0.0">
+      <name>Measurement</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Measurement Panel on the OVERLAY1 output</description>
+          <file>MeasPanel.bob</file>
+          <macros>
+            <DEVICE>$(DEVICE)</DEVICE>
+            <CAM>$(CAM)</CAM>
+            <PLUGIN_R>Overlay1:</PLUGIN_R>
+            <PLUGIN_IMG>OVERLAY1</PLUGIN_IMG>
+            <PLUGIN_LABEL>OVERLAY1</PLUGIN_LABEL>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Measurement</text>
+      <x>0</x>
+      <y>0</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <tooltip>No Stats plugin is provisioned downstream of Overlay1 in the IOC template - statistics/centroid will show disconnected</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>FullControl</name>
+      <actions>
+        <action type="open_display">
+          <description>Open full NDOverlay plugin control</description>
+          <file>genicam/NDOverlay.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R>Overlay1:</R>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Full Control (NDOverlay)</text>
+      <x>0</x>
+      <y>38</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+</display>
